@@ -1,0 +1,69 @@
+##fileformat=VCFv4.1
+##FILTER=<ID=PASS,Description="All filters passed">
+##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the variant">
+##INFO=<ID=REF,Number=1,Type=Integer,Description="Reference copy number">
+##INFO=<ID=RL,Number=1,Type=Integer,Description="Reference length in bp">
+##INFO=<ID=RU,Number=1,Type=String,Description="Repeat unit in the reference orientation">
+##INFO=<ID=REPID,Number=1,Type=String,Description="Repeat identifier from the repeat specification file">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=SO,Number=1,Type=String,Description="Type of reads that support the allele; can be SPANNING, FLANKING, or INREPEAT meaning that the reads span, flank, or are fully contained in the repeat">
+##FORMAT=<ID=REPCN,Number=1,Type=String,Description="Number of repeat units spanned by the allele">
+##FORMAT=<ID=REPCI,Number=1,Type=String,Description="Confidence interval for REPCN">
+##FORMAT=<ID=ADFL,Number=1,Type=String,Description="Number of flanking reads consistent with the allele">
+##FORMAT=<ID=ADSP,Number=1,Type=String,Description="Number of spanning reads consistent with the allele">
+##FORMAT=<ID=ADIR,Number=1,Type=String,Description="Number of in-repeat reads consistent with the allele">
+##ALT=<ID=STR4,Description="Allele comprised of 4 repeat units">
+##ALT=<ID=STR7,Description="Allele comprised of 7 repeat units">
+##ALT=<ID=STR8,Description="Allele comprised of 8 repeat units">
+##ALT=<ID=STR11,Description="Allele comprised of 11 repeat units">
+##ALT=<ID=STR12,Description="Allele comprised of 12 repeat units">
+##ALT=<ID=STR15,Description="Allele comprised of 15 repeat units">
+##ALT=<ID=STR18,Description="Allele comprised of 18 repeat units">
+##ALT=<ID=STR20,Description="Allele comprised of 20 repeat units">
+##ALT=<ID=STR22,Description="Allele comprised of 22 repeat units">
+##ALT=<ID=STR24,Description="Allele comprised of 24 repeat units">
+##ALT=<ID=STR25,Description="Allele comprised of 25 repeat units">
+##ALT=<ID=STR27,Description="Allele comprised of 27 repeat units">
+##ALT=<ID=STR33,Description="Allele comprised of 33 repeat units">
+##ALT=<ID=STR59,Description="Allele comprised of 59 repeat units">
+##ALT=<ID=STR67,Description="Allele comprised of 67 repeat units">
+##contig=<ID=11>
+##contig=<ID=12>
+##contig=<ID=14>
+##contig=<ID=16>
+##contig=<ID=19>
+##contig=<ID=21>
+##contig=<ID=22>
+##contig=<ID=3>
+##contig=<ID=4>
+##contig=<ID=5>
+##contig=<ID=6>
+##contig=<ID=9>
+##contig=<ID=X>
+##INFO=<ID=OLD_MULTIALLELIC,Number=1,Type=String,Description="Original chr:pos:ref:alt encoding">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	ADM1059A1	ADM1059A2	ADM1059A3
+11	119076999	.	C	<STR12>	.	PASS	END=119077032;REF=11;RL=33;RU=CGG;REPID=CBL;OLD_MULTIALLELIC=11:119076999:C/<STR12>/<STR20>	GT	./.	1/.	./.
+11	119076999	.	C	<STR20>	.	PASS	END=119077032;REF=11;RL=33;RU=CGG;REPID=CBL;OLD_MULTIALLELIC=11:119076999:C/<STR12>/<STR20>	GT	./.	./1	./.
+12	7045879	.	C	<STR15>	.	PASS	END=7045936;REF=19;RL=57;RU=CAG;REPID=ATN1;OLD_MULTIALLELIC=12:7045879:C/<STR15>/<STR22>	GT	./.	1/.	./.
+12	7045879	.	C	<STR22>	.	PASS	END=7045936;REF=19;RL=57;RU=CAG;REPID=ATN1;OLD_MULTIALLELIC=12:7045879:C/<STR15>/<STR22>	GT	./.	./1	./.
+12	112036753	.	G	<STR8>	.	PASS	END=112036822;REF=23;RL=69;RU=GCT;REPID=ATXN2;OLD_MULTIALLELIC=12:112036753:G/<STR8>/<STR24>	GT	./.	1/.	./.
+12	112036753	.	G	<STR24>	.	PASS	END=112036822;REF=23;RL=69;RU=GCT;REPID=ATXN2;OLD_MULTIALLELIC=12:112036753:G/<STR8>/<STR24>	GT	./.	./1	./.
+14	92537353	.	C	<STR59>	.	PASS	END=92537386;REF=11;RL=33;RU=GCT;REPID=ATXN3;OLD_MULTIALLELIC=14:92537353:C/<STR59>/<STR67>	GT	./.	1/.	./.
+14	92537353	.	C	<STR67>	.	PASS	END=92537386;REF=11;RL=33;RU=GCT;REPID=ATXN3;OLD_MULTIALLELIC=14:92537353:C/<STR59>/<STR67>	GT	./.	./1	./.
+16	87637893	.	C	.	.	PASS	END=87637935;REF=14;RL=42;RU=CTG;REPID=JPH3	GT:SO:REPCN:REPCI:ADSP:ADFL:ADIR	./.	0/0:SPANNING/SPANNING:14/14:14-14/14-14:31/31:9/9:0/0	./.
+19	13318672	.	C	<STR11>	.	PASS	END=13318711;REF=13;RL=39;RU=CTG;REPID=CACNA1A	GT:SO:REPCN:REPCI:ADSP:ADFL:ADIR	./.	0/1:SPANNING/SPANNING:13/12:13-13/12-12:11/7:5/5:0/0	./.
+19	46273462	.	C	<STR7>	.	PASS	END=46273522;REF=20;RL=60;RU=CAG;REPID=DMPK;OLD_MULTIALLELIC=19:46273462:C/<STR7>/<STR11>	GT	./.	1/.	./.
+19	46273462	.	C	<STR11>	.	PASS	END=46273522;REF=20;RL=60;RU=CAG;REPID=DMPK;OLD_MULTIALLELIC=19:46273462:C/<STR7>/<STR11>	GT	./.	./1	./.
+21	45196324	.	G	<STR4>	.	PASS	END=45196360;REF=3;RL=36;RU=CGCGGGGCGGGG;REPID=CSTB	GT:SO:REPCN:REPCI:ADSP:ADFL:ADIR	./.	1/1:SPANNING/SPANNING:2/2:2-2/2-2:26/26:3/3:0/0	./.
+22	46191234	.	G	<STR15>	.	PASS	END=46191304;REF=14;RL=70;RU=ATTCT;REPID=ATXN10	GT:SO:REPCN:REPCI:ADSP:ADFL:ADIR	./.	1/1:SPANNING/SPANNING:16/16:16-16/16-16:16/16:13/13:0/0	./.
+3	63898360	.	G	.	.	PASS	END=63898390;REF=10;RL=30;RU=GCA;REPID=ATXN7	GT:SO:REPCN:REPCI:ADSP:ADFL:ADIR	./.	0/0:SPANNING/SPANNING:10/10:10-10/10-10:26/26:9/9:0/0	./.
+4	3076603	.	C	<STR18>	.	PASS	END=3076660;REF=19;RL=57;RU=CAG;REPID=HTT	GT:SO:REPCN:REPCI:ADSP:ADFL:ADIR	./.	1/1:SPANNING/SPANNING:17/17:17-17/17-17:11/11:15/15:0/0	./.
+5	146258290	.	A	<STR15>	.	PASS	END=146258320;REF=10;RL=30;RU=GCT;REPID=PPP2R2B	GT:SO:REPCN:REPCI:ADSP:ADFL:ADIR	./.	1/1:SPANNING/SPANNING:16/16:16-16/16-16:38/38:10/10:0/0	./.
+6	16327864	.	G	<STR33>	.	PASS	END=16327954;REF=30;RL=90;RU=TGC;REPID=ATXN1	GT:SO:REPCN:REPCI:ADSP:ADFL:ADIR	./.	1/1:SPANNING/SPANNING:31/31:31-31/31-31:6/6:32/32:0/0	./.
+9	27573526	.	C	<STR4>	.	PASS	END=27573544;REF=3;RL=18;RU=GGCCCC;REPID=C9ORF72	GT:SO:REPCN:REPCI:ADSP:ADFL:ADIR	./.	1/1:SPANNING/SPANNING:2/2:2-2/2-2:32/32:5/5:0/0	./.
+9	71652202	.	A	<STR8>	.	PASS	END=71652220;REF=6;RL=18;RU=GAA;REPID=FXN	GT:SO:REPCN:REPCI:ADSP:ADFL:ADIR	./.	1/1:SPANNING/SPANNING:9/9:9-9/9-9:17/17:9/9:0/0	./.
+X	66765158	.	T	<STR20>	.	PASS	END=66765227;REF=23;RL=69;RU=GCA;REPID=AR;OLD_MULTIALLELIC=X:66765158:T/<STR20>/<STR25>	GT	./.	1/.	./.
+X	66765158	.	T	<STR25>	.	PASS	END=66765227;REF=23;RL=69;RU=GCA;REPID=AR;OLD_MULTIALLELIC=X:66765158:T/<STR20>/<STR25>	GT	./.	./1	./.
+X	146993568	.	G	<STR27>	.	PASS	END=146993628;REF=20;RL=60;RU=CGG;REPID=FMR1;OLD_MULTIALLELIC=X:146993568:G/<STR27>/<STR34>	GT	./.	1/.	./.
+X	146993568	.	G	<STR34>	.	PASS	END=146993628;REF=20;RL=60;RU=CGG;REPID=FMR1;OLD_MULTIALLELIC=X:146993568:G/<STR27>/<STR34>	GT	./.	./1	./.
