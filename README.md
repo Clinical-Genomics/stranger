@@ -1,4 +1,4 @@
-# Stranger
+# Stranger [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url]
 
 Annotates output files from [ExpansionHunter][hunter] with the pathologic implications of the repeat sizes.
 
@@ -81,3 +81,10 @@ Header line(s) should be preceded with a `#`.
 
 
 [hunter]: https://github.com/Illumina/ExpansionHunter
+
+[travis-url]: https://travis-ci.org/moonso/stranger
+[travis-image]: https://img.shields.io/travis/moonso/stranger.svg?style=flat-square
+
+[coveralls-url]: https://coveralls.io/github/moonso/stranger
+[coveralls-image]: https://coveralls.io/repos/github/moonso/stranger/badge.svg?branch=master
+
