@@ -82,8 +82,8 @@ Header line(s) should be preceded with a `#`.
 
 [hunter]: https://github.com/Illumina/ExpansionHunter
 
-[travis-url]: https://travis-ci.org/moonso/stranger
-[travis-image]: https://img.shields.io/travis/moonso/stranger.svg?style=flat-square
+[travis-url]: https://travis-ci.com/moonso/stranger
+[travis-image]: https://travis-ci.com/moonso/stranger.svg?branch=master
 
 [coveralls-url]: https://coveralls.io/github/moonso/stranger
 [coveralls-image]: https://coveralls.io/repos/github/moonso/stranger/badge.svg?branch=master
