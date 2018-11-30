@@ -33,7 +33,7 @@ REQUIRED = [
 
 # What packages are optional?
 EXTRAS = {
-    'tests':['pytest','coveralls'],
+    'tests':['pytest','pytest-cov'],
 }
 
 # The rest you shouldn't have to touch too much :)
