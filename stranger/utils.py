@@ -23,14 +23,18 @@ def parse_repeat_file(file_handle):
             if not line.startswith('##'):
                 header = line[1:].split('\t')
             continue
-        repeat = dict(zip(header, line.split('\t')))
+        line = line.split('\t')
+        if not len(line) == len(header):
+            LOG.warning('\t'.join(line))
+            raise SyntaxError("Line {0} is malformed".format(i))
+        repeat = dict(zip(header, line))
         try:
             repeat['hgnc_id'] = int(repeat['hgnc_id'])
             repeat['normal_max'] = int(repeat['normal_max'])
             repeat['pathologic_min'] = int(repeat['pathologic_min'])
         except ValueError as err:
             LOG.warning("Line %s is malformed",i)
-            LOG.warning(line)
+            LOG.warning('\t'.join(line))
             raise err
         repeat_info[repeat['repid']] = repeat
 

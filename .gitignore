@@ -10,6 +10,7 @@ __pycache__/
 
 # Packages
 *.egg
+*.eggs
 *.egg-info
 dist
 build

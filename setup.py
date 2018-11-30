@@ -11,6 +11,8 @@ import sys
 from shutil import rmtree
 
 from setuptools import find_packages, setup, Command
+from setuptools.command.test import test as TestCommand
+
 
 # Package meta-data.
 NAME = 'stranger'
@@ -94,6 +96,23 @@ class UploadCommand(Command):
 
         sys.exit()
 
+# This is a plug-in for setuptools that will invoke py.test
+# when you run python setup.py test
+class PyTest(TestCommand):
+
+    """Set up the py.test test runner."""
+
+    def finalize_options(self):
+        """Set options for the command line."""
+        TestCommand.finalize_options(self)
+        self.test_args = []
+        self.test_suite = True
+
+    def run_tests(self):
+        """Execute the test runner command."""
+        # Import here, because outside the required eggs aren't loaded yet
+        import pytest
+        sys.exit(pytest.main(self.test_args))
 
 # Where the magic happens:
 setup(
@@ -113,6 +132,7 @@ setup(
     },
     install_requires=REQUIRED,
     extras_require=EXTRAS,
+    tests_require=EXTRAS['tests'],
     include_package_data=True,
     license='MIT',
     keywords = ['vcf', 'variants', 'str'],
@@ -132,5 +152,6 @@ setup(
     # $ setup.py publish support.
     cmdclass={
         'upload': UploadCommand,
+        'test': PyTest,
     },
 )
