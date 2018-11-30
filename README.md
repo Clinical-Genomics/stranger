@@ -64,6 +64,16 @@ There is a repeat definitions file that comes with Stranger in `stranger/resourc
 | 14203 | JPH3 | JPH3 | CTG | 28 | 40 | HDL2 |
 | 644 | AR | AR | CAG | 35 | 38 | SBMA |
 
+The file is structured like a SCOUT gene panel, with STR specific columns.
+
+|HGNC_ID | HGNC identifier for the repeat or most associated gene.|
+|HGNC_SYMBOL |HGNC symbol for the repeat or most associated gene.|
+|REPID | ExpansionHunter repeat ID.|
+|RU | Basic repeat unit, as seen in ExpansionHunter. Unused.|
+|Normal_Max | (#copies) Longest repeat expected for normal individual; higher are marked pre- or full-mutation| 
+|Pathologic_Min | (#copies) Shortest repeat expected for pathology. This and higher is annotated as full-mutation.|
+|Disease | Associated disease.|
+
 As a default the file that follows the distribution is used but the users can create their own file.
 Header line(s) should be preceded with a `#`. 
 
