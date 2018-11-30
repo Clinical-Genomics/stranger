@@ -9,9 +9,10 @@ install:
   - pip install --editable .
 
 script:
-    - coverage run --source "$(basename "$PWD")" setup.py test
+    - python setup.py test
 
-after_success: coveralls
+after_success: 
+  - coveralls
 
 notifications:
   email: false
