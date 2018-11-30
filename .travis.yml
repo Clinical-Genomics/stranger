@@ -5,10 +5,11 @@ python:
 
 install:
   - pip install pytest
+  - pip install cython
   - pip install --editable .
 
 script:
-  - py.test -v tests/
+  - python setup.py test
 
 notifications:
   email: false
