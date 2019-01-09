@@ -26,7 +26,7 @@ VERSION = None
 # What packages are required for this module to be executed?
 REQUIRED = [
     'click',
-    'cyvcf2<0.7',
+    'cyvcf2',
     'coloredlogs',
     'parse',
 ]
