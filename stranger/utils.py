@@ -1,6 +1,7 @@
 import logging
+import re
 
-from parse import parse
+NUM = re.compile(r'\d+')
 
 LOG = logging.getLogger(__name__)
 
@@ -40,11 +41,11 @@ def parse_repeat_file(file_handle):
 
     return repeat_info
 
-def get_repeat_info(variant, repeat_info):
+def get_repeat_info(variant_info, repeat_info):
     """Find the correct mutation level of a str variant
     
     Args:
-        variant(cyvcf2.variant)
+        variant_line(str): A vcf variant line
         repeat_info(dict)
     
     Returns:
@@ -52,19 +53,23 @@ def get_repeat_info(variant, repeat_info):
     """
     repeat_strings = []
     # There can be one or two alternatives
-    alleles = variant.ALT
-    repeat_id = variant.INFO.get('REPID')
+    alleles = variant_info['alts']
+    repeat_id = variant_info['info_dict'].get('REPID')
     if not repeat_id in repeat_info:
         LOG.warning("No info for repeat id %s", repeat_id)
         return None
+
     rep_lower = repeat_info[repeat_id]['normal_max']
     rep_upper = repeat_info[repeat_id]['pathologic_min']
     for allele in alleles:
-        repeat_res = parse("<STR{:d}>", allele)
+        if allele == '.':
+            repeat_res = [0]
+        else:
+            repeat_res = [int(num) for num in NUM.findall(allele)]
         if not repeat_res:
             LOG.warning("Allele information is not on correct format: %s", allele)
             raise SyntaxError("Allele on wrong format")
-        repeat_number = repeat_res.fixed[0]
+        repeat_number = repeat_res[0]
         if repeat_number <= rep_lower:
             repeat_strings.append('normal')
         elif repeat_number <= rep_upper:
@@ -73,3 +78,58 @@ def get_repeat_info(variant, repeat_info):
             repeat_strings.append('full_mutation')
 
     return ','.join(repeat_strings)
+
+def get_info_dict(info_string):
+    """Convert a info string to a dictionary
+    
+    Args:
+        info_string(str): A string that contains the INFO field from a vcf variant
+    
+    Returns:
+        info_dict(dict): The input converted to a dictionary
+    """
+    info_dict = {}
+    if not info_string:
+        return info_dict
+    if info_string == '.':
+        return info_dict
+    
+    for annotation in info_string.split(';'):
+        splitted_annotation = annotation.split('=')
+        key = splitted_annotation[0]
+        if len(splitted_annotation) == 1:
+            info_dict[key] = None
+            continue
+        value = splitted_annotation[1]
+        info_dict[key] = value
+    
+    return info_dict
+
+def get_variant_line(variant_info, header_info):
+    """Convert variant dictionary back to a VCF formated string
+    
+    Args:
+        variant_info(dict):
+        header_info(list)
+    
+    Returns:
+        variant_string(str): VCF formated variant
+    """
+    
+    info_dict = variant_info['info_dict']
+    if not info_dict:
+        info_string = '.'
+    else:
+        info_list = []
+        for annotation in info_dict:
+            if info_dict[annotation] is None:
+                info_list.append(annotation)
+                continue
+            info_list.append('='.join([annotation, info_dict[annotation]]))
+        variant_info['INFO'] = ';'.join(info_list)
+    
+    variant_list = []
+    for annotation in header_info:
+        variant_list.append(variant_info[annotation])
+    
+    return '\t'.join(variant_list)
