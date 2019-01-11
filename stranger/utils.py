@@ -1,12 +1,15 @@
 import logging
 import re
+import yaml
+
+from pprint import pprint as pp
 
 NUM = re.compile(r'\d+')
 
 LOG = logging.getLogger(__name__)
 
-def parse_repeat_file(file_handle):
-    """Parse a file with information about the repeats
+def parse_tsv(file_handle):
+    """Parse a repeats file in the tsv file format
     
     Args:
         file_handle(iterable(str))
@@ -38,6 +41,57 @@ def parse_repeat_file(file_handle):
             LOG.warning('\t'.join(line))
             raise err
         repeat_info[repeat['repid']] = repeat
+    
+    return repeat_info
+
+def parse_json(file_handle):
+    """Parse a repeats file in the .json format
+
+    Args:
+        file_handle(iterable(str))
+    
+    Returns:
+        repeat_info(dict)
+    """
+    repeat_info = {}
+    try:
+        raw_info = yaml.safe_load(file_handle)
+    except yaml.YAMLError as err:
+        raise SyntaxError("Repeats file is malformed")
+    for i,repeat_unit in enumerate(raw_info, 1):
+        try:
+            repid = repeat_unit['LocusId']
+        except KeyError as err:
+            raise SyntaxError("Repeat number {0} is missing 'LocusId'".format(i))
+        try:
+            normal_max = repeat_unit['NormalMax']
+        except KeyError as err:
+            LOG.warning("Repeat number {0} ({1}) is missing 'NormalMax'. Skipping..".format(i,repid))
+            continue
+        try:
+            pathologic_min = repeat_unit['PathologicMin']
+        except KeyError as err:
+            LOG.warning("Repeat number {0} ({1}) is missing 'PathologicMin'. Skipping..".format(i,repid))
+            continue
+        repeat_info[repid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
+        
+    return repeat_info
+    
+
+def parse_repeat_file(file_handle, repeats_file_type='tsv'):
+    """Parse a file with information about the repeats
+    
+    Args:
+        file_handle(iterable(str))
+    
+    Returns:
+        repeat_info(dict)
+    """
+    repeat_info = {}
+    if repeats_file_type == 'tsv':
+        repeat_info = parse_tsv(file_handle)
+    elif repeats_file_type == 'json':
+        repeat_info = parse_json(file_handle)
 
     return repeat_info
 

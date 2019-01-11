@@ -39,13 +39,18 @@ def cli(context, vcf, repeats_file, loglevel):
     LOG.info("Running stranger version %s", __version__)
     
     repeat_information = None
+    repeats_file_type = 'tsv'
+    if repeats_file.endswith('.json'):
+        repeats_file_type = 'json'
+    LOG.info("Parsing repeats file %s", repeats_file)
+    
     with open(repeats_file, 'r') as file_handle:
-        repeat_information = parse_repeat_file(file_handle)
+        repeat_information = parse_repeat_file(file_handle, repeats_file_type)
 
     if not repeat_information:
         LOG.warning("Could not find any repeat info")
         context.abort()
-
+    
     stranger_info = 'STR_STATUS'
     stranger_description = "Repeat expansion status. Alternatives in [normal, pre_mutation, full_mutation]"
     stranger_header = '##INFO=<ID={0},Number={1},Type={2},Description="{3}">'.format(
