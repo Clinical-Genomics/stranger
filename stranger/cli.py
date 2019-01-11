@@ -63,6 +63,7 @@ def cli(context, vcf, repeats_file, loglevel):
     else:
         vcf_handle = open(vcf, mode='r', encoding='utf-8', errors='replace')
     
+    LOG.info("Parsing variants from %s", vcf)
     for line in vcf_handle:
         line = line.rstrip()
         if line.startswith('#'):
