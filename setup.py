@@ -27,6 +27,7 @@ VERSION = None
 REQUIRED = [
     'click',
     'coloredlogs',
+    'pyyaml',
 ]
 
 # What packages are optional?
