@@ -1,11 +1,9 @@
 import logging
-
-from pprint import pprint as pp
-
 import coloredlogs
 import click
 import gzip
 
+from pprint import pprint as pp
 from codecs import (open, getreader)
 
 from stranger.resources import repeats_path
