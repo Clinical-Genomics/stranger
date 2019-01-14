@@ -69,6 +69,7 @@
         "ReferenceRegion": "4:41747989-41748049",
         "NormalMax": 60,
         "PathologicMin": 72
+    },
     {
         "VariantType": "Repeat",
         "LocusId": "ATXN7",
@@ -282,7 +283,7 @@
       "LocusId": "POLG",
       "LocusStructure": "(CTG)*TTG(CTG)*",
       "ReferenceRegion": ["15:89876820-89876826",
-          "15:89876829-89876859"],
+                          "15:89876829-89876859"],
       "NormalMax": 15,
       "PathologicMin": 10000,
       "PathologicRegion": "15:89876829-89876859"
@@ -311,6 +312,6 @@
         "LocusStructure": "(CAG)*",
         "ReferenceRegion": "18:53253386-53253458",
         "NormalMax": 149,
-        "PathologicMin": 150,
+        "PathologicMin": 150
     }
 ]
