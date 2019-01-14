@@ -1,14 +1,13 @@
 import logging
-
-from pprint import pprint as pp
-
 import coloredlogs
 import click
+import gzip
 
-from cyvcf2 import VCF
+from pprint import pprint as pp
+from codecs import (open, getreader)
 
 from stranger.resources import repeats_path
-from stranger.utils import parse_repeat_file, get_repeat_info
+from stranger.utils import (parse_repeat_file, get_repeat_info, get_info_dict, get_variant_line)
 from stranger.vcf_utils import print_headers
 from stranger.__version__ import __version__
 
@@ -37,30 +36,50 @@ def print_version(ctx, param, value):
 def cli(context, vcf, repeats_file, loglevel):
     """Annotate str variants with str status"""
     coloredlogs.install(level=loglevel)
-
-    header_string = 'STR_STATUS'
+    LOG.info("Running stranger version %s", __version__)
+    
     repeat_information = None
+    repeats_file_type = 'tsv'
+    if repeats_file.endswith('.json'):
+        repeats_file_type = 'json'
+    LOG.info("Parsing repeats file %s", repeats_file)
+    
     with open(repeats_file, 'r') as file_handle:
-        repeat_information = parse_repeat_file(file_handle)
+        repeat_information = parse_repeat_file(file_handle, repeats_file_type)
 
     if not repeat_information:
         LOG.warning("Could not find any repeat info")
         context.abort()
-
-    vcf_obj = VCF(vcf)
-    vcf_obj.add_info_to_header(
-        {
-            "ID": header_string,
-            "Number": 'A',
-            "Type": "String",
-            "Description": "Repeat expansion status. Alternatives in ['normal', 'pre_mutation', 'full_mutation']"
-        }
+    
+    stranger_info = 'STR_STATUS'
+    stranger_description = "Repeat expansion status. Alternatives in [normal, pre_mutation, full_mutation]"
+    stranger_header = '##INFO=<ID={0},Number={1},Type={2},Description="{3}">'.format(
+        stranger_info, 'A', 'String', stranger_description
     )
     
-    print_headers(vcf_obj)
-
-    for var in vcf_obj:
-        repeat_string = get_repeat_info(var, repeat_information)
-        if repeat_string:
-            var.INFO[header_string] = repeat_string
-        click.echo(str(var).rstrip())
+    if vcf.endswith('.gz'):
+        LOG.info("Vcf is zipped")
+        vcf_handle = getreader('utf-8')(gzip.open(vcf), errors='replace')
+    else:
+        vcf_handle = open(vcf, mode='r', encoding='utf-8', errors='replace')
+    
+    LOG.info("Parsing variants from %s", vcf)
+    for line in vcf_handle:
+        line = line.rstrip()
+        if line.startswith('#'):
+            if line.startswith('##'):
+                click.echo(line)
+                continue
+            # Print the new header line describing stranger annotation
+            click.echo(stranger_header)
+            # Print the vcf header line
+            header_info = line[1:].split('\t')
+            click.echo(line)
+            continue
+        variant_info = dict(zip(header_info, line.split('\t')))
+        variant_info['alts'] = variant_info['ALT'].split(',')
+        variant_info['info_dict'] = get_info_dict(variant_info['INFO'])
+        repeat_string = get_repeat_info(variant_info, repeat_information)
+        variant_info['info_dict'][stranger_info] = repeat_string
+        
+        click.echo(get_variant_line(variant_info, header_info)) 
