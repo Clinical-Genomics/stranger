@@ -66,8 +66,9 @@
         "VariantType": "Repeat",
         "LocusId": "PHOX2B",
         "LocusStructure": "(GCN)*",
-        "ReferenceRegion": "4:41747989-41748049"
-    },
+        "ReferenceRegion": "4:41747989-41748049",
+        "NormalMax": 60,
+        "PathologicMin": 72
     {
         "VariantType": "Repeat",
         "LocusId": "ATXN7",
@@ -184,7 +185,7 @@
         "LocusStructure": "(GGC)*",
         "ReferenceRegion": "12:50898784-50898805",
         "NormalMax": 24,
-        "PathologcMin": 270,
+        "PathologicMin": 270,
     },
     {
         "VariantType": "Repeat",
@@ -240,7 +241,7 @@
         "Disease": "FRDA",
         "NormalMax": 35,
         "PathologicMin": 51,
-        "PatohlogicRegion": "9:71652202-71652220"
+        "PathologicRegion": "9:71652202-71652220"
     },
     {
         "LocusId": "HTT",
@@ -256,7 +257,7 @@
         "Disease": "Huntington",
         "NormalMax": 36,
         "PathologicMin": 37,
-        "PatohlogicRegion": "4:3076666-3076693"
+        "PathologicRegion": "4:3076666-3076693"
     },
     {
         "VariantType": "Repeat",
@@ -280,9 +281,10 @@
       "VariantType": "Repeat",
       "LocusId": "POLG",
       "LocusStructure": "(CTG)*TTG(CTG)*",
-      "ReferenceRegion": "15:89876820-89876826",
-      "ReferenceRegion": "15:89876829-89876859",
-      "NormalMax": 12,
+      "ReferenceRegion": ["15:89876820-89876826",
+          "15:89876829-89876859"],
+      "NormalMax": 15,
+      "PathologicMin": 10000,
       "PathologicRegion": "15:89876829-89876859"
     },
     {
@@ -308,5 +310,7 @@
         "LocusId": "TCF4",
         "LocusStructure": "(CAG)*",
         "ReferenceRegion": "18:53253386-53253458",
+        "NormalMax": 149,
+        "PathologicMin": 150,
     }
 ]

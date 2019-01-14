@@ -85,8 +85,11 @@ def parse_json(file_handle):
         if 'PathologicRegion' in repeat_unit:
             repid += repeat_unit['PathologicRegion']
         else:
-            repid += reference_region
-
+            try:
+                repid += reference_region
+            except TypeError as err:
+                LOG.warning("Repeat number {0} ({1}) has multiple 'ReferenceRegion' but no 'PathologicRegion'. Skipping..".format(i,repid))
+                continue
         repeat_info[repid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
 
     return repeat_info
