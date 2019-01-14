@@ -10,10 +10,10 @@ LOG = logging.getLogger(__name__)
 
 def parse_tsv(file_handle):
     """Parse a repeats file in the tsv file format
-    
+
     Args:
         file_handle(iterable(str))
-    
+
     Returns:
         repeat_info(dict)
     """
@@ -41,7 +41,9 @@ def parse_tsv(file_handle):
             LOG.warning('\t'.join(line))
             raise err
         repeat_info[repeat['repid']] = repeat
-    
+
+
+
     return repeat_info
 
 def parse_json(file_handle):
@@ -49,7 +51,7 @@ def parse_json(file_handle):
 
     Args:
         file_handle(iterable(str))
-    
+
     Returns:
         repeat_info(dict)
     """
@@ -73,17 +75,29 @@ def parse_json(file_handle):
         except KeyError as err:
             LOG.warning("Repeat number {0} ({1}) is missing 'PathologicMin'. Skipping..".format(i,repid))
             continue
+
+        # From ExHu 3.0 repids include the region of interest.
+        try:
+            reference_region = repeat_unit['ReferenceRegion']
+        except KeyError as err:
+            LOG.warning("Repeat number {0} ({1}) is missing 'ReferenceRegion'. Skipping..".format(i,repid))
+            continue
+        if 'PathologicRegion' in repeat_unit:
+            repid += repeat_unit['PathologicRegion']
+        else:
+            repid += reference_region
+
         repeat_info[repid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
-        
+
     return repeat_info
-    
+
 
 def parse_repeat_file(file_handle, repeats_file_type='tsv'):
     """Parse a file with information about the repeats
-    
+
     Args:
         file_handle(iterable(str))
-    
+
     Returns:
         repeat_info(dict)
     """
@@ -97,11 +111,11 @@ def parse_repeat_file(file_handle, repeats_file_type='tsv'):
 
 def get_repeat_info(variant_info, repeat_info):
     """Find the correct mutation level of a str variant
-    
+
     Args:
         variant_line(str): A vcf variant line
         repeat_info(dict)
-    
+
     Returns:
         info_string(str)
     """
@@ -135,10 +149,10 @@ def get_repeat_info(variant_info, repeat_info):
 
 def get_info_dict(info_string):
     """Convert a info string to a dictionary
-    
+
     Args:
         info_string(str): A string that contains the INFO field from a vcf variant
-    
+
     Returns:
         info_dict(dict): The input converted to a dictionary
     """
@@ -147,7 +161,7 @@ def get_info_dict(info_string):
         return info_dict
     if info_string == '.':
         return info_dict
-    
+
     for annotation in info_string.split(';'):
         splitted_annotation = annotation.split('=')
         key = splitted_annotation[0]
@@ -156,20 +170,20 @@ def get_info_dict(info_string):
             continue
         value = splitted_annotation[1]
         info_dict[key] = value
-    
+
     return info_dict
 
 def get_variant_line(variant_info, header_info):
     """Convert variant dictionary back to a VCF formated string
-    
+
     Args:
         variant_info(dict):
         header_info(list)
-    
+
     Returns:
         variant_string(str): VCF formated variant
     """
-    
+
     info_dict = variant_info['info_dict']
     if not info_dict:
         info_string = '.'
@@ -181,9 +195,9 @@ def get_variant_line(variant_info, header_info):
                 continue
             info_list.append('='.join([annotation, info_dict[annotation]]))
         variant_info['INFO'] = ';'.join(info_list)
-    
+
     variant_list = []
     for annotation in header_info:
         variant_list.append(variant_info[annotation])
-    
+
     return '\t'.join(variant_list)
