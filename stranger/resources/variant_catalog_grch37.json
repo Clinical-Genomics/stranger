@@ -313,5 +313,14 @@
         "ReferenceRegion": "18:53253386-53253458",
         "NormalMax": 149,
         "PathologicMin": 150
-    }
+    }, 
+    {
+        "VariantType": "Repeat",
+        "LocusId": "PABPN1",
+        "LocusStructure": "(GCG)*",
+        "ReferenceRegion": "14:23790682-23790699",
+	"Disease": "OPMD",
+	"NormalMax": 6,
+	"PathologicMin": 9
+    },
 ]
