@@ -1,5 +1,4 @@
-# Stranger [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url]
-
+# Stranger [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![PyPI Version][pypi-img]][pypi-url]
 Annotates output files from [ExpansionHunter][hunter] with the pathologic implications of the repeat sizes.
 
 ## Installation
@@ -84,7 +83,8 @@ Header line(s) should be preceded with a `#`.
 
 [travis-url]: https://travis-ci.com/moonso/stranger
 [travis-image]: https://travis-ci.com/moonso/stranger.svg?branch=master
-
+[pypi-img]: https://img.shields.io/pypi/v/stranger.svg?style=flat-square
+[pypi-url]: https://pypi.python.org/pypi/stranger/
 [coveralls-url]: https://coveralls.io/github/moonso/stranger
 [coveralls-image]: https://coveralls.io/repos/github/moonso/stranger/badge.svg?branch=master
 
