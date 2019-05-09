@@ -319,8 +319,8 @@
         "LocusId": "PABPN1",
         "LocusStructure": "(GCG)*",
         "ReferenceRegion": "14:23790682-23790699",
-	"Disease": "OPMD",
-	"NormalMax": 6,
-	"PathologicMin": 9
+        "Disease": "OPMD",
+        "NormalMax": 6,
+        "PathologicMin": 9
     },
 ]

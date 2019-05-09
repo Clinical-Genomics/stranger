@@ -76,21 +76,7 @@ def parse_json(file_handle):
             LOG.warning("Repeat number {0} ({1}) is missing 'PathologicMin'. Skipping..".format(i,repid))
             continue
 
-        # From ExHu 3.0 repids include the region of interest.
-        try:
-            reference_region = repeat_unit['ReferenceRegion']
-        except KeyError as err:
-            LOG.warning("Repeat number {0} ({1}) is missing 'ReferenceRegion'. Skipping..".format(i,repid))
-            continue
-        if 'PathologicRegion' in repeat_unit:
-            repid += "_" + repeat_unit['PathologicRegion']
-        else:
-            try:
-                repid += "_" + reference_region
-            except TypeError as err:
-                LOG.warning("Repeat number {0} ({1}) has multiple 'ReferenceRegion' but no 'PathologicRegion'. Skipping..".format(i,repid))
-                continue
-
+        # ExHu 3.0 release candidate repids include the pathologic region of interest, but not the final version        
         repeat_info[repid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
 
     return repeat_info
