@@ -9,6 +9,7 @@ include README.md
 
 # static files
 include stranger/resources/repeatexpansionsloci.tsv
+include stranger/resources/variant_catalog_grch37.json
 
 # tests
 recursive-include tests *
