@@ -80,6 +80,7 @@ def cli(context, vcf, repeats_file, loglevel):
         variant_info['alts'] = variant_info['ALT'].split(',')
         variant_info['info_dict'] = get_info_dict(variant_info['INFO'])
         repeat_string = get_repeat_info(variant_info, repeat_information)
-        variant_info['info_dict'][stranger_info] = repeat_string
+        if repeat_string:
+            variant_info['info_dict'][stranger_info] = repeat_string
 
         click.echo(get_variant_line(variant_info, header_info))
