@@ -5,7 +5,7 @@
         "LocusStructure": "(GCC)*",
         "ReferenceRegion": "X:147582151-147582211",
         "Disease": "Fraxe",
-        "NormalMax": 25,
+        "NormalMax": 40,
         "PathologicMin": 200,
     },
     {
@@ -303,7 +303,7 @@
         "LocusStructure": "(GCA)*",
         "ReferenceRegion": "6:170870994-170871105",
         "Disease": "SCA17",
-        "NormalMax": 31,
+        "NormalMax": 44,
         "PathologicMin": 49,
     },
     {
@@ -313,7 +313,7 @@
         "ReferenceRegion": "18:53253386-53253458",
         "NormalMax": 149,
         "PathologicMin": 150
-    }, 
+    },
     {
         "VariantType": "Repeat",
         "LocusId": "PABPN1",
