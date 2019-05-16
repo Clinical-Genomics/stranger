@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.5.4]
+Update Manifest to include json resource file.
+
 ## [0.5.3]
 Allow both REPID naming systems.
 Make json file default, and include as a resource in the PyPi distribution.
