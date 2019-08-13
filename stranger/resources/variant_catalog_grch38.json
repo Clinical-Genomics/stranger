@@ -33,7 +33,7 @@
         "VariantType": "Repeat",
         "Disease": "SCA10",
         "NormalMax": 32,
-        "PathologicMin": 800,
+        "PathologicMin": 800
     },
     {
         "LocusId": "ATXN1",
@@ -51,7 +51,7 @@
         "VariantType": "Repeat",
         "Disease": "SCA2",
         "NormalMax": 31,
-        "PathologicMin": 39,
+        "PathologicMin": 39
     },
     {
         "LocusId": "ATXN3",
@@ -60,7 +60,7 @@
         "VariantType": "Repeat",
         "Disease": "SCA3",
         "NormalMax": 44,
-        "PathologicMin": 60,
+        "PathologicMin": 60
     },
     {
         "LocusId": "PHOX2B",
@@ -89,7 +89,7 @@
         "Disease": "SCA7",
         "NormalMax": 19,
         "PathologicMin": 37,
-        "PathologicRegion": "3:63898360-63898390"
+        "PathologicRegion": "chr3:63898360-63898390"
     },
     {
         "LocusId": "ATXN8OS",
@@ -109,7 +109,7 @@
         "Disease": "SCA8",
         "NormalMax": 50,
         "PathologicMin": 80,
-        "PathologicRegion": "13:70713515-70713560"
+        "PathologicRegion": "chr13:70713515-70713560"
     },
     {
         "LocusId": "C9ORF72",
@@ -233,7 +233,7 @@
             "Repeat",
             "Repeat"
         ],
-        "PathologicRegion": "3:128891419-128891499",
+        "PathologicRegion": "chr3:128891419-128891499",
         "Disease": "DM2",
         "NormalMax": 30,
         "PathologicMin": 75
@@ -263,7 +263,7 @@
         "VariantType": "Repeat",
         "Disease": "DM1",
         "NormalMax": 37,
-        "PathologicMin": 50,
+        "PathologicMin": 50
     },
     {
         "LocusId": "FMR1",
@@ -508,7 +508,7 @@
         "Disease": "FRDA",
         "NormalMax": 35,
         "PathologicMin": 51,
-        "PathologicRegion": "9:71652202-71652220"
+        "PathologicRegion": "chr9:71652202-71652220"
     },
     {
         "LocusId": "HTT",

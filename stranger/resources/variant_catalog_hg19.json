@@ -33,7 +33,7 @@
         "ReferenceRegion": "22:46191234-46191304",
         "Disease": "SCA10",
         "NormalMax": 32,
-        "PathologicMin": 800,
+        "PathologicMin": 800
     },
     {
         "VariantType": "Repeat",
@@ -42,7 +42,7 @@
         "ReferenceRegion": "6:16327864-16327954",
         "Disease": "SCA1",
         "NormalMax": 35,
-        "PathologicMin": 45,
+        "PathologicMin": 45
     },
     {
         "VariantType": "Repeat",
@@ -51,7 +51,7 @@
         "ReferenceRegion": "12:112036753-112036822",
         "Disease": "SCA2",
         "NormalMax": 31,
-        "PathologicMin": 39,
+        "PathologicMin": 39
     },
     {
         "VariantType": "Repeat",
@@ -60,7 +60,7 @@
         "ReferenceRegion": "14:92537353-92537386",
         "Disease": "SCA3",
         "NormalMax": 44,
-        "PathologicMin": 60,
+        "PathologicMin": 60
     },
     {
         "VariantType": "Repeat",
@@ -149,7 +149,7 @@
        ],
        "Disease": "FTDALS1",
        "NormalMax": 25,
-       "PathologicMin": 40,
+       "PathologicMin": 40
     },
     {
         "VariantType": "Repeat",
@@ -158,7 +158,7 @@
         "ReferenceRegion": "19:13318672-13318711",
         "Disease": "SCA6",
         "NormalMax": 18,
-        "PathologicMin": 20,
+        "PathologicMin": 20
     },
     {
         "VariantType": "Repeat",
@@ -167,7 +167,7 @@
         "ReferenceRegion": "11:119076999-119077032",
         "Disease": "FRAX11B",
         "NormalMax": 79,
-        "PathologicMin": 100,
+        "PathologicMin": 100
     },
     {
         "LocusId": "CNBP",
@@ -199,7 +199,7 @@
         "ReferenceRegion": "21:45196324-45196360",
         "Disease": "EPM1",
         "NormalMax": 3,
-        "PathologicMin": 30,
+        "PathologicMin": 30
     },
     {
         "VariantType": "Repeat",
@@ -207,7 +207,7 @@
         "LocusStructure": "(GGC)*",
         "ReferenceRegion": "12:50898784-50898805",
         "NormalMax": 24,
-        "PathologicMin": 270,
+        "PathologicMin": 270
     },
     {
         "VariantType": "Repeat",
@@ -216,7 +216,7 @@
         "ReferenceRegion": "19:46273462-46273522",
         "Disease": "DM1",
         "NormalMax": 37,
-        "PathologicMin": 50,
+        "PathologicMin": 50
     },
     {
         "VariantType": "RareRepeat",
@@ -247,7 +247,7 @@
         ],
         "Disease": "FragileX",
         "NormalMax": 65,
-        "PathologicMin": 200,
+        "PathologicMin": 200
     },
     {
         "LocusId": "FXN",
@@ -296,7 +296,7 @@
         "ReferenceRegion": "16:87637893-87637935",
         "Disease": "HDL2",
         "NormalMax": 28,
-        "PathologicMin": 40,
+        "PathologicMin": 40
     },
     {
         "LocusId": "NOP56",
@@ -316,7 +316,7 @@
       "PathologicRegion": "20:2633379-2633403",
       "Disease": "SCA36",
       "NormalMax": 14,
-      "PathologicMin": 650,
+      "PathologicMin": 650
     },
     {
         "VariantType": "Repeat",
@@ -325,7 +325,7 @@
         "ReferenceRegion": "5:146258290-146258320",
         "Disease": "SCA12",
         "NormalMax": 35,
-        "PathologicMin": 49,
+        "PathologicMin": 49
     },
     {
         "VariantType": "Repeat",
@@ -334,7 +334,7 @@
         "ReferenceRegion": "6:170870994-170871105",
         "Disease": "SCA17",
         "NormalMax": 44,
-        "PathologicMin": 49,
+        "PathologicMin": 49
     },
     {
         "VariantType": "Repeat",
@@ -372,10 +372,10 @@
       "PathologicMin": 90
     },
     {
-      "VariantType": ["Repeat","Repeat"],
       "LocusId": "POLG",
-      "VariantId": ["POLG_I", "POLG_II"],
       "LocusStructure": "(CTG)*TTG(CTG)*",
+      "VariantType": ["Repeat","Repeat"],
+      "VariantId": ["POLG_I", "POLG_II"],
       "ReferenceRegion": ["15:89876820-89876826",
                           "15:89876829-89876859"],
       "NormalMax": 15,
