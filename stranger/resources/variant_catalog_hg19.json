@@ -348,7 +348,7 @@
         "VariantType": "Repeat",
         "LocusId": "PABPN1",
         "LocusStructure": "(GCG)*",
-        "ReferenceRegion": "14:23790682-23790699",
+        "ReferenceRegion": "14:23790681-23790699",
         "Disease": "OPMD",
         "NormalMax": 6,
         "PathologicMin": 9
@@ -357,7 +357,7 @@
       "VariantType": "Repeat",
       "LocusId": "RFC1",
       "LocusStructure": "(AARRG)*",
-      "ReferenceRegion": "4:39350045-39350096",
+      "ReferenceRegion": "4:39350044-39350096",
       "Disease": "CANVAS",
       "NormalMax": 10,
       "PathologicMin": 14
