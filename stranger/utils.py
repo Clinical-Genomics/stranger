@@ -135,8 +135,8 @@ def get_repeat_info(variant_info, repeat_info):
         LOG.warning("No info for repeat id %s", repeat_id)
         return None
 
-    rep_lower = repeat_info[repeat_id].get('normal_max', 0)
-    rep_upper = repeat_info[repeat_id].get('pathologic_min', 0)
+    rep_lower = repeat_info[repeat_id].get('normal_max', -1)
+    rep_upper = repeat_info[repeat_id].get('pathologic_min', -1)
     for allele in alleles:
         if allele == '.':
             repeat_res = [0]

@@ -61,8 +61,8 @@ def cli(context, vcf, repeats_file, loglevel):
             'desc': 'Max number of repeats allowed to call as normal'
         },
         {
-            'id': 'STR_FULLMUT_MIN', 'num': '1', 'type': 'Integer',
-            'desc': 'Min number of repeats required to call as full mutation'
+            'id': 'STR_PATHOLOGIC_MIN', 'num': '1', 'type': 'Integer',
+            'desc': 'Min number of repeats required to call as pathologic'
         }
     ]
 
@@ -100,6 +100,6 @@ def cli(context, vcf, repeats_file, loglevel):
         if repeat_data:
             variant_info['info_dict']['STR_STATUS'] = repeat_data['repeat_strings']
             variant_info['info_dict']['STR_NORMAL_MAX'] = str(repeat_data['lower'])
-            variant_info['info_dict']['STR_FULLMUT_MIN'] = str(repeat_data['upper'])
+            variant_info['info_dict']['STR_PATHOLOGIC_MIN'] = str(repeat_data['upper'])
 
         click.echo(get_variant_line(variant_info, header_info))
