@@ -51,11 +51,27 @@ def cli(context, vcf, repeats_file, loglevel):
         LOG.warning("Could not find any repeat info")
         context.abort()
 
-    stranger_info = 'STR_STATUS'
-    stranger_description = "Repeat expansion status. Alternatives in [normal, pre_mutation, full_mutation]"
-    stranger_header = '##INFO=<ID={0},Number={1},Type={2},Description="{3}">'.format(
-        stranger_info, 'A', 'String', stranger_description
-    )
+    header_definitions = [
+        {
+            'id': 'STR_STATUS', 'num': 'A', 'type': 'String',
+            'desc': 'Repeat expansion status. Alternatives in [normal, pre_mutation, full_mutation]'
+        },
+        {
+            'id': 'STR_NORMAL_MAX', 'num': '1', 'type': 'Integer',
+            'desc': 'Max number of repeats allowed to call as normal'
+        },
+        {
+            'id': 'STR_PATHOLOGIC_MIN', 'num': '1', 'type': 'Integer',
+            'desc': 'Min number of repeats required to call as pathologic'
+        }
+    ]
+
+    stranger_headers = []
+    for hdef in header_definitions:
+        header = '##INFO=<ID={0},Number={1},Type={2},Description="{3}">'.format(
+            hdef.get('id'), hdef.get('num'), hdef.get('type'), hdef.get('desc'))
+        stranger_headers.append(header)
+            
 
     if vcf.endswith('.gz'):
         LOG.info("Vcf is zipped")
@@ -70,8 +86,9 @@ def cli(context, vcf, repeats_file, loglevel):
             if line.startswith('##'):
                 click.echo(line)
                 continue
-            # Print the new header line describing stranger annotation
-            click.echo(stranger_header)
+            # Print the new header lines describing stranger annotation
+            for header in stranger_headers:
+                click.echo(header)
             # Print the vcf header line
             header_info = line[1:].split('\t')
             click.echo(line)
@@ -79,8 +96,10 @@ def cli(context, vcf, repeats_file, loglevel):
         variant_info = dict(zip(header_info, line.split('\t')))
         variant_info['alts'] = variant_info['ALT'].split(',')
         variant_info['info_dict'] = get_info_dict(variant_info['INFO'])
-        repeat_string = get_repeat_info(variant_info, repeat_information)
-        if repeat_string:
-            variant_info['info_dict'][stranger_info] = repeat_string
+        repeat_data = get_repeat_info(variant_info, repeat_information)
+        if repeat_data:
+            variant_info['info_dict']['STR_STATUS'] = repeat_data['repeat_strings']
+            variant_info['info_dict']['STR_NORMAL_MAX'] = str(repeat_data['lower'])
+            variant_info['info_dict']['STR_PATHOLOGIC_MIN'] = str(repeat_data['upper'])
 
         click.echo(get_variant_line(variant_info, header_info))

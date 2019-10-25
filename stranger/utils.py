@@ -125,7 +125,7 @@ def get_repeat_info(variant_info, repeat_info):
         repeat_info(dict)
 
     Returns:
-        info_string(str)
+        (dict): With repeat level, lower and upper limits
     """
     repeat_strings = []
     # There can be one or two alternatives
@@ -135,8 +135,8 @@ def get_repeat_info(variant_info, repeat_info):
         LOG.warning("No info for repeat id %s", repeat_id)
         return None
 
-    rep_lower = repeat_info[repeat_id]['normal_max']
-    rep_upper = repeat_info[repeat_id]['pathologic_min']
+    rep_lower = repeat_info[repeat_id].get('normal_max', -1)
+    rep_upper = repeat_info[repeat_id].get('pathologic_min', -1)
     for allele in alleles:
         if allele == '.':
             repeat_res = [0]
@@ -153,7 +153,7 @@ def get_repeat_info(variant_info, repeat_info):
         else:
             repeat_strings.append('full_mutation')
 
-    return ','.join(repeat_strings)
+    return dict(repeat_strings=','.join(repeat_strings), lower=rep_lower, upper=rep_upper)
 
 def get_info_dict(info_string):
     """Convert a info string to a dictionary
