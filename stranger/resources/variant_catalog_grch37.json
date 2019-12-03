@@ -3,7 +3,7 @@
         "VariantType": "Repeat",
         "LocusId": "AFF2",
         "LocusStructure": "(GCC)*",
-        "ReferenceRegion": "chrX:147582151-147582211",
+        "ReferenceRegion": "X:147582151-147582211",
         "Disease": "Fraxe",
         "NormalMax": 40,
         "PathologicMin": 200
@@ -12,7 +12,7 @@
         "VariantType": "Repeat",
         "LocusId": "AR",
         "LocusStructure": "(GCA)*",
-        "ReferenceRegion": "chrX:66765158-66765227",
+        "ReferenceRegion": "X:66765158-66765227",
         "Disease": "SBMA",
         "NormalMax": 35,
         "PathologicMin": 38
@@ -21,7 +21,7 @@
         "VariantType": "Repeat",
         "LocusId": "ATN1",
         "LocusStructure": "(CAG)*",
-        "ReferenceRegion": "chr12:7045879-7045936",
+        "ReferenceRegion": "12:7045879-7045936",
         "Disease": "DRPLA",
         "NormalMax": 34,
         "PathologicMin": 49
@@ -30,7 +30,7 @@
         "VariantType": "Repeat",
         "LocusId": "ATXN10",
         "LocusStructure": "(ATTCT)*",
-        "ReferenceRegion": "chr22:46191234-46191304",
+        "ReferenceRegion": "22:46191234-46191304",
         "Disease": "SCA10",
         "NormalMax": 32,
         "PathologicMin": 800
@@ -39,7 +39,7 @@
         "VariantType": "Repeat",
         "LocusId": "ATXN1",
         "LocusStructure": "(TGC)*",
-        "ReferenceRegion": "chr6:16327864-16327954",
+        "ReferenceRegion": "6:16327864-16327954",
         "Disease": "SCA1",
         "NormalMax": 35,
         "PathologicMin": 45
@@ -48,7 +48,7 @@
         "VariantType": "Repeat",
         "LocusId": "ATXN2",
         "LocusStructure": "(GCT)*",
-        "ReferenceRegion": "chr12:112036753-112036822",
+        "ReferenceRegion": "12:112036753-112036822",
         "Disease": "SCA2",
         "NormalMax": 31,
         "PathologicMin": 39
@@ -57,7 +57,7 @@
         "VariantType": "Repeat",
         "LocusId": "ATXN3",
         "LocusStructure": "(GCT)*",
-        "ReferenceRegion": "chr14:92537353-92537386",
+        "ReferenceRegion": "14:92537353-92537386",
         "Disease": "SCA3",
         "NormalMax": 44,
         "PathologicMin": 60
@@ -66,7 +66,7 @@
         "VariantType": "Repeat",
         "LocusId": "PHOX2B",
         "LocusStructure": "(GCN)*",
-        "ReferenceRegion": "chr4:41747989-41748049",
+        "ReferenceRegion": "4:41747989-41748049",
         "NormalMax": 60,
         "PathologicMin": 72
     },
@@ -75,8 +75,8 @@
         "LocusId": "ATXN7",
         "LocusStructure": "(GCA)*(GCC)+",
         "ReferenceRegion": [
-            "chr3:63898360-63898390",
-            "chr3:63898390-63898402"
+            "3:63898360-63898390",
+            "3:63898390-63898402"
         ],
         "VariantType": [
             "Repeat",
@@ -89,14 +89,14 @@
         "Disease": "SCA7",
         "NormalMax": 19,
         "PathologicMin": 37,
-        "PathologicRegion": "chr3:63898360-63898390"
+        "PathologicRegion": "3:63898360-63898390"
     },
     {
         "LocusId": "ATXN8OS",
         "LocusStructure": "(CTA)*(CTG)*",
         "ReferenceRegion": [
-            "chr13:70713485-70713515",
-            "chr13:70713515-70713560"
+            "13:70713485-70713515",
+            "13:70713515-70713560"
         ],
         "VariantType": [
             "Repeat",
@@ -109,43 +109,43 @@
         "Disease": "SCA8",
         "NormalMax": 50,
         "PathologicMin": 80,
-        "PathologicRegion": "chr13:70713515-70713560"
+        "PathologicRegion": "13:70713515-70713560"
     },
     {
         "VariantType": "RareRepeat",
         "LocusId": "C9ORF72",
         "LocusStructure": "(GGCCCC)*",
-        "ReferenceRegion": "chr9:27573526-27573544",
+        "ReferenceRegion": "9:27573526-27573544",
         "OfftargetRegions": [
-           "chr1:150552238-150552273",
-           "chr11:910821-910969",
-           "chr11:2905960-2906190",
-           "chr11:44748502-44748739",
-           "chr12:54476278-54476439",
-           "chr12:128751638-128751649",
-           "chr13:107569867-107570000",
-           "chr16:819162-819226",
-           "chr16:49526377-49526380",
-           "chr18:74203223-74203243",
-           "chr19:878803-878954",
-           "chr19:39897404-39897410",
-           "chr2:240659782-240660010",
-           "chr20:388475-388656",
-           "chr20:60640211-60640346",
-           "chr22:51066608-51066626",
-           "chr3:49591993-49592173",
-           "chr3:50161662-50161732",
-           "chr5:10761494-10761495",
-           "chr5:176797951-176798133",
-           "chr6:33601522-33601525",
-           "chr6:109804703-109804748",
-           "chr9:132331488-132331496",
-           "chr9:132428311-132428437",
-           "chrX:9754276-9754424",
-           "chrX:49644488-49644585",
-           "chrX:53652706-53652891",
-           "chrX:153569931-153569996",
-           "chrX:153618748-153618918"
+           "1:150552238-150552273",
+           "11:910821-910969",
+           "11:2905960-2906190",
+           "11:44748502-44748739",
+           "12:54476278-54476439",
+           "12:128751638-128751649",
+           "13:107569867-107570000",
+           "16:819162-819226",
+           "16:49526377-49526380",
+           "18:74203223-74203243",
+           "19:878803-878954",
+           "19:39897404-39897410",
+           "2:240659782-240660010",
+           "20:388475-388656",
+           "20:60640211-60640346",
+           "22:51066608-51066626",
+           "3:49591993-49592173",
+           "3:50161662-50161732",
+           "5:10761494-10761495",
+           "5:176797951-176798133",
+           "6:33601522-33601525",
+           "6:109804703-109804748",
+           "9:132331488-132331496",
+           "9:132428311-132428437",
+           "X:9754276-9754424",
+           "X:49644488-49644585",
+           "X:53652706-53652891",
+           "X:153569931-153569996",
+           "X:153618748-153618918"
        ],
        "Disease": "FTDALS1",
        "NormalMax": 25,
@@ -155,7 +155,7 @@
         "VariantType": "Repeat",
         "LocusId": "CACNA1A",
         "LocusStructure": "(CTG)*",
-        "ReferenceRegion": "chr19:13318672-13318711",
+        "ReferenceRegion": "19:13318672-13318711",
         "Disease": "SCA6",
         "NormalMax": 18,
         "PathologicMin": 20
@@ -164,7 +164,7 @@
         "VariantType": "Repeat",
         "LocusId": "CBL",
         "LocusStructure": "(CGG)*",
-        "ReferenceRegion": "chr11:119076999-119077032",
+        "ReferenceRegion": "11:119076999-119077032",
         "Disease": "FRAX11B",
         "NormalMax": 79,
         "PathologicMin": 100
@@ -173,9 +173,9 @@
         "LocusId": "CNBP",
         "LocusStructure": "(CAGG)*(CAGA)*(CA)*",
         "ReferenceRegion": [
-            "chr3:128891419-128891499",
-            "chr3:128891499-128891539",
-            "chr3:128891539-128891575"
+            "3:128891419-128891499",
+            "3:128891499-128891539",
+            "3:128891539-128891575"
         ],
         "VariantType": [
             "Repeat",
@@ -190,13 +190,13 @@
             "CNBP_CAGA",
             "CNBP_CA"
         ],
-        "PathologicRegion": "chr3:128891419-128891499"
+        "PathologicRegion": "3:128891419-128891499"
     },
     {
         "VariantType": "Repeat",
         "LocusId": "CSTB",
         "LocusStructure": "(CGCGGGGCGGGG)*",
-        "ReferenceRegion": "chr21:45196324-45196360",
+        "ReferenceRegion": "21:45196324-45196360",
         "Disease": "EPM1",
         "NormalMax": 3,
         "PathologicMin": 30
@@ -205,7 +205,7 @@
         "VariantType": "Repeat",
         "LocusId": "DIP2B",
         "LocusStructure": "(GGC)*",
-        "ReferenceRegion": "chr12:50898784-50898805",
+        "ReferenceRegion": "12:50898784-50898805",
         "NormalMax": 24,
         "PathologicMin": 270
     },
@@ -213,7 +213,7 @@
         "VariantType": "Repeat",
         "LocusId": "DMPK",
         "LocusStructure": "(CAG)*",
-        "ReferenceRegion": "chr19:46273462-46273522",
+        "ReferenceRegion": "19:46273462-46273522",
         "Disease": "DM1",
         "NormalMax": 37,
         "PathologicMin": 50
@@ -222,28 +222,28 @@
         "VariantType": "RareRepeat",
         "LocusId": "FMR1",
         "LocusStructure": "(CGG)*",
-        "ReferenceRegion": "chrX:146993568-146993628",
+        "ReferenceRegion": "X:146993568-146993628",
         "OfftargetRegions": [
-            "chr10:101295192-101295194",
-            "chr12:7781290-7781350",
-            "chr12:125052154-125052156",
-            "chr16:25703613-25703635",
-            "chr16:28074516-28074518",
-            "chr17:30814024-30814026",
-            "chr17:64298467-64298469",
-            "chr19:2015524-2015526",
-            "chr2:87141540-87141618",
-            "chr2:92230909-92230911",
-            "chr2:211036020-211036032",
-            "chr2:225449878-225449880",
-            "chr20:30865500-30865516",
-            "chr5:443334-443364",
-            "chr7:20824939-20824941",
-            "chr7:100271437-100271439",
-            "chr7:104654597-104654599",
-            "chr7:143059853-143059855",
-            "chr9:100616695-100616697",
-            "chrX:20009036-20009046"
+            "10:101295192-101295194",
+            "12:7781290-7781350",
+            "12:125052154-125052156",
+            "16:25703613-25703635",
+            "16:28074516-28074518",
+            "17:30814024-30814026",
+            "17:64298467-64298469",
+            "19:2015524-2015526",
+            "2:87141540-87141618",
+            "2:92230909-92230911",
+            "2:211036020-211036032",
+            "2:225449878-225449880",
+            "20:30865500-30865516",
+            "5:443334-443364",
+            "7:20824939-20824941",
+            "7:100271437-100271439",
+            "7:104654597-104654599",
+            "7:143059853-143059855",
+            "9:100616695-100616697",
+            "X:20009036-20009046"
         ],
         "Disease": "FragileX",
         "NormalMax": 65,
@@ -253,8 +253,8 @@
         "LocusId": "FXN",
         "LocusStructure": "(A)*(GAA)*",
         "ReferenceRegion": [
-            "chr9:71652177-71652202",
-            "chr9:71652202-71652220"
+            "9:71652177-71652202",
+            "9:71652202-71652220"
         ],
         "VariantType": [
             "Repeat",
@@ -267,14 +267,14 @@
         "Disease": "FRDA",
         "NormalMax": 35,
         "PathologicMin": 51,
-        "PathologicRegion": "chr9:71652202-71652220"
+        "PathologicRegion": "9:71652202-71652220"
     },
     {
         "LocusId": "HTT",
         "LocusStructure": "(CAG)*CAACAG(CCG)*",
         "ReferenceRegion": [
-            "chr4:3076603-3076660",
-            "chr4:3076666-3076693"
+            "4:3076603-3076660",
+            "4:3076666-3076693"
         ],
         "VariantType": [
             "Repeat",
@@ -287,13 +287,13 @@
         "Disease": "Huntington",
         "NormalMax": 36,
         "PathologicMin": 37,
-        "PathologicRegion": "chr4:3076666-3076693"
+        "PathologicRegion": "4:3076666-3076693"
     },
     {
         "VariantType": "Repeat",
         "LocusId": "JPH3",
         "LocusStructure": "(CTG)*",
-        "ReferenceRegion": "chr16:87637893-87637935",
+        "ReferenceRegion": "16:87637893-87637935",
         "Disease": "HDL2",
         "NormalMax": 28,
         "PathologicMin": 40
@@ -302,8 +302,8 @@
         "LocusId": "NOP56",
         "LocusStructure": "(GGCCTG)*(CGCCTG)*",
         "ReferenceRegion": [
-            "chr20:2633379-2633403",
-            "chr20:2633403-2633421"
+            "20:2633379-2633403",
+            "20:2633403-2633421"
         ],
         "VariantType": [
             "Repeat",
@@ -313,7 +313,7 @@
             "NOP56",
             "NOP56_CGCCTG"
         ],
-      "PathologicRegion": "chr20:2633379-2633403",
+      "PathologicRegion": "20:2633379-2633403",
       "Disease": "SCA36",
       "NormalMax": 14,
       "PathologicMin": 650
@@ -322,7 +322,7 @@
         "VariantType": "Repeat",
         "LocusId": "PPP2R2B",
         "LocusStructure": "(GCT)*",
-        "ReferenceRegion": "chr5:146258290-146258320",
+        "ReferenceRegion": "5:146258290-146258320",
         "Disease": "SCA12",
         "NormalMax": 35,
         "PathologicMin": 49
@@ -331,7 +331,7 @@
         "VariantType": "Repeat",
         "LocusId": "TBP",
         "LocusStructure": "(GCA)*",
-        "ReferenceRegion": "chr6:170870994-170871105",
+        "ReferenceRegion": "6:170870994-170871105",
         "Disease": "SCA17",
         "NormalMax": 44,
         "PathologicMin": 49
@@ -340,46 +340,56 @@
         "VariantType": "Repeat",
         "LocusId": "TCF4",
         "LocusStructure": "(CAG)*",
-        "ReferenceRegion": "chr18:53253386-53253458",
+        "ReferenceRegion": "18:53253386-53253458",
         "NormalMax": 149,
         "PathologicMin": 150
     },
     {
         "VariantType": "Repeat",
-        "LocusId": "PABPN1",
-        "LocusStructure": "(GCG)*",
-        "ReferenceRegion": "chr14:23790681-23790699",
-        "Disease": "OPMD",
-        "NormalMax": 6,
-        "PathologicMin": 9
+        "LocusId": "NIPA1",
+        "LocusStructure": "(CGC)*",
+        "ReferenceRegion": "15:23086366-23086390",
+        "Disease": "ALS - susceptibility to",
+        "NormalMax": 8,
+        "PathologicMin": 10000
+    },
+    {
+      "VariantType": "Repeat",
+      "LocusId": "GLS",
+      "LocusStructure": "(GGA)*",
+      "ReferenceRegion": "2:191745599-191745646",
+      "Disease": "GDPAG",
+      "NormalMax": 20,
+      "PathologicMin": 90
     },
     {
       "VariantType": "Repeat",
       "LocusId": "RFC1",
       "LocusStructure": "(AARRG)*",
-      "ReferenceRegion": "chr4:39350044-39350096",
+      "ReferenceRegion": "4:39350044-39350099",
       "Disease": "CANVAS",
       "NormalMax": 10,
+      "NormalMax": 15,
       "PathologicMin": 14
     },
     {
-      "VariantType": "Repeat",
-      "LocusId": "GLS",
-      "LocusStructure": "(CAG)*CAC",
-      "ReferenceRegion": "chr2:191745599-191745644",
-      "Disease": "GDPAG",
-      "NormalMax": 20,
-      "PathologicMin": 90
+        "VariantType": "Repeat",
+        "LocusId": "PABPN1",
+        "LocusStructure": "(GCG)*",
+        "ReferenceRegion": "14:23790681-23790699",
+        "Disease": "OPMD",
+        "NormalMax": 6,
+        "PathologicMin": 9
     },
     {
       "LocusId": "POLG",
       "LocusStructure": "(CTG)*TTG(CTG)*",
       "VariantType": ["Repeat","Repeat"],
       "VariantId": ["POLG_I", "POLG_II"],
-      "ReferenceRegion": ["chr15:89876820-89876826",
-                          "chr15:89876829-89876859"],
+      "ReferenceRegion": ["15:89876820-89876826",
+                          "15:89876829-89876859"],
       "NormalMax": 15,
       "PathologicMin": 10000,
-      "PathologicRegion": "chr15:89876829-89876859"
+      "PathologicRegion": "15:89876829-89876859"
     }
 ]
