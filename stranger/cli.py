@@ -104,7 +104,7 @@ def cli(context, vcf, repeats_file, loglevel):
         if repeat_data:
             variant_info['info_dict']['STR_STATUS'] = repeat_data['repeat_strings']
             variant_info['info_dict']['STR_NORMAL_MAX'] = str(repeat_data['lower'])
-            variant_info['info_dict']['STR_PATHOLOGIC_MIN'] = str(repeat_data['upper']
+            variant_info['info_dict']['STR_PATHOLOGIC_MIN'] = str(repeat_data['upper'])
             variant_info['info_dict']['RankScore'] = str(repeat_data['rank_score'])
 
         click.echo(get_variant_line(variant_info, header_info))

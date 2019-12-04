@@ -4,7 +4,7 @@ import yaml
 
 from pprint import pprint as pp
 
-import .constants
+import stranger.constants
 
 NUM = re.compile(r'\d+')
 
@@ -151,11 +151,11 @@ def get_repeat_info(variant_info, repeat_info):
         repeat_number = repeat_res[0]
         if repeat_number <= rep_lower:
             repeat_strings.append('normal')
-            if rank_score < RANK_SCORE['normal']
+            if rank_score < RANK_SCORE['normal']:
                 rank_score = RANK_SCORE['normal']
         elif repeat_number <= rep_upper:
             repeat_strings.append('pre_mutation')
-            if rank_score < RANK_SCORE['pre_mutation']
+            if rank_score < RANK_SCORE['pre_mutation']:
                 rank_score = RANK_SCORE['pre_mutation']
         else:
             repeat_strings.append('full_mutation')
