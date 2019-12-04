@@ -4,7 +4,7 @@ import yaml
 
 from pprint import pprint as pp
 
-import stranger.constants
+from stranger.constants import RANK_SCORE
 
 NUM = re.compile(r'\d+')
 

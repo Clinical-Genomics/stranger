@@ -1,3 +1,4 @@
+import os
 import pytest
 
 from stranger.resources import repeats_path
@@ -9,7 +10,6 @@ def vcf_path():
 @pytest.fixture()
 def vcf_zipped_path():
     return 'tests/fixtures/643594.clinical.str.vcf.gz'
-
 
 @pytest.fixture()
 def repeats_file_handle():
