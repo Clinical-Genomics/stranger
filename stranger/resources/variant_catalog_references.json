@@ -1,0 +1,303 @@
+[
+    {
+        "LocusId": "AFF2",
+        "LocusStructure": "(GCC)*",
+        "VariantType": "Repeat",
+        "Disease": "Fraxe",
+        "NormalMax": 40,
+        "PathologicMin": 200
+    },
+    {
+        "LocusId": "AR",
+        "LocusStructure": "(GCA)*",
+        "VariantType": "Repeat",
+        "Disease": "SBMA",
+        "NormalMax": 35,
+        "PathologicMin": 38
+    },
+    {
+        "LocusId": "ATN1",
+        "LocusStructure": "(CAG)*",
+        "VariantType": "Repeat",
+        "Disease": "DRPLA",
+        "NormalMax": 34,
+        "PathologicMin": 49
+    },
+    {
+        "LocusId": "ATXN10",
+        "LocusStructure": "(ATTCT)*",
+        "VariantType": "Repeat",
+        "Disease": "SCA10",
+        "NormalMax": 32,
+        "PathologicMin": 800
+    },
+    {
+        "LocusId": "ATXN1",
+        "LocusStructure": "(TGC)*",
+        "VariantType": "Repeat",
+        "Disease": "SCA1",
+        "NormalMax": 35,
+        "PathologicMin": 45
+    },
+    {
+        "LocusId": "ATXN2",
+        "LocusStructure": "(GCT)*",
+        "VariantType": "Repeat",
+        "Disease": "SCA2",
+        "NormalMax": 31,
+        "PathologicMin": 39
+    },
+    {
+        "LocusId": "ATXN3",
+        "LocusStructure": "(GCT)*",
+        "VariantType": "Repeat",
+        "Disease": "SCA3",
+        "NormalMax": 44,
+        "PathologicMin": 60
+    },
+    {
+        "LocusId": "PHOX2B",
+        "LocusStructure": "(GCN)*",
+        "VariantType": "Repeat",
+        "NormalMax": 60,
+        "PathologicMin": 72,
+        "Disease": "CCHS"
+    },
+    {
+        "LocusId": "ATXN7",
+        "LocusStructure": "(GCA)*(GCC)+",
+        ],
+        "VariantId": [
+            "ATXN7",
+            "ATXN7_GCC"
+        ],
+        "VariantType": [
+            "Repeat",
+            "Repeat"
+        ],
+        "Disease": "SCA7",
+        "NormalMax": 19,
+        "PathologicMin": 37,
+    },
+    {
+        "LocusId": "ATXN8OS",
+        "LocusStructure": "(CTA)*(CTG)*",
+        ],
+        "VariantId": [
+            "ATXN8OS_CTA",
+            "ATXN8OS"
+        ],
+        "VariantType": [
+            "Repeat",
+            "Repeat"
+        ],
+        "Disease": "SCA8",
+        "NormalMax": 50,
+        "PathologicMin": 80,
+    },
+    {
+        "LocusId": "C9ORF72",
+        "LocusStructure": "(GGCCCC)*",
+        ],
+        "VariantType": "RareRepeat",
+        "Disease": "FTDALS1",
+        "NormalMax": 25,
+        "PathologicMin": 40
+    },
+    {
+        "LocusId": "CACNA1A",
+        "LocusStructure": "(CTG)*",
+        "VariantType": "Repeat",
+        "Disease": "SCA6",
+        "NormalMax": 18,
+        "PathologicMin": 20
+    },
+    {
+        "LocusId": "CBL",
+        "LocusStructure": "(CGG)*",
+        "VariantType": "Repeat",
+        "Disease": "FRAX11B",
+        "NormalMax": 79,
+        "PathologicMin": 100
+    },
+    {
+        "LocusId": "CNBP",
+        "LocusStructure": "(CAGG)*(CAGA)*(CA)*",
+        ],
+        "VariantId": [
+            "CNBP",
+            "CNBP_CAGA",
+            "CNBP_CA"
+        ],
+        "VariantType": [
+            "Repeat",
+            "Repeat",
+            "Repeat"
+        ],
+        "Disease": "DM2",
+        "NormalMax": 30,
+        "PathologicMin": 75
+    },
+    {
+        "LocusId": "CSTB",
+        "LocusStructure": "(CGCGGGGCGGGG)*",
+        "VariantType": "Repeat",
+        "Disease": "EPM1",
+        "NormalMax": 3,
+        "PathologicMin": 30
+    },
+    {
+        "LocusId": "DIP2B",
+        "LocusStructure": "(GGC)*",
+        "VariantType": "Repeat",
+        "NormalMax": 24,
+        "PathologicMin": 270,
+        "Disease": "FRA12A"
+    },
+    {
+        "LocusId": "DMPK",
+        "LocusStructure": "(CAG)*",
+        "VariantType": "Repeat",
+        "Disease": "DM1",
+        "NormalMax": 37,
+        "PathologicMin": 50
+    },
+    {
+        "LocusId": "FMR1",
+        "LocusStructure": "(CGG)*",
+        ],
+        "VariantType": "RareRepeat",
+        "Disease": "FragileX",
+        "NormalMax": 65,
+        "PathologicMin": 200
+    },
+    {
+        "LocusId": "FXN",
+        "LocusStructure": "(A)*(GAA)*",
+        ],
+        "VariantId": [
+            "FXN_A",
+            "FXN"
+        ],
+        "VariantType": [
+            "Repeat",
+            "Repeat"
+        ],
+        "Disease": "FRDA",
+        "NormalMax": 35,
+        "PathologicMin": 51,
+    },
+    {
+        "LocusId": "HTT",
+        "LocusStructure": "(CAG)*CAACAG(CCG)*",
+        ],
+        "VariantId": [
+            "HTT",
+            "HTT_CCG"
+        ],
+        "VariantType": [
+            "Repeat",
+            "Repeat"
+        ],
+        "Disease": "Huntington",
+        "NormalMax": 36,
+        "PathologicMin": 37,
+    },
+    {
+        "LocusId": "JPH3",
+        "LocusStructure": "(CTG)*",
+        "VariantType": "Repeat",
+        "Disease": "HDL2",
+        "NormalMax": 28,
+        "PathologicMin": 40
+    },
+    {
+        "LocusId": "NOP56",
+        "LocusStructure": "(GGCCTG)*(CGCCTG)*",
+        ],
+        "VariantId": [
+            "NOP56",
+            "NOP56_CGCCTG"
+        ],
+        "VariantType": [
+            "Repeat",
+            "Repeat"
+        ],
+        "Disease": "SCA36",
+        "NormalMax": 14,
+        "PathologicMin": 650
+    },
+    {
+        "LocusId": "PPP2R2B",
+        "LocusStructure": "(GCT)*",
+        "VariantType": "Repeat",
+        "Disease": "SCA12",
+        "NormalMax": 35,
+        "PathologicMin": 49
+    },
+    {
+        "LocusId": "TBP",
+        "LocusStructure": "(GCA)*",
+        "VariantType": "Repeat",
+        "Disease": "SCA17",
+        "NormalMax": 44,
+        "PathologicMin": 49
+    },
+    {
+        "LocusId": "TCF4",
+        "LocusStructure": "(CAG)*",
+        "VariantType": "Repeat",
+        "NormalMax": 149,
+        "PathologicMin": 150,
+        "Disease": "FECD3"
+    },
+    {
+        "VariantType": "Repeat",
+        "LocusId": "NIPA1",
+        "LocusStructure": "(GCG)*",
+        "Disease": "ALS - susceptibility to",
+        "NormalMax": 8,
+        "PathologicMin": 10000,
+        "References": [{'PMID': 30342764}]
+    },
+    {
+        "LocusId": "NOTCH2NLC",
+        "LocusStructure": "(GGC)*",
+        "VariantType": "Repeat",
+        "Disease": "NIID",
+        "NormalMax": 30,
+        "PathologicMin": 71
+    },
+    {
+      "VariantType": "Repeat",
+      "LocusId": "GLS",
+      "LocusStructure": "(CAG)*CAC",
+      "Disease": "GDPAG",
+      "NormalMax": 20,
+      "PathologicMin": 90
+    },
+    {
+      "VariantType": "Repeat",
+      "LocusId": "RFC1",
+      "LocusStructure": "(AARRG)*",
+      "Disease": "CANVAS",
+      "NormalMax": 10,
+      "PathologicMin": 14
+    },
+    {
+      "VariantType": "Repeat",
+      "LocusId": "PABPN1",
+      "LocusStructure": "(GCG)*",
+      "Disease": "OPMD",
+      "NormalMax": 6,
+      "PathologicMin": 9
+    },
+    {
+      "VariantType": ["Repeat","Repeat"],
+      "LocusId": "POLG",
+      "VariantId": ["POLG_I", "POLG_II"],
+      "LocusStructure": "(CTG)*TTG(CTG)*",
+      "NormalMax": 15,
+      "PathologicMin": 10000,
+    }
+]
