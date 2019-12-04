@@ -63,6 +63,10 @@ def cli(context, vcf, repeats_file, loglevel):
         {
             'id': 'STR_PATHOLOGIC_MIN', 'num': '1', 'type': 'Integer',
             'desc': 'Min number of repeats required to call as pathologic'
+        },
+        {
+            'id': 'RankScore', 'num': '1', 'type': 'Integer',
+            'desc': 'Min number of repeats required to call as pathologic'
         }
     ]
 
@@ -71,7 +75,7 @@ def cli(context, vcf, repeats_file, loglevel):
         header = '##INFO=<ID={0},Number={1},Type={2},Description="{3}">'.format(
             hdef.get('id'), hdef.get('num'), hdef.get('type'), hdef.get('desc'))
         stranger_headers.append(header)
-            
+
 
     if vcf.endswith('.gz'):
         LOG.info("Vcf is zipped")
@@ -100,6 +104,7 @@ def cli(context, vcf, repeats_file, loglevel):
         if repeat_data:
             variant_info['info_dict']['STR_STATUS'] = repeat_data['repeat_strings']
             variant_info['info_dict']['STR_NORMAL_MAX'] = str(repeat_data['lower'])
-            variant_info['info_dict']['STR_PATHOLOGIC_MIN'] = str(repeat_data['upper'])
+            variant_info['info_dict']['STR_PATHOLOGIC_MIN'] = str(repeat_data['upper']
+            variant_info['info_dict']['RankScore'] = str(repeat_data['rank_score'])
 
         click.echo(get_variant_line(variant_info, header_info))

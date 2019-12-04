@@ -4,6 +4,8 @@ import yaml
 
 from pprint import pprint as pp
 
+import .constants
+
 NUM = re.compile(r'\d+')
 
 LOG = logging.getLogger(__name__)
@@ -137,6 +139,7 @@ def get_repeat_info(variant_info, repeat_info):
 
     rep_lower = repeat_info[repeat_id].get('normal_max', -1)
     rep_upper = repeat_info[repeat_id].get('pathologic_min', -1)
+    rank_score = 0
     for allele in alleles:
         if allele == '.':
             repeat_res = [0]
@@ -148,12 +151,18 @@ def get_repeat_info(variant_info, repeat_info):
         repeat_number = repeat_res[0]
         if repeat_number <= rep_lower:
             repeat_strings.append('normal')
+            if rank_score < RANK_SCORE['normal']
+                rank_score = RANK_SCORE['normal']
         elif repeat_number <= rep_upper:
             repeat_strings.append('pre_mutation')
+            if rank_score < RANK_SCORE['pre_mutation']
+                rank_score = RANK_SCORE['pre_mutation']
         else:
             repeat_strings.append('full_mutation')
+            rank_score = RANK_SCORE['full_mutation']
 
-    return dict(repeat_strings=','.join(repeat_strings), lower=rep_lower, upper=rep_upper)
+    return dict(repeat_strings=','.join(repeat_strings), lower=rep_lower,
+                upper=rep_upper, rank_score=rank_score)
 
 def get_info_dict(info_string):
     """Convert a info string to a dictionary
