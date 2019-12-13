@@ -62,7 +62,7 @@ There is a repeat definitions file that comes with Stranger in `stranger/resourc
 | 14203 | JPH3 | JPH3 | CTG | 28 | 40 | HDL2 |
 | 644 | AR | AR | CAG | 35 | 38 | SBMA |
 
-The file is structured like a SCOUT (https://github.com/Clinical-Genomics/scout) gene panel, with STR specific columns.
+The file is structured like a [Scout](https://github.com/Clinical-Genomics/scout) gene panel, with STR specific columns.
 
 | Column | Content |
 | ------- | ------- |
@@ -99,6 +99,15 @@ It is also possible to use an ExpansionHunter variant catalog json file with cor
         "PathologicMin": 9
     }
 ]
+```
+
+## Output
+
+Output is by annotated VCF, with keys `STR_STATUS`, `NormalMax` and `PathologicMin`.
+
+```
+##INFO=<ID=STR_STATUS,Number=A,Type=String,Description="Repeat expansion status. Alternatives in [normal, pre_mutation, full_mutation]">
+4       3076603 .       C       <STR17>,<STR18> .       PASS    END=3076660;REF=19;RL=57;RU=CAG;VARID=HTT;REPID=HTT;STR_STATUS=normal,normal 
 ```
 
 [hunter]: https://github.com/Illumina/ExpansionHunter
