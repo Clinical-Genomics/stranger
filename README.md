@@ -19,9 +19,8 @@ Usage: stranger [OPTIONS] VCF
 
 Options:
   -f, --repeats-file PATH         Path to a file with repeat definitions. See
-                                  README for explanation  [default: /Users/man
-                                  smagnusson/Projects/stranger/stranger/resour
-                                  ces/repeatexpansionsloci.tsv]
+                                  README for explanation  [default: $HOME/stranger
+                                  /stranger/resources/variant_catalog_grch37.json]
   --version
   --loglevel [DEBUG|INFO|WARNING|ERROR|CRITICAL]
                                   Set the level of log output.  [default:
@@ -63,7 +62,7 @@ There is a repeat definitions file that comes with Stranger in `stranger/resourc
 | 14203 | JPH3 | JPH3 | CTG | 28 | 40 | HDL2 |
 | 644 | AR | AR | CAG | 35 | 38 | SBMA |
 
-The file is structured like a SCOUT gene panel, with STR specific columns.
+The file is structured like a SCOUT (https://github.com/Clinical-Genomics/scout) gene panel, with STR specific columns.
 
 | Column | Content |
 | ------- | ------- |
@@ -78,6 +77,29 @@ The file is structured like a SCOUT gene panel, with STR specific columns.
 As a default the file that follows the distribution is used but the users can create their own file.
 Header line(s) should be preceded with a `#`. 
 
+It is also possible to use an ExpansionHunter variant catalog json file with corresponding keys added. E.g.
+```
+[
+    {
+        "VariantType": "Repeat",
+        "LocusId": "ATXN2",
+        "LocusStructure": "(GCT)*",
+        "ReferenceRegion": "chr12:112036753-112036822",
+        "Disease": "SCA2",
+        "NormalMax": 31,
+        "PathologicMin": 39
+    },
+    {
+        "VariantType": "Repeat",
+        "LocusId": "PABPN1",
+        "LocusStructure": "(GCG)*",
+        "ReferenceRegion": "chr14:23790681-23790699",
+        "Disease": "OPMD",
+        "NormalMax": 6,
+        "PathologicMin": 9
+    }
+]
+```
 
 [hunter]: https://github.com/Illumina/ExpansionHunter
 
