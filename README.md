@@ -1,4 +1,5 @@
-# Stranger [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![PyPI Version][pypi-img]][pypi-url]
+# Stranger [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![PyPI Version][pypi-img]][pypi-url][![DOI][doi-image]][doi-url]
+
 Annotates output files from [ExpansionHunter][hunter] with the pathologic implications of the repeat sizes.
 
 ## Installation
@@ -118,4 +119,5 @@ Output is by annotated VCF, with keys `STR_STATUS`, `NormalMax` and `PathologicM
 [pypi-url]: https://pypi.python.org/pypi/stranger/
 [coveralls-url]: https://coveralls.io/github/moonso/stranger
 [coveralls-image]: https://coveralls.io/repos/github/moonso/stranger/badge.svg?branch=master
-
+[doi-image]: https://zenodo.org/badge/158848858.svg
+[doi-url]: https://zenodo.org/badge/latestdoi/158848858
