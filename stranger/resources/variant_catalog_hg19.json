@@ -341,8 +341,8 @@
         "LocusId": "TCF4",
         "LocusStructure": "(CAG)*",
         "ReferenceRegion": "chr18:53253386-53253458",
-        "NormalMax": 149,
-        "PathologicMin": 150
+        "NormalMax": 39,
+        "PathologicMin": 100
     },
     {
         "VariantType": "Repeat",
@@ -356,8 +356,8 @@
     {
       "VariantType": "Repeat",
       "LocusId": "GLS",
-      "LocusStructure": "(GGA)*",
-      "ReferenceRegion": "chr2:191745599-191745646",
+      "LocusStructure": "(GCA)*",
+      "ReferenceRegion": "chr2:191745598-191745646",
       "Disease": "GDPAG",
       "NormalMax": 20,
       "PathologicMin": 90
@@ -368,18 +368,18 @@
       "LocusStructure": "(AARRG)*",
       "ReferenceRegion": "chr4:39350044-39350099",
       "Disease": "CANVAS",
-      "NormalMax": 10,
-      "NormalMax": 15,
-      "PathologicMin": 14
+      "NormalMax": 11,
+      "PathologicMin": 12
     },
     {
         "VariantType": "Repeat",
         "LocusId": "PABPN1",
-        "LocusStructure": "(GCG)*",
-        "ReferenceRegion": "chr14:23790681-23790699",
+        "LocusStructure": "(GCN)*",
+        "ReferenceRegion": "chr14:23790681-23790711",
         "Disease": "OPMD",
-        "NormalMax": 6,
-        "PathologicMin": 9
+        "NormalMax": 10,
+        "PathologicMin": 12,
+        "Source": "GeneReviews Internet 2014-02-20"
     },
     {
       "LocusId": "POLG",

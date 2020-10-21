@@ -247,8 +247,8 @@
         "LocusId": "TCF4",
         "LocusStructure": "(CAG)*",
         "VariantType": "Repeat",
-        "NormalMax": 149,
-        "PathologicMin": 150,
+        "NormalMax": 39,
+        "PathologicMin": 100,
         "Disease": "FECD3"
     },
     {
@@ -287,10 +287,11 @@
     {
       "VariantType": "Repeat",
       "LocusId": "PABPN1",
-      "LocusStructure": "(GCG)*",
+      "LocusStructure": "(GCN)*",
       "Disease": "OPMD",
-      "NormalMax": 6,
-      "PathologicMin": 9
+      "NormalMax": 10,
+      "PathologicMin": 12,
+      "Source": "GeneReviews Internet 2014-02-20"
     },
     {
       "VariantType": ["Repeat","Repeat"],
