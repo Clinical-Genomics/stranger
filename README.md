@@ -34,7 +34,8 @@ Options:
 ## Repeat definitions
 
 The repeats are called with Expansion Hunter as mentioned earlier. Expansion Hunter will annotate the number of times that a repeat has been seen in the bam files of each individual and what repeat id the variant has.
-Stranger will annotate the level of pathogenecity for the repeat number. The intervals that comes with the package are manually collected from the literature since there is no source where this information can be collected.
+Stranger will annotate the level of pathogenecity for the repeat number. The intervals that comes with the package are manually collected from the literature since there is no single source where this information can be collected.
+
 There is a repeat definitions file that comes with Stranger in `stranger/resources/repeatexpansionsloci.tsv`. This is a tsv formated file on the following format:
 
 | hgnc_id | hgnc_symbol | repid | ru | normal_max | pathologic_min | disease |
@@ -65,18 +66,24 @@ There is a repeat definitions file that comes with Stranger in `stranger/resourc
 
 The file is structured like a [Scout](https://github.com/Clinical-Genomics/scout) gene panel, with STR specific columns.
 
-| Column | Content |
+| Column/Key | Content/Value |
 | ------- | ------- |
 | HGNC_ID | HGNC identifier for the repeat or most associated gene. |
 | HGNC_SYMBOL |HGNC symbol for the repeat or most associated gene. |
 | REPID | ExpansionHunter repeat ID. |
 | RU | Basic repeat unit, as seen in ExpansionHunter. Unused. |
-| Normal_Max | (#copies) Longest repeat expected for normal individual; higher are marked pre- or full-mutation | 
+| DisplayRU | Repeat unit, as clinicians are used to see it. |
+| Normal_Max | (#copies) Longest repeat expected for normal individual; higher are marked pre- or full-mutation |
 | Pathologic_Min | (#copies) Shortest repeat expected for pathology. This and higher is annotated as full-mutation. |
 | Disease | Associated disease. |
+| InheritanceMode | Mode of inheritance "AR", "AD", "XR" etc |
+| Source | Reference literature resource type, eg GeneReviews or PubMed |
+| SourceId | PMID or GeneReviews book ID for references|
+
+Other fields accepted by ExpansionHunter are also encouraged.
 
 As a default the file that follows the distribution is used but the users can create their own file.
-Header line(s) should be preceded with a `#`. 
+Header line(s) should be preceded with a `#`.
 
 It is also possible to use an ExpansionHunter variant catalog json file with corresponding keys added. E.g.
 ```
@@ -102,13 +109,15 @@ It is also possible to use an ExpansionHunter variant catalog json file with cor
 ]
 ```
 
+Such files are also provided with the distribution. PRs with updates are much appreciated.
+
 ## Output
 
 Output is by annotated VCF, with keys `STR_STATUS`, `NormalMax` and `PathologicMin`.
 
 ```
 ##INFO=<ID=STR_STATUS,Number=A,Type=String,Description="Repeat expansion status. Alternatives in [normal, pre_mutation, full_mutation]">
-4       3076603 .       C       <STR17>,<STR18> .       PASS    END=3076660;REF=19;RL=57;RU=CAG;VARID=HTT;REPID=HTT;STR_STATUS=normal,normal 
+4       3076603 .       C       <STR17>,<STR18> .       PASS    END=3076660;REF=19;RL=57;RU=CAG;VARID=HTT;REPID=HTT;STR_STATUS=normal,normal
 ```
 
 [hunter]: https://github.com/Illumina/ExpansionHunter

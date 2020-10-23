@@ -597,12 +597,18 @@
     },
     {
         "LocusId": "NOTCH2NLC",
+        "HGNCId": 53924,
+        "InheritanceMode": "AD",
+        "DisplayRU": "CGG",
+        "SourceDisplay": "GeneReviews Internet 2019-11-07",
+        "Source": "GeneReviews",
+        "SourceId": "NBK535148",
         "LocusStructure": "(GGC)*",
         "ReferenceRegion": "chr1:149390802-149390841",
         "VariantType": "Repeat",
         "Disease": "NIID",
-        "NormalMax": 30,
-        "PathologicMin": 71
+        "NormalMax": 38,
+        "PathologicMin": 66
     },
     {
       "VariantType": "Repeat",
