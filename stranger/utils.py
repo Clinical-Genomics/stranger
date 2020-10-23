@@ -4,7 +4,7 @@ import yaml
 
 from pprint import pprint as pp
 
-from stranger.constants import RANK_SCORE
+from stranger.constants import RANK_SCORE, ANNOTATE_REPEAT_KEYS
 
 NUM = re.compile(r'\d+')
 
@@ -44,8 +44,6 @@ def parse_tsv(file_handle):
             raise err
         repeat_info[repeat['repid']] = repeat
 
-
-
     return repeat_info
 
 def parse_json(file_handle):
@@ -81,6 +79,10 @@ def parse_json(file_handle):
         # ExHu 3.0 release candidate repids include the pathologic region of interest, but not the final version
         repeat_info[repid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
 
+        for annotated_key in ANNOTATE_REPEAT_KEYS:
+            if repeat_unit.get(annotated_key):
+                repeat_info[repid][annotated_key] = repeat_unit.get(annotated_key)
+
         # From ExHu 3.0 repids include the region of interest.
         try:
             reference_region = repeat_unit['ReferenceRegion']
@@ -98,6 +100,10 @@ def parse_json(file_handle):
 
         # ExHu 3.0 release candidate repids include the pathologic region of interest, but not the final version
         repeat_info[repid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
+
+        for annotated_key in ANNOTATE_REPEAT_KEYS:
+            if repeat_unit.get(annotated_key):
+                repeat_info[repid][annotated_key] = repeat_unit.get(annotated_key)
 
     return repeat_info
 
@@ -180,12 +186,12 @@ def get_info_dict(info_string):
         return info_dict
 
     for annotation in info_string.split(';'):
-        splitted_annotation = annotation.split('=')
-        key = splitted_annotation[0]
-        if len(splitted_annotation) == 1:
+        split_annotation = annotation.split('=')
+        key = split_annotation[0]
+        if len(split_annotation) == 1:
             info_dict[key] = None
             continue
-        value = splitted_annotation[1]
+        value = split_annotation[1]
         info_dict[key] = value
 
     return info_dict

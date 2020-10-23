@@ -146,7 +146,6 @@
         "NormalMax": 44,
         "PathologicMin": 60
     },
-
     {
         "VariantType": "Repeat",
         "LocusId": "ATXN7",
@@ -362,7 +361,7 @@
         "ReferenceRegion": [
             "1:57832716-57832725",
             "1:57832726-57832780",
-            "1:57832781-57832790",
+            "1:57832781-57832790"
         ],
         "VariantType": [
             "Repeat",
@@ -426,15 +425,15 @@
         "LocusStructure": "(CCTCGCTGCGCCGCTGCCGA)*(CCTCGCTGTGCCGCTGCCGA)*",
         "ReferenceRegion": [
             "17:78120821-78120840",
-            "17:78120841-78120938",
+            "17:78120841-78120938"
           ],
         "VariantType": [
             "Repeat",
-            "Repeat",
+            "Repeat"
         ],
         "VariantId": [
             "EIF4A3",
-            "EIF4A3_CACA20",
+            "EIF4A3_CACA20"
         ],
         "PathologicRegion": "17:78120821-78120840",
         "NormalMax": 9,
@@ -535,7 +534,7 @@
         "ReferenceRegion": "7:27239544-27239585",
         "Disease": "HFGS",
         "NormalMax": 14,
-        "PathologicMin": 22,
+        "PathologicMin": 22
     },
     {
         "VariantType": "Repeat",
@@ -550,7 +549,7 @@
         "ReferenceRegion": "7:27239445-27239480",
         "Disease": "HFGS",
         "NormalMax": 12,
-        "PathologicMin": 18,
+        "PathologicMin": 18
     },
     {
         "VariantType": "Repeat",
@@ -565,7 +564,7 @@
         "ReferenceRegion": "7:27239298-27239351",
         "Disease": "HFGS",
         "NormalMax": 18,
-        "PathologicMin": 24,
+        "PathologicMin": 24
     },
     {
         "VariantType": "Repeat",
@@ -580,7 +579,7 @@
         "ReferenceRegion": "2:176957787-176957831",
         "Disease": "SDTY5",
         "NormalMax": 15,
-        "PathologicMin": 22,
+        "PathologicMin": 22
     },
     {
         "LocusId": "HTT",
@@ -640,7 +639,7 @@
         "ReferenceRegion": "8:105601188-10560227",
         "Disease": "OPDM1",
         "NormalMax": 45,
-        "PathologicMin": 90,
+        "PathologicMin": 90
     },
     {
         "VariantType": "Repeat",
@@ -655,7 +654,7 @@
         "ReferenceRegion": "19:14606854-14606886",
         "Disease": "OPDM2",
         "NormalMax": 32,
-        "PathologicMin": 73,
+        "PathologicMin": 73
     },
     {
         "LocusId": "NOP56",
@@ -755,7 +754,7 @@
             "Repeat"
         ],
         "VariantId": [
-            "RAPGEF2_TTTTA_5P"
+            "RAPGEF2_TTTTA_5P",
             "RAPGEF2",
             "RAPGEF2_TTTTA_3P"
         ],
@@ -785,7 +784,7 @@
             "Repeat"
         ],
         "VariantId": [
-            "SAMD12_TTTTA_5P"
+            "SAMD12_TTTTA_5P",
             "SAMD12",
             "SAMD12_TTTTA_3P"
         ],
@@ -804,7 +803,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(GCN)*",
-        "ReferenceRegion": 6:45390488-45390538",
+        "ReferenceRegion": "6:45390488-45390538",
         "Disease": "CCD",
         "NormalMax": 17,
         "PathologicMin": 20
@@ -892,7 +891,7 @@
             "Repeat"
         ],
         "VariantId": [
-            "TNRC6A_TTTTA_5P"
+            "TNRC6A_TTTTA_5P",
             "TNRC6A",
             "TNRC6A_TTTTA_3P"
         ],
@@ -962,51 +961,51 @@
         "PathologicMin": 10000
     },
     {
-      "VariantType": "Repeat",
-      "LocusId": "GLS",
-      "HGNCId": 4331,
-      "InheritanceMode": "AR",
-      "DisplayRU": "GCA",
-      "SourceDisplay": "van Kuilenburg et al (2019) NEJM 380:1433-1441",
-      "Source": "PubMed",
-      "SourceId": "30970188",
-      "SweGenMean": 12.66,
-      "SweGenStd": 4.000,
-      "LocusStructure": "(GCA)*",
-      "ReferenceRegion": "2:191745599-191745646",
-      "Disease": "GDPAG",
-      "NormalMax": 20,
-      "PathologicMin": 90
+        "VariantType": "Repeat",
+        "LocusId": "GLS",
+        "HGNCId": 4331,
+        "InheritanceMode": "AR",
+        "DisplayRU": "GCA",
+        "SourceDisplay": "van Kuilenburg et al (2019) NEJM 380:1433-1441",
+        "Source": "PubMed",
+        "SourceId": "30970188",
+        "SweGenMean": 12.66,
+        "SweGenStd": 4.000,
+        "LocusStructure": "(GCA)*",
+        "ReferenceRegion": "2:191745599-191745646",
+        "Disease": "GDPAG",
+        "NormalMax": 20,
+        "PathologicMin": 90
     },
     {
-      "VariantType": "Repeat",
-      "LocusId": "RFC1",
-      "HGNCId": 9969,
-      "InheritanceMode": "AR",
-      "DisplayRU": "AARRG",
-      "SourceDisplay": "Cortese et al 2019 Nat Gen PMID: 30926972",
-      "Source": "PubMed",
-      "SourceId": "30926972",
-      "SweGenMean": 26.77,
-      "SweGenStd": 18.68,
-      "LocusStructure": "(AARRG)*",
-      "ReferenceRegion": "4:39350045-39350099",
-      "Disease": "CANVAS",
-      "NormalMax": 11,
-      "PathologicMin": 12,
+        "VariantType": "Repeat",
+        "LocusId": "RFC1",
+        "HGNCId": 9969,
+        "InheritanceMode": "AR",
+        "DisplayRU": "AARRG",
+        "SourceDisplay": "Cortese et al 2019 Nat Gen PMID: 30926972",
+        "Source": "PubMed",
+        "SourceId": "30926972",
+        "SweGenMean": 26.77,
+        "SweGenStd": 18.68,
+        "LocusStructure": "(AARRG)*",
+        "ReferenceRegion": "4:39350045-39350099",
+        "Disease": "CANVAS",
+        "NormalMax": 11,
+        "PathologicMin": 12
     },
     {
-      "LocusId": "POLG",
-      "HGNCId": 9179,
-      "DisplayRU": "CTG",
-      "SourceDisplay": "Research only. Contact CMMS, KUH, regarding findings.",
-      "LocusStructure": "(CTG)*TTG(CTG)*",
-      "VariantType": ["Repeat","Repeat"],
-      "VariantId": ["POLG_I", "POLG_II"],
-      "ReferenceRegion": ["15:89876820-89876826",
-                          "15:89876829-89876859"],
-      "NormalMax": 15,
-      "PathologicMin": 10000,
-      "PathologicRegion": "15:89876829-89876859"
+        "LocusId": "POLG",
+        "HGNCId": 9179,
+        "DisplayRU": "CTG",
+        "SourceDisplay": "Research only. Contact CMMS, KUH, regarding findings.",
+        "LocusStructure": "(CTG)*TTG(CTG)*",
+        "VariantType": ["Repeat","Repeat"],
+        "VariantId": ["POLG_I", "POLG_II"],
+        "ReferenceRegion": ["15:89876820-89876826",
+                            "15:89876829-89876859"],
+        "NormalMax": 15,
+        "PathologicMin": 10000,
+        "PathologicRegion": "15:89876829-89876859"
     }
 ]

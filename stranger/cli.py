@@ -9,6 +9,7 @@ from codecs import (open, getreader)
 from stranger.resources import repeats_json_path
 from stranger.utils import (parse_repeat_file, get_repeat_info, get_info_dict, get_variant_line)
 from stranger.vcf_utils import print_headers
+from stranger.constants import ANNOTATE_REPEAT_KEYS
 from stranger.__version__ import __version__
 
 LOG = logging.getLogger(__name__)
@@ -65,9 +66,45 @@ def cli(context, vcf, repeats_file, loglevel):
             'desc': 'Min number of repeats required to call as pathologic'
         },
         {
+            'id': 'SourceDisplay', 'num': '1', 'type': 'String',
+            'desc': 'Source for variant definition, display'
+        },
+        {
+            'id': 'Source', 'num': '1', 'type': 'String',
+            'desc': 'Source collection for variant definition'
+        },
+        {
+            'id': 'SourceId', 'num': '1', 'type': 'String',
+            'desc': 'Source id for variant definition'
+        },
+        {
+            'id': 'SweGenMean', 'num': '1', 'type': 'Float',
+            'desc': 'Average number of repeat unit copies in population'
+        },
+        {
+            'id': 'SweGenStd', 'num': '1', 'type': 'Float',
+            'desc': 'Standard deviation of number of repeat unit copies in population'
+        },
+        {
+            'id': 'DisplayRU', 'num': '1', 'type': 'String',
+            'desc': 'Display repeat unit familiar to clinician'
+        },
+        {
+            'id': 'InheritanceMode', 'num': '1', 'type': 'String',
+            'desc': 'Main mode of inheritance for disorder'
+        },
+        {
+            'id': 'HGNCId', 'num': '1', 'type': 'Integer',
+            'desc': 'HGNC gene id for associated disease gene'
+        },
+        {
             'id': 'RankScore', 'num': '1', 'type': 'Integer',
             'desc': 'Min number of repeats required to call as pathologic'
-        }
+        },
+        {
+            'id': 'Disease', 'num': '1', 'type': 'String',
+            'desc': 'Associated disorder'
+        },
     ]
 
     stranger_headers = []
@@ -106,5 +143,8 @@ def cli(context, vcf, repeats_file, loglevel):
             variant_info['info_dict']['STR_NORMAL_MAX'] = str(repeat_data['lower'])
             variant_info['info_dict']['STR_PATHOLOGIC_MIN'] = str(repeat_data['upper'])
             variant_info['info_dict']['RankScore'] = str(repeat_data['rank_score'])
+            for annotate_repeat_key in ANNOTATE_REPEAT_KEYS:
+                if repeat_data.get(annotate_repeat_key):
+                    variant_info['info_dict'][annotate_repeat_key] = str(repeat_data[annotate_repeat_key])
 
         click.echo(get_variant_line(variant_info, header_info))
