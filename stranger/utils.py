@@ -79,6 +79,8 @@ def parse_json(file_handle):
         # ExHu 3.0 release candidate repids include the pathologic region of interest, but not the final version
         repeat_info[repid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
 
+        LOG.debug("Parse json for repid {} (ri {}): ru {}".format(repid, repeat_info, repeat_unit))
+        
         for annotated_key in ANNOTATE_REPEAT_KEYS:
             if repeat_unit.get(annotated_key):
                 repeat_info[repid][annotated_key] = repeat_unit.get(annotated_key)
@@ -100,6 +102,8 @@ def parse_json(file_handle):
 
         # ExHu 3.0 release candidate repids include the pathologic region of interest, but not the final version
         repeat_info[repid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
+
+        LOG.debug("Again, parse json for repid {} (ri {}): ru {}".format(repid, repeat_info, repeat_unit))
 
         for annotated_key in ANNOTATE_REPEAT_KEYS:
             if repeat_unit.get(annotated_key):

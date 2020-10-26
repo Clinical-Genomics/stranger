@@ -38,31 +38,54 @@ Stranger will annotate the level of pathogenecity for the repeat number. The int
 
 There is a repeat definitions file that comes with Stranger in `stranger/resources/repeatexpansionsloci.tsv`. This is a tsv formated file on the following format:
 
-| hgnc_id | hgnc_symbol | repid | ru | normal_max | pathologic_min | disease |
-| ------- | ------- | ------- | ------- | ------- | ------- | ------- |
-| 10548 | ATXN1 | ATXN1 | CAG | 35 | 45 | SCA1 |
-| 10555 | ATXN2 | ATXN2 | CAG | 31 | 39 | SCA2 |
-| 7106 | ATXN3 | ATXN3 | CAG | 44 | 60 | SCA3 |
-| 1388 | CACNA1A | CACNA1A | CAG | 18 | 20 | SCA6 |
-| 10560 | ATXN7 | ATXN7 | CAG | 19 | 37 | SCA7 |
-| 10561 | ATXN8OS | ATXN8OS | CAG | 50 | 80 | SCA8 |
-| 10549 | ATXN10 | ATXN10 | ATTCT | 32 | 800 | SCA10 |
-| 9305 | PPP2R2B | PPP2R2B | CAG | 35 | 49 | SCA12 |
-| 11588 | TBP | TBP | CAG | 31 | 49 | SCA17 |
-| 3951 | FXN | FXN | CAG | 35 | 51 | FRDA |
-| 4851 | HTT | HTT | CCG | 36 | 37 | Huntington |
-| 3775 | FMR1 | FMR1 | CGG | 65 | 200 | FragileX |
-| 3776 | AFF2 | AFF2 | CCG | 25 | 200 | FRAXE |
-| 13164 | CNBP | CNBP | CCTG | 30 | 75 | DM2 |
-| 2933 | DMPK | DMPK | CAG | 37 | 50 | DM1 |
-| 3033 | ATN1 | ATN1 | CAG | 34 | 49 | DRPLA |
-| 15911 | NOP56 | NOP56 | GGCCTG | 14 | 650 | SCA36 |
-| 28337 | C9ORF72 | C9ORF72 | GGCCCC | 25 | 40 | FTDALS1 |
-| 8565 | PABPN1 | PABPN1 | GCG | 6 | 10 | OPMD |
-| 2482 | CSTB | CSTB | CGCGGGGCGGGG | 3 | 30 | EPM1 |
-| 1541 | CBL | CBL | CGG | 79 | 100 | FRAX11B |
-| 14203 | JPH3 | JPH3 | CTG | 28 | 40 | HDL2 |
-| 644 | AR | AR | CAG | 35 | 38 | SBMA |
+| HGNCId | LocusId | DisplayRU | InheritanceMode | normal_max | pathologic_min | Disease | SourceDisplay | SourceId |
+| ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- |
+| 3776 | AFF2 | CCG | XR | 39 | 200 | Fraxe | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 644 | AR | CAG | XR | 34 | 38 | SBMA | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 18060 | ARX_EIEE | GCN | XR | 16 | 17 | EIEE | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 18060 | ARX_PRTS | GCN | XR | 12 | 20 | PRTS | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 3033 | ATN1 | CAG | AD | 35 | 48 | DRPLA | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 10549 | ATXN10 | ATTCT | AD | 32 | 800 | SCA10 | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 10548 | ATXN1 | CAG | AD | 35 | 45 | SCA1 | GeneReviews Internet SCA1 2017-06-22 | NBK1184 |
+| 10555 | ATXN2 | CAG | AD | 31 | 37 | SCA2 | GeneReviews Internet SCA2 2019-02-14 | NBK1275 |
+| 7106 | ATXN3 | CAG | AD | 44 | 60 | MJD | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 10560 | ATXN7 | CAG | AD | 19 | 36 | SCA7 | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 10561 | ATXN8OS | CTG | AD | 50 | 80 | SCA8 | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 28337 | C9ORF72 | GGCCCC | AD | 25 | 40 | FTDALS1 | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 1388 | CACNA1A | CAG | AD | 18 | 20 | SCA6 | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 1541 | CBL | CCG | AD | 79 | 100 | FRAX11B | Jones et al Nature 1995 | 7603564 |
+| 1541 | BEAN1 | TGGAA | AD | 10 | 40 | SCA31 | Sato et al AJHG 2009 | 7603564 |
+| 13164 | CNBP | CCTG | AD | 30 | 75 | DM2 | GeneReviews Internet 2020-03-19 | NBK1466 |
+| 2482 | CSTB | CCCCGCCCCGCG | AR | 3 | 30 | EPM1 | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 2482 | DAB1 | ATTTC | AD | 16 | 31 | SCA37 | GeneReviews Internet 2019-05-30 | NBK541729 |
+| 29284 | DIP2B | CGG | AD | 24 | 270 | FRA12A | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 2933 | DMPK | CTG | AD | 34 | 50 | DM1 | GeneReviews Internet 2019-10-03 | NBK1165 |
+| 18683 | EIF4A3 | TCGGCAGCGGCGCAGCGAGG | AR | 9 | 10 | RCPS | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 3775 | FMR1 | CGG | XR | 55 | 200 | FragileX | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 1092 | FOXL2 | GCN | AD | 14 | 15 | BPES | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 3951 | FXN | GAA | AR | 35 | 51 | FRDA | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 5102 | HOXA13_I | GCN | AD | 14 | 22 | HFGS | GeneReviews Internet 2019-08-08 | NBK1423 |
+| 5102 | HOXA13_II | GCN | AD | 12 | 18 | HFGS | GeneReviews Internet 2019-08-08 | NBK1423 |
+| 5102 | HOXA13_III | GCN | AD | 18 | 24 | HFGS | GeneReviews Internet 2019-08-08 | NBK1423 |
+| 5136 | HOXD13 | GCN | AD | 15 | 22 | SDTY5 | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 4851 | HTT | CAG | AD | 36 | 40 | Huntington | GeneReviews Internet 2020-06-11 | NBK1305 |
+| 14203 | JPH3 | CTG | AD | 28 | 40 | HDL2 | GeneReviews Internet 2019-06-27 | NBK1529 |
+| 31708 | LRP12 | CGN | AD | 45 | 90 | OPDM1 | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 15911 | NOP56 | GGCCTG | AD | 14 | 650 | SCA36 | GeneReviews Internet 2014-08-07 | NBK231880 |
+| 8565 | PABPN1 | GCN | AD | 10 | 12 | OPMD | GeneReviews Internet 2014-02-20 | NBK1126 |
+| 9143 | PHOX2B | GCN | AD | 20 | 25 | CCHS | GeneReviews Internet 2014-01-30 | NBK1427 |
+| 9305 | PPP2R2B | CAG | AD | 32 | 51 | SCA12 | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 16854 | RAPGEF2 | TTTCA | AD | 1 | 10 | FAME7 | Ishiura et al (2018) Nature Genetics 50;581-90 | 29507423 |
+| 31750 | SAMD12 | TTTCA | AD | 1 | 10 | FAME1 | Ishiura et al (2018) Nature Genetics 50;581-90 | 29507423 |
+| 10472 | RUNX2 | GCN | AD | 17 | 20 | CCD | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 11199 | SOX3 | GCN | XR | 15 | 22 | MRGH | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 11588 | TBP | CAN | AD | 40 | 49 | SCA17 | GeneReviews Internet 2019-09-12 | NBK1438 |
+| 11592 | TBX1 | GCN | AD | 15 | 25 | TOF | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 11634 | TCF4 | CTG | AD | 39 | 100 | FECD3 | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 11969 | TNRC6A | TTTCA | AD | 1 | 10 | FAME6 | Ishiura et al (2018) Nature Genetics 50;581-90 | 29507423 |
+| 12873 | ZIC2 | GCN | AD | 15 | 25 | HPE5 | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 12874 | ZIC3 | GCN | XR | 10 | 12 | VACTERLX | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 9179 | POLG | CTG | - | 15 | 10000 | - | Research only. Contact CMMS, KUH, regarding findings. | CMMS |
 
 The file is structured like a [Scout](https://github.com/Clinical-Genomics/scout) gene panel, with STR specific columns.
 
