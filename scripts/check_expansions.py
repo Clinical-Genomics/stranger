@@ -16,32 +16,34 @@ from stranger.utils import parse_repeat_file, get_repeat_info
 )
 @click.pass_context
 def cli(context, repeats_file):
-    """Annotate str variants with str status"""
+    """Table print repeat info"""
 
     repeat_information = {}
     with open(repeats_file, 'r') as file_handle:
-        repeat_information = parse_repeat_file(file_handle)
+        repeat_information = parse_repeat_file(file_handle, repeats_file_type='json')
 
     if not repeat_information:
         LOG.warning("Could not find any repeat info")
         context.abort()
 
-    header = ["hgnc_id", "hgnc_symbol", "repid", "ru", "normal_max","pathologic_min", "disease"]
-    table_line = "| {0} | {1} | {2} | {3} | {4} | {5} | {6} |"
+    header = ["HGNCId", "LocusId", "DisplayRU", "InheritanceMode", "normal_max", "pathologic_min", "Disease", "SourceDisplay", "SourceId"]
+    table_line = "| {0} | {1} | {2} | {3} | {4} | {5} | {6} | {7} | {8} |"
     click.echo(table_line.format(
-        header[0], header[1], header[2], header[3], header[4], header[5], header[6] 
+        header[0], header[1], header[2], header[3], header[4], header[5], header[6], header[7], header[8]
     ))
     click.echo(table_line.format('-------', '-------', '-------', '-------', '-------',
-                                 '-------', '-------' ))
+                                 '-------', '-------', '-------', '-------' ))
     for entry in repeat_information:
         click.echo(table_line.format(
             repeat_information[entry][header[0]],
-            repeat_information[entry][header[1]],
+            entry,
             repeat_information[entry][header[2]],
             repeat_information[entry][header[3]],
             repeat_information[entry][header[4]],
             repeat_information[entry][header[5]],
             repeat_information[entry][header[6]],
+            repeat_information[entry][header[7]],
+            repeat_information[entry][header[8]],
         ))
 
 

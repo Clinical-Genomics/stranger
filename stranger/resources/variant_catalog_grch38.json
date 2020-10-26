@@ -582,8 +582,8 @@
         "LocusStructure": "(CAG)*",
         "ReferenceRegion": "18:55586155-55586227",
         "VariantType": "Repeat",
-        "NormalMax": 149,
-        "PathologicMin": 150,
+        "NormalMax": 39,
+        "PathologicMin": 100,
         "Disease": "FECD3"
     },
     {
@@ -607,8 +607,8 @@
     {
       "VariantType": "Repeat",
       "LocusId": "GLS",
-      "LocusStructure": "(CAG)*CAC",
-      "ReferenceRegion": "2:190880874-190880918",
+      "LocusStructure": "(GCA)*",
+      "ReferenceRegion": "2:190880872-190880920",
       "Disease": "GDPAG",
       "NormalMax": 20,
       "PathologicMin": 90
@@ -619,17 +619,18 @@
       "LocusStructure": "(AARRG)*",
       "ReferenceRegion": "4:39348424-39348485",
       "Disease": "CANVAS",
-      "NormalMax": 10,
-      "PathologicMin": 14
+      "NormalMax": 11,
+      "PathologicMin": 12
     },
     {
       "VariantType": "Repeat",
       "LocusId": "PABPN1",
-      "LocusStructure": "(GCG)*",
-      "ReferenceRegion": "14:23321472-23321490",
+      "LocusStructure": "(GCN)*",
+      "ReferenceRegion": "14:23321472-23321502",
       "Disease": "OPMD",
-      "NormalMax": 6,
-      "PathologicMin": 9
+      "NormalMax": 10,
+      "PathologicMin": 12,
+      "Source": "GeneReviews Internet 2014-02-20"
     },
     {
       "VariantType": ["Repeat","Repeat"],
