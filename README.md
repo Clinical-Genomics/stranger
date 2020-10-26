@@ -64,6 +64,7 @@ There is a repeat definitions file that comes with Stranger in `stranger/resourc
 | 3775 | FMR1 | CGG | XR | 55 | 200 | FragileX | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 1092 | FOXL2 | GCN | AD | 14 | 15 | BPES | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 3951 | FXN | GAA | AR | 35 | 51 | FRDA | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 4331 | GLS | GCA | AR | 20 | 90 | GDPAG | van Kuilenburg et al (2019) NEJM 380:1433-1441 | 30970188 |
 | 5102 | HOXA13_I | GCN | AD | 14 | 22 | HFGS | GeneReviews Internet 2019-08-08 | NBK1423 |
 | 5102 | HOXA13_II | GCN | AD | 12 | 18 | HFGS | GeneReviews Internet 2019-08-08 | NBK1423 |
 | 5102 | HOXA13_III | GCN | AD | 18 | 24 | HFGS | GeneReviews Internet 2019-08-08 | NBK1423 |
@@ -71,11 +72,14 @@ There is a repeat definitions file that comes with Stranger in `stranger/resourc
 | 4851 | HTT | CAG | AD | 36 | 40 | Huntington | GeneReviews Internet 2020-06-11 | NBK1305 |
 | 14203 | JPH3 | CTG | AD | 28 | 40 | HDL2 | GeneReviews Internet 2019-06-27 | NBK1529 |
 | 31708 | LRP12 | CGN | AD | 45 | 90 | OPDM1 | GeneReviews Internet 2019-11-07 | NBK535148 |
+| 1226 | GIPC1 | GGC | AD | 32 | 73 | OPDM2 | Deng et al (2020) AJHG 106(6):793-804 | 32413282 |
+| 17043 | NIPA1 | GCN | AD | 8 | 10000 | ALS - susceptibility to | Tazelaar et al (2019) Neurobiol Aging 74:234.e9-234.e15 | 30342764 |
 | 15911 | NOP56 | GGCCTG | AD | 14 | 650 | SCA36 | GeneReviews Internet 2014-08-07 | NBK231880 |
 | 8565 | PABPN1 | GCN | AD | 10 | 12 | OPMD | GeneReviews Internet 2014-02-20 | NBK1126 |
 | 9143 | PHOX2B | GCN | AD | 20 | 25 | CCHS | GeneReviews Internet 2014-01-30 | NBK1427 |
 | 9305 | PPP2R2B | CAG | AD | 32 | 51 | SCA12 | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 16854 | RAPGEF2 | TTTCA | AD | 1 | 10 | FAME7 | Ishiura et al (2018) Nature Genetics 50;581-90 | 29507423 |
+| 9969 | RFC1 | AARRG | AR | 11 | 12 | CANVAS | Cortese et al 2019 Nat Gen PMID: 30926972 | 30926972 |
 | 31750 | SAMD12 | TTTCA | AD | 1 | 10 | FAME1 | Ishiura et al (2018) Nature Genetics 50;581-90 | 29507423 |
 | 10472 | RUNX2 | GCN | AD | 17 | 20 | CCD | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 11199 | SOX3 | GCN | XR | 15 | 22 | MRGH | GeneReviews Internet 2019-11-07 | NBK535148 |
