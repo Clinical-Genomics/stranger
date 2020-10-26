@@ -79,8 +79,6 @@ def parse_json(file_handle):
         # ExHu 3.0 release candidate repids include the pathologic region of interest, but not the final version
         repeat_info[repid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
 
-        LOG.debug("Parse json for repid {} (ri {}): ru {}".format(repid, repeat_info, repeat_unit))
-        
         for annotated_key in ANNOTATE_REPEAT_KEYS:
             if repeat_unit.get(annotated_key):
                 repeat_info[repid][annotated_key] = repeat_unit.get(annotated_key)
@@ -102,8 +100,6 @@ def parse_json(file_handle):
 
         # ExHu 3.0 release candidate repids include the pathologic region of interest, but not the final version
         repeat_info[repid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
-
-        LOG.debug("Again, parse json for repid {} (ri {}): ru {}".format(repid, repeat_info, repeat_unit))
 
         for annotated_key in ANNOTATE_REPEAT_KEYS:
             if repeat_unit.get(annotated_key):
@@ -171,8 +167,14 @@ def get_repeat_info(variant_info, repeat_info):
             repeat_strings.append('full_mutation')
             rank_score = RANK_SCORE['full_mutation']
 
-    return dict(repeat_strings=','.join(repeat_strings), lower=rep_lower,
+    repeat_data = dict(repeat_strings=','.join(repeat_strings), lower=rep_lower,
                 upper=rep_upper, rank_score=rank_score)
+
+    for annotate_repeat_key in ANNOTATE_REPEAT_KEYS:
+        if repeat_info[repeat_id].get(annotate_repeat_key):
+            repeat_data[annotate_repeat_key] = str(repeat_info[repeat_id][annotate_repeat_key])
+
+    return repeat_data
 
 def get_info_dict(info_string):
     """Convert a info string to a dictionary

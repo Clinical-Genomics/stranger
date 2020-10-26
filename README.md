@@ -87,6 +87,7 @@ There is a repeat definitions file that comes with Stranger in `stranger/resourc
 | 11592 | TBX1 | GCN | AD | 15 | 25 | TOF | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 11634 | TCF4 | CTG | AD | 39 | 100 | FECD3 | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 11969 | TNRC6A | TTTCA | AD | 1 | 10 | FAME6 | Ishiura et al (2018) Nature Genetics 50;581-90 | 29507423 |
+| 15516 | XYLT1 | GGC | AR | 20 | 70 | DBQD2 | LaCroix et al (2018) AJHG 104(1):35-44 | 30554721 |
 | 12873 | ZIC2 | GCN | AD | 15 | 25 | HPE5 | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 12874 | ZIC3 | GCN | XR | 10 | 12 | VACTERLX | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 9179 | POLG | CTG | - | 15 | 10000 | - | Research only. Contact CMMS, KUH, regarding findings. | CMMS |
