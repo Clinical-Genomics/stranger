@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.6]
+Add InheritanceMode, DisplayRU, Source and SweGen keys to variant catalog and annotate them out.
+Update variant catalog to match ExHu v4.
+Update variant catalog to tentatively include GeneReviews entries.
+
 ## [0.5.6]
 Add a simple rank score.
 Template adding references to variant_catalog.
