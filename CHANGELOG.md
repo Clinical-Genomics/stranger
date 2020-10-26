@@ -2,10 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [x.x.x]
+## [0.5.6]
+Add a simple rank score.
+Template adding references to variant_catalog.
 
 ## [0.5.5]
 Add normal and pathologic limits for each variant to the VCF
+Update variant catalog to match ExHu v3.1.2.
 
 ## [0.5.4]
 Update Manifest to include json resource file.
