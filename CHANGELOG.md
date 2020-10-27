@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.6.1]
+Updated hg38/grch38 variant catalog.
+
 ## [0.6]
 Add InheritanceMode, DisplayRU, Source and SweGen keys to variant catalog and annotate them out.
 Update variant catalog to match ExHu v4.
