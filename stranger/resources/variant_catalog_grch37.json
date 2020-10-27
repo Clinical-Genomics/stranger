@@ -636,7 +636,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(NCG)*",
-        "ReferenceRegion": "8:105601188-10560227",
+        "ReferenceRegion": "8:105601188-105601227",
         "Disease": "OPDM1",
         "NormalMax": 45,
         "PathologicMin": 90
@@ -788,7 +788,7 @@
             "SAMD12",
             "SAMD12_TTTTA_3P"
         ],
-      "PathologicRegion": "8:160263704-160263708",
+      "PathologicRegion": "8:119379120-119379122",
       "Disease": "FAME1",
       "NormalMax": 1,
       "PathologicMin": 10
