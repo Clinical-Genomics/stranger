@@ -75,6 +75,7 @@ There is a repeat definitions file that comes with Stranger in `stranger/resourc
 | 1226 | GIPC1 | GGC | AD | 32 | 73 | OPDM2 | Deng et al (2020) AJHG 106(6):793-804 | 32413282 |
 | 17043 | NIPA1 | GCN | AD | 8 | 10000 | ALS - susceptibility to | Tazelaar et al (2019) Neurobiol Aging 74:234.e9-234.e15 | 30342764 |
 | 15911 | NOP56 | GGCCTG | AD | 14 | 650 | SCA36 | GeneReviews Internet 2014-08-07 | NBK231880 |
+| 53924 | NOTCH2NLC | CGG | AD | 38 | 66 | NIID | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 8565 | PABPN1 | GCN | AD | 10 | 12 | OPMD | GeneReviews Internet 2014-02-20 | NBK1126 |
 | 9143 | PHOX2B | GCN | AD | 20 | 25 | CCHS | GeneReviews Internet 2014-01-30 | NBK1427 |
 | 9305 | PPP2R2B | CAG | AD | 32 | 51 | SCA12 | GeneReviews Internet 2019-11-07 | NBK535148 |
