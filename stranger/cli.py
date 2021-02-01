@@ -29,12 +29,13 @@ def print_version(ctx, param, value):
     default=repeats_json_path,
     show_default=True,
 )
+@click.option('-i','--family_id', default='1')
 @click.option('--version', is_flag=True, callback=print_version,
               expose_value=False, is_eager=True)
 @click.option('--loglevel', default='INFO', type=click.Choice(LOG_LEVELS),
               help="Set the level of log output.", show_default=True)
 @click.pass_context
-def cli(context, vcf, repeats_file, loglevel):
+def cli(context, vcf, family_id, repeats_file, loglevel):
     """Annotate str variants with str status"""
     coloredlogs.install(level=loglevel)
     LOG.info("Running stranger version %s", __version__)
@@ -98,8 +99,8 @@ def cli(context, vcf, repeats_file, loglevel):
             'desc': 'HGNC gene id for associated disease gene'
         },
         {
-            'id': 'RankScore', 'num': '1', 'type': 'Integer',
-            'desc': 'Min number of repeats required to call as pathologic'
+            'id': 'RankScore', 'num': '1', 'type': 'String',
+            'desc': 'RankScore for variant in this family as family(str):score(int)'
         },
         {
             'id': 'Disease', 'num': '1', 'type': 'String',
@@ -142,7 +143,7 @@ def cli(context, vcf, repeats_file, loglevel):
             variant_info['info_dict']['STR_STATUS'] = repeat_data['repeat_strings']
             variant_info['info_dict']['STR_NORMAL_MAX'] = str(repeat_data['lower'])
             variant_info['info_dict']['STR_PATHOLOGIC_MIN'] = str(repeat_data['upper'])
-            variant_info['info_dict']['RankScore'] = str(repeat_data['rank_score'])
+            variant_info['info_dict']['RankScore'] = ':'.join([str(family_id), str(repeat_data['rank_score'])])
             for annotate_repeat_key in ANNOTATE_REPEAT_KEYS:
                 if repeat_data.get(annotate_repeat_key):
                     variant_info['info_dict'][annotate_repeat_key] = str(repeat_data[annotate_repeat_key])

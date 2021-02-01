@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.7]
+Add a family_id option and print to RankScore elements
+
 ## [0.6.1]
 Updated hg38/grch38 variant catalog.
 
