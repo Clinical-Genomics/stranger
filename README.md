@@ -22,6 +22,7 @@ Options:
   -f, --repeats-file PATH         Path to a file with repeat definitions. See
                                   README for explanation  [default: $HOME/stranger
                                   /stranger/resources/variant_catalog_grch37.json]
+  -i, --family_id TEXT            Family ID used in RankScore output
   --version
   --loglevel [DEBUG|INFO|WARNING|ERROR|CRITICAL]
                                   Set the level of log output.  [default:
