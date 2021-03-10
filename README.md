@@ -34,11 +34,10 @@ Options:
 
 ## Repeat definitions
 
-The repeats are called with Expansion Hunter as mentioned earlier. Expansion Hunter will annotate the number of times that a repeat has been seen in the bam files of each individual and what repeat id the variant has.
-Stranger will annotate the level of pathogenecity for the repeat number. The intervals that comes with the package are manually collected from the literature since there is no single source where this information can be collected.
+The repeats are called with Expansion Hunter as mentioned earlier. ExpansionHunter will annotate the number of times that a repeat has been seen in the bam files of each individual and what repeat id the variant has.
+Stranger will annotate the level of pathogenicity for the repeat number. The intervals that comes with the package are manually collected from the literature since there is no single source where this information can be collected.
 
-You can find a repeat definitions file that comes with Stranger in `https://github.com/moonso/stranger/blob/master/stranger/resources/variant_catalog_grch37.json`. It is based on the Expansion Hunter variant catalog,
-but extended with a few disease locus relevant keys:
+You can find a repeat definitions json file that comes with Stranger [here](https://github.com/moonso/stranger/blob/master/stranger/resources/variant_catalog_grch37.json). It is based on the ExpansionHunter variant catalog, but extended with a few disease locus relevant keys:
 
 | Column/Key | Content/Value |
 | ------- | ------- |
