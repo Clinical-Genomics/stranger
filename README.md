@@ -37,7 +37,26 @@ Options:
 The repeats are called with Expansion Hunter as mentioned earlier. Expansion Hunter will annotate the number of times that a repeat has been seen in the bam files of each individual and what repeat id the variant has.
 Stranger will annotate the level of pathogenecity for the repeat number. The intervals that comes with the package are manually collected from the literature since there is no single source where this information can be collected.
 
-There is a repeat definitions file that comes with Stranger in `stranger/resources/repeatexpansionsloci.tsv`. This is a tsv formated file on the following format:
+You can find a repeat definitions file that comes with Stranger in `https://github.com/moonso/stranger/blob/master/stranger/resources/variant_catalog_grch37.json`. It is based on the Expansion Hunter variant catalog,
+but extended with a few disease locus relevant keys:
+
+| Column/Key | Content/Value |
+| ------- | ------- |
+| HGNC_ID | HGNC identifier for the repeat or most associated gene. |
+| HGNC_SYMBOL |HGNC symbol for the repeat or most associated gene. |
+| REPID | ExpansionHunter repeat ID. |
+| RU | Basic repeat unit, as seen in ExpansionHunter. Unused. |
+| DisplayRU | Repeat unit, as clinicians are used to see it. |
+| Normal_Max | (#copies) Longest repeat expected for normal individual; higher are marked pre- or full-mutation |
+| Pathologic_Min | (#copies) Shortest repeat expected for pathology. This and higher is annotated as full-mutation. |
+| Disease | Associated disease. |
+| InheritanceMode | Mode of inheritance "AR", "AD", "XR" etc |
+| Source | Reference literature resource type, eg GeneReviews or PubMed |
+| SourceId | PMID or GeneReviews book ID for references|
+
+Other fields accepted by ExpansionHunter are also encouraged.
+
+For convenience, here is a formated table with some of the current contents:
 
 | HGNCId | LocusId | DisplayRU | InheritanceMode | normal_max | pathologic_min | Disease | SourceDisplay | SourceId |
 | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- |
@@ -94,23 +113,8 @@ There is a repeat definitions file that comes with Stranger in `stranger/resourc
 | 12874 | ZIC3 | GCN | XR | 10 | 12 | VACTERLX | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 9179 | POLG | CTG | - | 15 | 10000 | - | Research only. Contact CMMS, KUH, regarding findings. | CMMS |
 
-The file is structured like a [Scout](https://github.com/Clinical-Genomics/scout) gene panel, with STR specific columns.
-
-| Column/Key | Content/Value |
-| ------- | ------- |
-| HGNC_ID | HGNC identifier for the repeat or most associated gene. |
-| HGNC_SYMBOL |HGNC symbol for the repeat or most associated gene. |
-| REPID | ExpansionHunter repeat ID. |
-| RU | Basic repeat unit, as seen in ExpansionHunter. Unused. |
-| DisplayRU | Repeat unit, as clinicians are used to see it. |
-| Normal_Max | (#copies) Longest repeat expected for normal individual; higher are marked pre- or full-mutation |
-| Pathologic_Min | (#copies) Shortest repeat expected for pathology. This and higher is annotated as full-mutation. |
-| Disease | Associated disease. |
-| InheritanceMode | Mode of inheritance "AR", "AD", "XR" etc |
-| Source | Reference literature resource type, eg GeneReviews or PubMed |
-| SourceId | PMID or GeneReviews book ID for references|
-
-Other fields accepted by ExpansionHunter are also encouraged.
+Stranger can also read a legacy `.tsv` format file, structured like a [Scout](https://github.com/Clinical-Genomics/scout) gene panel, with STR specific columns.
+The column names and keys correspond, but if in any kind of doubt, please read the code or use the json version.
 
 As a default the file that follows the distribution is used but the users can create their own file.
 Header line(s) should be preceded with a `#`.
