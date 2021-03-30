@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [x.x.x]
+Update BEAN1 documentation reference
 
 ## [0.7.1]
 Update rank score model
