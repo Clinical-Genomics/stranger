@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [x.x.x]
 Update BEAN1 documentation reference
+Update GLS and RFC1 hg19 coordinates (zero based off by one)
 
 ## [0.7.1]
 Update rank score model
