@@ -43,7 +43,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(NGC)*",
-        "ReferenceRegion": "X:25031767-25031814",
+        "ReferenceRegion": "X:25031766-25031814",
         "Disease": "EIEE",
         "NormalMax": 16,
         "PathologicMin": 17
@@ -58,7 +58,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(NGC)*",
-        "ReferenceRegion": "X:25031647-25031682",
+        "ReferenceRegion": "X:25031646-25031682",
         "Disease": "PRTS",
         "NormalMax": 12,
         "PathologicMin": 20
@@ -288,14 +288,14 @@
     {
         "VariantType": "Repeat",
         "LocusId": "BEAN1",
-        "HGNCId": 1541,
+        "HGNCId": 24160,
         "InheritanceMode":"AD" ,
         "DisplayRU": "TGGAA",
         "SourceDisplay": "Sato et al AJHG 2009",
         "Source": "PubMed",
         "SourceId": "19878914",
         "LocusStructure": "(TGGAA)*TAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAA",
-        "ReferenceRegion": "16:66524302-66524356",
+        "ReferenceRegion": "16:66524301-66524356",
         "Disease": "SCA31",
         "NormalMax": 10,
         "PathologicMin": 40
@@ -351,7 +351,7 @@
     {
         "VariantType": "Repeat",
         "LocusId": "DAB1",
-        "HGNCId": 2482,
+        "HGNCId": 2661,
         "InheritanceMode": "AD" ,
         "DisplayRU": "ATTTC",
         "SourceDisplay": "GeneReviews Internet 2019-05-30",
@@ -359,8 +359,8 @@
         "SourceId": "NBK541729",
         "LocusStructure": "(ATTTT)*(ATTTC)*(ATTTT)*",
         "ReferenceRegion": [
-            "1:57832716-57832725",
-            "1:57832726-57832780",
+            "1:57832715-57832725",
+            "1:57832725-57832780",
             "1:57832781-57832790"
         ],
         "VariantType": [
@@ -373,7 +373,7 @@
             "DAB1_ATTTC",
             "DAB1_ATTTT2"
         ],
-        "PathologicRegion": "1:57832726-57832780",
+        "PathologicRegion": "1:57832725-57832780",
         "Disease": "SCA37",
         "NormalMax": 16,
         "PathologicMin": 31
@@ -818,7 +818,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(NGC)*",
-        "ReferenceRegion": "X:139586482-139586526",
+        "ReferenceRegion": "X:139586481-139586526",
         "Disease": "MRGH",
         "NormalMax": 15,
         "PathologicMin": 22
@@ -833,7 +833,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK1438",
         "LocusStructure": "(CAN)*",
-        "ReferenceRegion": "6:170870996-170871109",
+        "ReferenceRegion": "6:170870994-170871109",
         "Disease": "SCA17",
         "SweGenMean": 36.24,
         "SweGenStd": 2.293,
@@ -850,7 +850,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(GCN)*",
-        "ReferenceRegion": "22:19754286-19754330",
+        "ReferenceRegion": "22:19754285-19754330",
         "Disease": "TOF",
         "NormalMax": 15,
         "PathologicMin": 25

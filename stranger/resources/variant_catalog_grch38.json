@@ -311,7 +311,7 @@
     {
         "VariantType": "Repeat",
         "LocusId": "BEAN1",
-        "HGNCId": 1541,
+        "HGNCId": 24160,
         "InheritanceMode":"AD" ,
         "DisplayRU": "TGGAA",
         "SourceDisplay": "Sato et al AJHG 2009",
@@ -370,7 +370,7 @@
     {
         "VariantType": "Repeat",
         "LocusId": "DAB1",
-        "HGNCId": 2482,
+        "HGNCId": 2661,
         "InheritanceMode": "AD" ,
         "DisplayRU": "ATTTC",
         "SourceDisplay": "GeneReviews Internet 2019-05-30",
