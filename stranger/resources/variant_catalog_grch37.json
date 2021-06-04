@@ -357,11 +357,11 @@
         "SourceDisplay": "GeneReviews Internet 2019-05-30",
         "Source": "GeneReviews",
         "SourceId": "NBK541729",
-        "LocusStructure": "(ATTTT)*(ATTTC)*(ATTTT)*",
+        "LocusStructure": "(AAAAT)*(GAAAT)*(AAAAT)*",
         "ReferenceRegion": [
             "1:57832715-57832725",
             "1:57832725-57832780",
-            "1:57832781-57832790"
+            "1:57832780-57832790"
         ],
         "VariantType": [
             "Repeat",

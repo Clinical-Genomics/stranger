@@ -376,11 +376,11 @@
         "SourceDisplay": "GeneReviews Internet 2019-05-30",
         "Source": "GeneReviews",
         "SourceId": "NBK541729",
-        "LocusStructure": "(ATTTT)*(ATTTC)*(ATTTT)*",
+        "LocusStructure": "(AAAAT)*(GAAAT)*(AAAAT)*",
         "ReferenceRegion": [
-            "chr1:57367044-57367053",
-            "chr1:57367054-57367108",
-            "chr1:57367109-57367118"
+            "chr1:57367043-57367053",
+            "chr1:57367053-57367108",
+            "chr1:57367108-57367118"
         ],
         "VariantType": [
             "Repeat",
@@ -392,7 +392,7 @@
             "DAB1_ATTTC",
             "DAB1_ATTTT2"
         ],
-        "PathologicRegion": "chr1:57367054-57367108",
+        "PathologicRegion": "chr1:57367053-57367108",
         "Disease": "SCA37",
         "NormalMax": 16,
         "PathologicMin": 31
