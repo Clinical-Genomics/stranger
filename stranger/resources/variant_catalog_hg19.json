@@ -690,14 +690,14 @@
         "HGNCId": 8565,
         "InheritanceMode": "AD",
         "DisplayRU": "GCN",
-        "SourceDisplay": "GeneReviews Internet 2014-02-20",
+        "SourceDisplay": "GeneReviews Internet 2020-10-22",
         "Source": "GeneReviews",
         "SourceId": "NBK1126",
         "LocusStructure": "(GCN)*",
         "ReferenceRegion": "chr14:23790681-23790711",
         "Disease": "OPMD",
         "NormalMax": 10,
-        "PathologicMin": 12
+        "PathologicMin": 11
     },
     {
         "VariantType": "Repeat",

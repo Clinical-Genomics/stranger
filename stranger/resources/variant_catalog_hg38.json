@@ -311,7 +311,7 @@
     {
         "VariantType": "Repeat",
         "LocusId": "BEAN1",
-        "HGNCId": 1541,
+        "HGNCId": 24160,
         "InheritanceMode":"AD" ,
         "DisplayRU": "TGGAA",
         "SourceDisplay": "Sato et al AJHG 2009",
@@ -370,7 +370,7 @@
     {
         "VariantType": "Repeat",
         "LocusId": "DAB1",
-        "HGNCId": 2482,
+        "HGNCId": 2661,
         "InheritanceMode": "AD" ,
         "DisplayRU": "ATTTC",
         "SourceDisplay": "GeneReviews Internet 2019-05-30",
@@ -906,15 +906,14 @@
       "HGNCId": 8565,
       "InheritanceMode": "AD",
       "DisplayRU": "GCN",
-      "SourceDisplay": "GeneReviews Internet 2014-02-20",
+      "SourceDisplay": "GeneReviews Internet 2020-10-22",
       "Source": "GeneReviews",
       "SourceId": "NBK1126",
       "LocusStructure": "(GCN)*",
       "ReferenceRegion": "chr14:23321472-23321502",
       "Disease": "OPMD",
       "NormalMax": 10,
-      "PathologicMin": 12,
-      "Source": "GeneReviews Internet 2014-02-20"
+      "PathologicMin": 11
     },
     {
         "LocusId": "PHOX2B",
