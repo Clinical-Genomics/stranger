@@ -159,7 +159,7 @@ def get_repeat_info(variant_info, repeat_info):
             repeat_strings.append('normal')
             if rank_score < RANK_SCORE['normal']:
                 rank_score = RANK_SCORE['normal']
-        elif repeat_number <= rep_upper:
+        elif repeat_number < rep_upper:
             repeat_strings.append('pre_mutation')
             if rank_score < RANK_SCORE['pre_mutation']:
                 rank_score = RANK_SCORE['pre_mutation']
