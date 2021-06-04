@@ -925,7 +925,7 @@
         "SourceId": "NBK1427",
         "Disease": "CCHS",
         "LocusStructure": "(GCN)*",
-        "ReferenceRegion": "4:41745972-41746032",
+        "ReferenceRegion": "4:41745971-41746032",
         "VariantType": "Repeat",
         "NormalMax": 20,
         "PathologicMin": 25,

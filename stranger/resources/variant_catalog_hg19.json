@@ -605,8 +605,8 @@
             "HTT_CCG"
         ],
         "Disease": "Huntington",
-        "NormalMax": 36,
-        "PathologicMin": 40,
+        "NormalMax": 26,
+        "PathologicMin": 36,
         "PathologicRegion": "chr4:3076603-3076660"
     },
     {
@@ -712,7 +712,7 @@
         "SweGenMean": 26.33,
         "SweGenStd": 11.88,
         "LocusStructure": "(GCN)*",
-        "ReferenceRegion": "chr4:41747989-41748049",
+        "ReferenceRegion": "chr4:41747988-41748049",
         "NormalMax": 20,
         "PathologicMin": 25
     },

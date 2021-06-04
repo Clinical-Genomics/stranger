@@ -810,8 +810,8 @@
             "Repeat"
         ],
         "Disease": "Huntington",
-        "NormalMax": 36,
-        "PathologicMin": 40,
+        "NormalMax": 26,
+        "PathologicMin": 36,
         "PathologicRegion": "chr4:3074876-3074933"
     },
     {
@@ -925,7 +925,7 @@
         "SourceId": "NBK1427",
         "Disease": "CCHS",
         "LocusStructure": "(GCN)*",
-        "ReferenceRegion": "chr4:41745972-41746032",
+        "ReferenceRegion": "chr4:41745971-41746032",
         "VariantType": "Repeat",
         "NormalMax": 20,
         "PathologicMin": 25,
