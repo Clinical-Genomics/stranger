@@ -71,8 +71,8 @@
         "ReferenceRegion": "chr12:6936716-6936773",
         "VariantType": "Repeat",
         "Disease": "DRPLA",
-        "NormalMax": 34,
-        "PathologicMin": 49
+        "NormalMax": 35,
+        "PathologicMin": 48
     },
     {
         "LocusId": "ATXN10",
@@ -426,7 +426,7 @@
         "ReferenceRegion": "chr19:45770204-45770264",
         "VariantType": "Repeat",
         "Disease": "DM1",
-        "NormalMax": 37,
+        "NormalMax": 34,
         "PathologicMin": 50
     },
     {
@@ -461,9 +461,9 @@
         "HGNCId": 3775,
         "InheritanceMode": "XR",
         "DisplayRU": "CGG",
-        "SourceDisplay": "GeneReviews Internet 2019-11-07",
+        "SourceDisplay": "GeneReviews Internet 2019-11-21",
         "Source": "GeneReviews",
-        "SourceId": "NBK535148",
+        "SourceId": "NBK1384",
         "LocusStructure": "(CGG)*",
         "OfftargetRegions": [
             "chr1:3068800-3069410",
@@ -684,7 +684,7 @@
         "ReferenceRegion": "chrX:147912050-147912110",
         "VariantType": "RareRepeat",
         "Disease": "FragileX",
-        "NormalMax": 65,
+        "NormalMax": 55,
         "PathologicMin": 200
     },
     {
@@ -1050,7 +1050,7 @@
         "ReferenceRegion": "chr6:170561906-170562017",
         "VariantType": "Repeat",
         "Disease": "SCA17",
-        "NormalMax": 44,
+        "NormalMax": 40,
         "PathologicMin": 49
     },
     {
