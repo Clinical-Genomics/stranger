@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [x.x.x]
 
+## [0.8.1]
+Fix DAB1 pathologic repeat unit name
+Update POLG coords, quite a bit on hg38
+
 ## [0.8.0]
 Off by one error on PathogenticMin output. All affected have at least been cautioned pre_mutation with proper size.
 Added script to check HGNCId-symbol correspondence against genenames.org.

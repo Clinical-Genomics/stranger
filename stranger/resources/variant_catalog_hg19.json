@@ -370,7 +370,7 @@
         ],
         "VariantId": [
             "DAB1_ATTTT1",
-            "DAB1_ATTTC",
+            "DAB1",
             "DAB1_ATTTT2"
         ],
         "PathologicRegion": "chr1:57832725-57832780",
@@ -1008,10 +1008,10 @@
         "LocusStructure": "(CTG)*TTG(CTG)*",
         "VariantType": ["Repeat","Repeat"],
         "VariantId": ["POLG_I", "POLG_II"],
-        "ReferenceRegion": ["chr15:89876820-89876826",
-                            "chr15:89876829-89876859"],
+        "ReferenceRegion": ["chr15:89876821-89876826",
+                            "chr15:89876830-89876859"],
         "NormalMax": 15,
         "PathologicMin": 10000,
-        "PathologicRegion": "chr15:89876829-89876859"
+        "PathologicRegion": "chr15:89876830-89876859"
     }
 ]

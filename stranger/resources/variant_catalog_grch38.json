@@ -389,7 +389,7 @@
         ],
         "VariantId": [
             "DAB1_ATTTT1",
-            "DAB1_ATTTC",
+            "DAB1",
             "DAB1_ATTTT2"
         ],
         "PathologicRegion": "1:57367053-57367108",
@@ -1217,10 +1217,10 @@
       "SourceId": "CMMS",    
       "VariantId": ["POLG_I", "POLG_II"],
       "LocusStructure": "(CTG)*TTG(CTG)*",
-      "ReferenceRegion": ["15:89833580-89833586",
-                          "15:89833589-89833628"],
+      "ReferenceRegion": ["15:89333590-89333595",
+                          "15:89333599-89333628"],
       "NormalMax": 15,
       "PathologicMin": 10000,
-      "PathologicRegion": "15:89833589-89833628"
+      "PathologicRegion": "15:89333599-89333628"
     }
 ]
