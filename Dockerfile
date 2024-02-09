@@ -10,7 +10,7 @@ FROM continuumio/miniconda3:23.3.1-0-alpine
 # Install git
 RUN conda install -c anaconda git && \
     cd /bin && \
-    git clone --branch v0.8.1 --depth 1 https://github.com/Clinical-Genomics/stranger.git && \
+    git clone --depth 1 https://github.com/Clinical-Genomics/stranger.git && \
     cd stranger && \
     pip install --editable .
 
