@@ -1,5 +1,17 @@
 [
     {
+        "LocusId": "ABCD3",
+        "HGNCId": 67,
+        "InheritanceMode": "AD",
+        "DisplayRU": "CCG",
+        "LocusStructure": "(CCG)*",
+        "ReferenceRegion": "1:94883978-94884000",
+        "VariantType": "Repeat",
+        "Disease": "OPDM",
+        "NormalMax": 50,
+        "PathologicMin": 118
+    },
+    {
         "VariantType": "Repeat",
         "LocusId": "AFF2",
         "HGNCId": 3776,
@@ -8,10 +20,8 @@
         "SourceDisplay": "GeneReviews Internet 2019-11-07",
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
-        "SweGenMean": 23.87,
-        "SweGenStd": 7.523,
-        "LocusStructure": "(GCC)*",
-        "ReferenceRegion": "X:147582151-147582211",
+        "LocusStructure": "(CCG)*",
+        "ReferenceRegion": "X:147582158-147582203",
         "Disease": "Fraxe",
         "NormalMax": 39,
         "PathologicMin": 200
@@ -30,7 +40,7 @@
         "LocusStructure": "(GCA)*",
         "ReferenceRegion": "X:66765158-66765227",
         "Disease": "SBMA",
-        "NormalMax": 34,
+        "NormalMax": 35,
         "PathologicMin": 38
     },
     {
@@ -46,22 +56,7 @@
         "ReferenceRegion": "X:25031766-25031814",
         "Disease": "EIEE",
         "NormalMax": 16,
-        "PathologicMin": 17
-    },
-    {
-        "VariantType": "Repeat",
-        "LocusId": "ARX_PRTS",
-        "HGNCId": 18060,
-        "InheritanceMode": "XR",
-        "DisplayRU": "GCN",
-        "SourceDisplay": "GeneReviews Internet 2019-11-07",
-        "Source": "GeneReviews",
-        "SourceId": "NBK535148",
-        "LocusStructure": "(NGC)*",
-        "ReferenceRegion": "X:25031646-25031682",
-        "Disease": "PRTS",
-        "NormalMax": 12,
-        "PathologicMin": 20
+        "PathologicMin": 18
     },
     {
         "VariantType": "Repeat",
@@ -75,7 +70,7 @@
         "SweGenMean": 17.99,
         "SweGenStd": 3.053,
         "LocusStructure": "(CAG)*",
-        "ReferenceRegion": "12:7045879-7045936",
+        "ReferenceRegion": "12:7045891-7045936",
         "Disease": "DRPLA",
         "NormalMax": 35,
         "PathologicMin": 48
@@ -108,11 +103,11 @@
         "SourceId": "NBK1184",
         "SweGenMean": 31.17,
         "SweGenStd": 2.022,
-        "LocusStructure": "(TGC)*",
-        "ReferenceRegion": "6:16327864-16327954",
+        "LocusStructure": "(CTG)*",
+        "ReferenceRegion": "6:16327866-16327953",
         "Disease": "SCA1",
         "NormalMax": 35,
-        "PathologicMin": 45
+        "PathologicMin": 40
     },
     {
         "VariantType": "Repeat",
@@ -125,11 +120,11 @@
         "SourceId": "NBK1275",
         "SweGenMean": 22.11,
         "SweGenStd": 1.353,
-        "LocusStructure": "(GCT)*",
+        "LocusStructure": "(CTG)*",
         "ReferenceRegion": "12:112036753-112036822",
         "Disease": "SCA2",
         "NormalMax": 31,
-        "PathologicMin": 37
+        "PathologicMin": 33
     },
     {
         "VariantType": "Repeat",
@@ -140,14 +135,13 @@
         "SourceDisplay": "GeneReviews Internet 2019-11-07",
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
-        "LocusStructure": "(GCT)*",
-        "ReferenceRegion": "14:92537353-92537386",
+        "LocusStructure": "(CTG)*",
+        "ReferenceRegion": "14:92537354-92537384",
         "Disease": "MJD",
         "NormalMax": 44,
-        "PathologicMin": 60
+        "PathologicMin": 56
     },
     {
-        "VariantType": "Repeat",
         "LocusId": "ATXN7",
         "HGNCId": 10560,
         "InheritanceMode": "AD",
@@ -155,25 +149,13 @@
         "SourceDisplay": "GeneReviews Internet 2019-11-07",
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
-        "SweGenMean": 10.31,
-        "SweGenStd": 1.285,
-        "LocusStructure": "(GCA)*(GCC)+",
-        "ReferenceRegion": [
-            "3:63898360-63898390",
-            "3:63898390-63898402"
-        ],
-        "VariantType": [
-            "Repeat",
-            "Repeat"
-        ],
-        "VariantId": [
-            "ATXN7",
-            "ATXN7_GCC"
-        ],
+        "LocusStructure": "(CAG)*",
+        "ReferenceRegion": "3:63898361-63898391",
+        "VariantType": "Repeat",
         "Disease": "SCA7",
         "NormalMax": 19,
         "PathologicMin": 36,
-        "PathologicRegion": "3:63898360-63898390"
+        "PathologicRegion": "3:63898361-63898391"
     },
     {
         "LocusId": "ATXN8OS",
@@ -208,7 +190,7 @@
         "LocusId": "C9ORF72",
         "HGNCId": 28337,
         "InheritanceMode": "AD",
-        "DisplayRU": "GGCCCC",
+        "DisplayRU": "GGGGCC",
         "SourceDisplay": "GeneReviews Internet 2019-11-07",
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
@@ -297,8 +279,8 @@
         "LocusStructure": "(TGGAA)*TAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAA",
         "ReferenceRegion": "16:66524301-66524356",
         "Disease": "SCA31",
-        "NormalMax": 10,
-        "PathologicMin": 40
+        "NormalMax": 35,
+        "PathologicMin": 50
     },
     {
         "LocusId": "CNBP",
@@ -440,6 +422,22 @@
         "PathologicMin": 10
     },
     {
+        "LocusId": "FGF14",
+        "HGNCId": 3671,
+        "InheritanceMode": "AD",
+        "DisplayRU": "GAA",
+        "SourceDisplay": "Rafehi et al 2022 AJHG S0002-9297(22)00506-7",
+        "Source": "PubMed",
+        "SourceId": "36493768",
+        "LocusStructure": "(GAA)*",
+        "ReferenceRegion": "13:102813926-102814076",
+        "VariantId": "FGF14",
+        "VariantType": "Repeat",
+        "Disease": "SCA27B",
+        "NormalMax": 150,
+        "PathologicMin": 250
+    },
+    {
         "VariantType": "RareRepeat",
         "LocusId": "FMR1",
         "HGNCId": 3775,
@@ -488,7 +486,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(NGC)*",
-        "ReferenceRegion": "3:138664863-138664904",
+        "ReferenceRegion": "3:138664862-138664904",
         "Disease": "BPES",
         "NormalMax": 14,
         "PathologicMin": 15
@@ -523,51 +521,6 @@
     },
     {
         "VariantType": "Repeat",
-        "LocusId": "HOXA13_I",
-        "HGNCId": 5102,
-        "InheritanceMode": "AD",
-        "DisplayRU": "GCN",
-        "SourceDisplay": "GeneReviews Internet 2019-08-08",
-        "Source": "GeneReviews",
-        "SourceId": "NBK1423",
-        "LocusStructure": "(NGC)*",
-        "ReferenceRegion": "7:27239544-27239585",
-        "Disease": "HFGS",
-        "NormalMax": 14,
-        "PathologicMin": 22
-    },
-    {
-        "VariantType": "Repeat",
-        "LocusId": "HOXA13_II",
-        "HGNCId": 5102,
-        "InheritanceMode": "AD",
-        "DisplayRU": "GCN",
-        "SourceDisplay": "GeneReviews Internet 2019-08-08",
-        "Source": "GeneReviews",
-        "SourceId": "NBK1423",
-        "LocusStructure": "(NGC)*",
-        "ReferenceRegion": "7:27239445-27239480",
-        "Disease": "HFGS",
-        "NormalMax": 12,
-        "PathologicMin": 18
-    },
-    {
-        "VariantType": "Repeat",
-        "LocusId": "HOXA13_III",
-        "HGNCId": 5102,
-        "InheritanceMode": "AD",
-        "DisplayRU": "GCN",
-        "SourceDisplay": "GeneReviews Internet 2019-08-08",
-        "Source": "GeneReviews",
-        "SourceId": "NBK1423",
-        "LocusStructure": "(NGC)*",
-        "ReferenceRegion": "7:27239298-27239351",
-        "Disease": "HFGS",
-        "NormalMax": 18,
-        "PathologicMin": 24
-    },
-    {
-        "VariantType": "Repeat",
         "LocusId": "HOXD13",
         "HGNCId": 5136,
         "InheritanceMode": "AD",
@@ -576,7 +529,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(GCN)*",
-        "ReferenceRegion": "2:176957787-176957831",
+        "ReferenceRegion": "2:176957786-176957831",
         "Disease": "SDTY5",
         "NormalMax": 15,
         "PathologicMin": 22
@@ -605,7 +558,7 @@
             "HTT_CCG"
         ],
         "Disease": "Huntington",
-        "NormalMax": 26,
+        "NormalMax": 34,
         "PathologicMin": 36,
         "PathologicRegion": "4:3076603-3076660"
     },
@@ -651,7 +604,7 @@
         "Source": "PubMed",
         "SourceId": "32413282",
         "LocusStructure": "(CCG)*",
-        "ReferenceRegion": "19:14606854-14606886",
+        "ReferenceRegion": "19:14606853-14606886",
         "Disease": "OPDM2",
         "NormalMax": 32,
         "PathologicMin": 73
@@ -712,8 +665,8 @@
         "SweGenMean": 26.33,
         "SweGenStd": 11.88,
         "LocusStructure": "(GCN)*",
-        "ReferenceRegion": "4:41747988-41748049",
-        "NormalMax": 20,
+        "ReferenceRegion": "4:41747988-41748048",
+        "NormalMax": 21,
         "PathologicMin": 25
     },
     {
@@ -758,10 +711,57 @@
             "RAPGEF2",
             "RAPGEF2_TTTTA_3P"
         ],
-      "PathologicRegion": "4:160263704-160263708",
-      "Disease": "FAME7",
-      "NormalMax": 1,
-      "PathologicMin": 10
+        "PathologicRegion": "4:160263704-160263708",
+        "Disease": "FAME7",
+        "NormalMax": 1,
+        "PathologicMin": 10
+    },
+    {
+        "VariantType": "Repeat",
+        "LocusId": "RFC1",
+        "HGNCId": 9969,
+        "InheritanceMode": "AR",
+        "DisplayRU": "AARRG",
+        "SourceDisplay": "Cortese et al 2019 Nat Gen",
+        "Source": "PubMed",
+        "SourceId": "30926972",
+        "SweGenMean": 26.77,
+        "SweGenStd": 18.68,
+        "LocusStructure": "(AARRG)*",
+        "ReferenceRegion": "4:39350044-39350099",
+        "Disease": "CANVAS",
+        "NormalMax": 11,
+        "PathologicMin": 12
+    },
+    {
+        "VariantType": "Repeat",
+        "LocusId": "RILPL1",
+        "HGNCId": 26814,
+        "InheritanceMode": "AD",
+        "DisplayRU": "CGG",
+        "SourceDisplay": "Yu et al (2022) AJHG 109(3):533-541",
+        "Source": "PubMed",
+        "SourceId": "35148830",
+        "LocusStructure": "(GGC)*",
+        "ReferenceRegion": "12:124018267-124018302",
+        "Disease": "OPDM4",
+        "NormalMax": 16,
+        "PathologicMin": 139
+    },
+    {
+        "VariantType": "Repeat",
+        "LocusId": "RUNX2",
+        "HGNCId": 10472,
+        "InheritanceMode": "AD",
+        "DisplayRU": "GCN",
+        "SourceDisplay": "GeneReviews Internet 2019-11-07",
+        "Source": "GeneReviews",
+        "SourceId": "NBK535148",
+        "LocusStructure": "(GCN)*",
+        "ReferenceRegion": "6:45390487-45390538",
+        "Disease": "CCD",
+        "NormalMax": 17,
+        "PathologicMin": 20
     },
     {
         "VariantType": "Repeat",
@@ -795,21 +795,6 @@
     },
     {
         "VariantType": "Repeat",
-        "LocusId": "RUNX2",
-        "HGNCId": 10472,
-        "InheritanceMode": "AD",
-        "DisplayRU": "GCN",
-        "SourceDisplay": "GeneReviews Internet 2019-11-07",
-        "Source": "GeneReviews",
-        "SourceId": "NBK535148",
-        "LocusStructure": "(GCN)*",
-        "ReferenceRegion": "6:45390488-45390538",
-        "Disease": "CCD",
-        "NormalMax": 17,
-        "PathologicMin": 20
-    },
-    {
-        "VariantType": "Repeat",
         "LocusId": "SOX3",
         "HGNCId": 11199,
         "InheritanceMode": "XR",
@@ -833,7 +818,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK1438",
         "LocusStructure": "(GCA)*",
-        "ReferenceRegion": "6:170870994-170871109",
+        "ReferenceRegion": "6:170870995-170871103",
         "Disease": "SCA17",
         "SweGenMean": 36.24,
         "SweGenStd": 2.293,
@@ -871,6 +856,21 @@
         "SweGenStd": 8.388,
         "NormalMax": 39,
         "PathologicMin": 100
+    },
+    {
+        "LocusId": "THAP11",
+        "HGNCId": 23194,
+        "InheritanceMode": "AD",
+        "Disease": "SCA",
+        "DisplayRU": "CAG",
+        "SourceDisplay": "Tan et al (2023) Movement Disorders 38(7):1282-1293",
+        "Source": "PubMed",
+        "SourceId": "37148549",
+        "LocusStructure": "(CAG)*",
+        "ReferenceRegion": "16:67876766-67876853",
+        "VariantType": "Repeat",
+        "NormalMax": 38,
+        "PathologicMin":45
     },
     {
         "VariantType": "Repeat",
@@ -911,10 +911,10 @@
         "SourceDisplay": "LaCroix et al (2018) AJHG 104(1) 35-44",
         "Source": "PubMed",
         "SourceId": "30554721",
-        "LocusStructure": "(GGC)*",
-        "ReferenceRegion": "16:17564765-17564778",
+        "LocusStructure": "(GCC)*",
+        "ReferenceRegion": "16:17564764-17564779",
         "Disease": "DBQD2",
-        "NormalMax": 20,
+        "NormalMax": 60,
         "PathologicMin": 70
     },
     {
@@ -927,7 +927,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(GCN)*",
-        "ReferenceRegion": "13:100637703-100637747",
+        "ReferenceRegion": "13:100637702-100637747",
         "Disease": "HPE5",
         "NormalMax": 15,
         "PathologicMin": 25
@@ -942,25 +942,10 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(GCN)*",
-        "ReferenceRegion": "X:136648986-136649015",
+        "ReferenceRegion": "X:136648985-136649015",
         "Disease": "VACTERLX",
         "NormalMax": 10,
         "PathologicMin": 12
-    },
-    {
-        "VariantType": "Repeat",
-        "LocusId": "NIPA1",
-        "HGNCId": 17043,
-        "InheritanceMode": "AD",
-        "DisplayRU": "GCG",
-        "SourceDisplay": "Tazelaar et al (2019) Neurobiol Aging 74 234.e9-234.e15",
-        "Source": "PubMed",
-        "SourceId": "30342764",
-        "LocusStructure": "(CGC)*",
-        "ReferenceRegion": "15:23086366-23086390",
-        "Disease": "ALS - susceptibility to",
-        "NormalMax": 8,
-        "PathologicMin": 10000
     },
     {
         "VariantType": "Repeat",
@@ -976,42 +961,24 @@
         "LocusStructure": "(GCA)*",
         "ReferenceRegion": "2:191745598-191745646",
         "Disease": "GDPAG",
-        "NormalMax": 20,
+        "NormalMax": 26,
         "PathologicMin": 90
     },
     {
         "VariantType": "Repeat",
-        "LocusId": "RFC1",
-        "HGNCId": 9969,
-        "InheritanceMode": "AR",
-        "DisplayRU": "AARRG",
-        "SourceDisplay": "Cortese et al 2019 Nat Gen",
-        "Source": "PubMed",
-        "SourceId": "30926972",
-        "SweGenMean": 26.77,
-        "SweGenStd": 18.68,
-        "LocusStructure": "(AARRG)*",
-        "ReferenceRegion": "4:39350044-39350099",
-        "Disease": "CANVAS",
-        "NormalMax": 11,
-        "PathologicMin": 12
-    },
-    {
-        "LocusId": "POLG",
-        "HGNCId": 9179,
-        "DisplayRU": "CTG",
-        "InheritanceMode": "-",
-        "Disease": "-",
-        "SourceDisplay": "Research only - contact CMMS KUH regarding findings",
-        "Source": "Expert",
-        "SourceId": "CMMS",
-        "LocusStructure": "(CTG)*TTG(CTG)*",
-        "VariantType": ["Repeat","Repeat"],
-        "VariantId": ["POLG_I", "POLG_II"],
-        "ReferenceRegion": ["15:89876821-89876826",
-                            "15:89876830-89876859"],
-        "NormalMax": 15,
-        "PathologicMin": 10000,
-        "PathologicRegion": "15:89876830-89876859"
+        "LocusId": "ZFHX3",
+        "HGNCId": 777,
+        "InheritanceMode": "AD",
+        "LocusStructure": "(GCC)*",
+        "ReferenceRegion": "16:72821593-72821656",
+        "DisplayRU": "GGC",
+        "SourceDisplay": "Paucar, Nilsson, Engvall et al medRxiv 2023-10-03",
+        "Source": "DOI",
+        "SourceId": "10.1101/2023.10.03.23296230",
+        "SweGenMean": 21,
+        "SweGenStd": 0.8,
+        "Disease": "SCA4",
+        "NormalMax": 28,
+        "PathologicMin": 42
     }
 ]
