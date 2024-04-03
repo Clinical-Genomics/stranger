@@ -125,6 +125,20 @@ def parse_repeat_file(file_handle, repeats_file_type='tsv'):
 
     return repeat_info
 
+def get_exhu_repeat_res_from_alts(variant_info: dict):
+    alleles = variant_info['alts']
+    repeat_res = []
+    for allele in alleles:
+        if allele == '.':
+            repeat_res.extend([0])
+        else:
+            repeat_res.extend([int(num) for num in NUM.findall(allele)])
+        if not repeat_res:
+            LOG.warning("Allele information is not on correct format: %s", allele)
+            raise SyntaxError("Allele on wrong format")
+    return repeat_res
+
+
 def get_repeat_info(variant_info, repeat_info):
     """Find the correct mutation level of a str variant
 
@@ -135,9 +149,9 @@ def get_repeat_info(variant_info, repeat_info):
     Returns:
         (dict): With repeat level, lower and upper limits
     """
-    repeat_strings = []
-    # There can be one or two alternatives
-    alleles = variant_info['alts']
+
+    # There can be one or more alternatives (each ind can have at most two of those)
+
     repeat_id = variant_info['info_dict'].get('REPID')
     if not repeat_id in repeat_info:
         LOG.warning("No info for repeat id %s", repeat_id)
@@ -146,15 +160,15 @@ def get_repeat_info(variant_info, repeat_info):
     rep_lower = repeat_info[repeat_id].get('normal_max', -1)
     rep_upper = repeat_info[repeat_id].get('pathologic_min', -1)
     rank_score = 0
-    for allele in alleles:
-        if allele == '.':
-            repeat_res = [0]
-        else:
-            repeat_res = [int(num) for num in NUM.findall(allele)]
-        if not repeat_res:
-            LOG.warning("Allele information is not on correct format: %s", allele)
-            raise SyntaxError("Allele on wrong format")
-        repeat_number = repeat_res[0]
+
+    repeat_strings = []
+
+    if variant_info.get('format_dicts'):
+        repeat_res = get_trgt_repeat_res(variant_info, repeat_info)
+    else:
+        repeat_res = get_exhu_repeat_res_from_alts(variant_info)
+
+    for repeat_number in repeat_res:
         if repeat_number <= rep_lower:
             repeat_strings.append('normal')
             if rank_score < RANK_SCORE['normal']:
@@ -176,8 +190,36 @@ def get_repeat_info(variant_info, repeat_info):
 
     return repeat_data
 
+
+def get_trgt_repeat_res(variant_info, repeat_info):
+    """Convert target variant info into ExHu format, splitting entries if needed,
+    if they turn out to contain more than one allele.
+
+    The repeat definitions may have information on which
+    """
+
+    repeat_res = []
+    for format_dict in variant_info['format_dicts']:
+        pathogenic_counts = 0
+        mc = format_dict.get('MC')
+        if mc:
+            mcs = mc.split('_')
+            # GT would have the index of the MC in the ALT field list if we wanted to be specific...
+            if len(mcs) > 1:
+                pathogenic_mcs = repeat_info[repeat_id].get('pathogenic_struc', [])
+
+                for index, count in mcs:
+                    if index in pathogenic_mcs:
+                        pathogenic_counts += int(count)
+            else:
+                pathogenic_counts = int(mc)
+        repeat_res.append(pathogenic_counts)
+
+    return repeat_res
+
+
 def get_info_dict(info_string):
-    """Convert a info string to a dictionary
+    """Convert an info string to a dictionary
 
     Args:
         info_string(str): A string that contains the INFO field from a vcf variant
@@ -202,6 +244,23 @@ def get_info_dict(info_string):
 
     return info_dict
 
+def get_format_dicts(format_string: str, format_sample_strings: list) -> list:
+    """
+    Convert format declaration string and list of sample format strings into a
+    list of format dicts, one dict per individual
+    """
+    format_dicts = []
+
+    if not format_string:
+        return None
+
+    format_fields = format_string.split(':')
+
+    for index, individual_format in enumerate(format_sample_strings):
+        format_dicts[index] = dict(zip(format_fields, individual_format[index].split(':')))
+
+    return format_dicts
+
 def get_variant_line(variant_info, header_info):
     """Convert variant dictionary back to a VCF formated string
 
@@ -215,7 +274,7 @@ def get_variant_line(variant_info, header_info):
 
     info_dict = variant_info['info_dict']
     if not info_dict:
-        info_string = '.'
+        variant_info['INFO'] = '.'
     else:
         info_list = []
         for annotation in info_dict:
@@ -224,6 +283,17 @@ def get_variant_line(variant_info, header_info):
                 continue
             info_list.append('='.join([annotation, info_dict[annotation]]))
         variant_info['INFO'] = ';'.join(info_list)
+
+    format_dict = variant_info['format_dict']
+    format_list = []
+    for annotation in format_dict:
+        if format_dict[annotation] is None:
+            format_list.append(annotation)
+            continue
+        format_list.append(annotation)
+        variant_info['FORMAT'] = ''
+
+
 
     variant_list = []
     for annotation in header_info:
