@@ -284,17 +284,6 @@ def get_variant_line(variant_info, header_info):
             info_list.append('='.join([annotation, info_dict[annotation]]))
         variant_info['INFO'] = ';'.join(info_list)
 
-    format_dict = variant_info['format_dict']
-    format_list = []
-    for annotation in format_dict:
-        if format_dict[annotation] is None:
-            format_list.append(annotation)
-            continue
-        format_list.append(annotation)
-        variant_info['FORMAT'] = ''
-
-
-
     variant_list = []
     for annotation in header_info:
         variant_list.append(variant_info[annotation])
