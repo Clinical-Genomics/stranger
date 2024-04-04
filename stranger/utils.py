@@ -153,6 +153,8 @@ def get_repeat_info(variant_info, repeat_info):
     # There can be one or more alternatives (each ind can have at most two of those)
 
     repeat_id = variant_info['info_dict'].get('REPID')
+    if not repeat_id:
+        repeat_id = variant_info['info_dict'].get('TRID').split('_')[1]
     if not repeat_id in repeat_info:
         LOG.warning("No info for repeat id %s", repeat_id)
         return None
@@ -198,21 +200,29 @@ def get_trgt_repeat_res(variant_info, repeat_info):
     The repeat definitions may have information on which
     """
 
+    repeat_id = variant_info['info_dict'].get('REPID')
+    if not repeat_id:
+        repeat_id = variant_info['info_dict'].get('TRID').split('_')[1]
+    if not repeat_id in repeat_info:
+        LOG.warning("No info for repeat id %s", repeat_id)
+        return None
+
     repeat_res = []
     for format_dict in variant_info['format_dicts']:
         pathogenic_counts = 0
         mc = format_dict.get('MC')
         if mc:
-            mcs = mc.split('_')
-            # GT would have the index of the MC in the ALT field list if we wanted to be specific...
-            if len(mcs) > 1:
-                pathogenic_mcs = repeat_info[repeat_id].get('pathogenic_struc', [])
+            for allele in mc.split(","):
+                mcs = allele.split('_')
+                # GT would have the index of the MC in the ALT field list if we wanted to be specific...
+                if len(mcs) > 1:
+                    pathogenic_mcs = repeat_info[repeat_id].get('pathogenic_struc', range(len(mcs)))
 
-                for index, count in mcs:
-                    if index in pathogenic_mcs:
-                        pathogenic_counts += int(count)
-            else:
-                pathogenic_counts = int(mc)
+                    for index, count in mcs:
+                        if index in pathogenic_mcs:
+                            pathogenic_counts += int(count)
+                else:
+                    pathogenic_counts = int(mc)
         repeat_res.append(pathogenic_counts)
 
     return repeat_res
@@ -249,15 +259,11 @@ def get_format_dicts(format_string: str, format_sample_strings: list) -> list:
     Convert format declaration string and list of sample format strings into a
     list of format dicts, one dict per individual
     """
-    format_dicts = []
-
     if not format_string:
         return None
 
     format_fields = format_string.split(':')
-
-    for index, individual_format in enumerate(format_sample_strings):
-        format_dicts[index] = dict(zip(format_fields, individual_format[index].split(':')))
+    format_dicts = [dict(zip(format_fields, individual_format[index].split(':'))) for index, individual_format in enumerate(format_sample_strings)]
 
     return format_dicts
 

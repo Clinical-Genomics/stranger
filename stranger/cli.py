@@ -7,7 +7,7 @@ from pprint import pprint as pp
 from codecs import (open, getreader)
 
 from stranger.resources import repeats_json_path
-from stranger.utils import (parse_repeat_file, get_repeat_info, get_format_dict, get_info_dict, get_variant_line)
+from stranger.utils import (get_format_dicts, get_info_dict, get_repeat_info, get_variant_line, parse_repeat_file)
 from stranger.vcf_utils import print_headers
 from stranger.constants import ANNOTATE_REPEAT_KEYS
 from stranger.__version__ import __version__
@@ -149,8 +149,6 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
 
 
         if repeat_data:
-            if needs_split(repeat_data):
-
             variant_info['info_dict']['STR_STATUS'] = repeat_data['repeat_strings']
             variant_info['info_dict']['STR_NORMAL_MAX'] = str(repeat_data['lower'])
             variant_info['info_dict']['STR_PATHOLOGIC_MIN'] = str(repeat_data['upper'])
