@@ -147,7 +147,6 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
 
         repeat_data = get_repeat_info(variant_info, repeat_information)
 
-
         if repeat_data:
             variant_info['info_dict']['STR_STATUS'] = repeat_data['repeat_strings']
             variant_info['info_dict']['STR_NORMAL_MAX'] = str(repeat_data['lower'])

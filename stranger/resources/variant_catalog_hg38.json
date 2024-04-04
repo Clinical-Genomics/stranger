@@ -44,6 +44,7 @@
     {
         "VariantType": "Repeat",
         "LocusId": "ARX_EIEE",
+        "TRID": "EIEE1_ARX",
         "HGNCId": 18060,
         "InheritanceMode": "XR",
         "DisplayRU": "GCN",
@@ -141,6 +142,7 @@
         "SourceId": "NBK535148",
         "LocusStructure": "(CAG)*",
         "ReferenceRegion": "chr3:63912684-63912714",
+        "PathogenicStruc": [0],
         "VariantType": "Repeat",
         "Disease": "SCA7",
         "NormalMax": 19,
@@ -156,6 +158,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(CTA)*(CTG)*",
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr13:70139353-70139383",
             "chr13:70139383-70139428"
@@ -175,6 +178,7 @@
     },
     {
         "LocusId": "C9ORF72",
+        "TRID": "FTDALS1_C9orf72",
         "HGNCId": 28337,
         "InheritanceMode": "AD",
         "DisplayRU": "GGGGCC",
@@ -324,6 +328,7 @@
             "chr3:129172656-129172696",
             "chr3:129172696-129172732"
         ],
+        "PathologicStruc": [0],
         "VariantId": [
             "CNBP",
             "CNBP_CAGA",
@@ -364,6 +369,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK541729",
         "LocusStructure": "(AAAAT)*(GAAAT)*(AAAAT)*",
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr1:57367043-57367053",
             "chr1:57367053-57367108",
@@ -438,6 +444,7 @@
             "EIF4A3",
             "EIF4A3_CACA20"
         ],
+        "PathologicStruc": [0],
         "PathologicRegion": "chr17:80147022-80147041",
         "NormalMax": 9,
         "PathologicMin": 10
@@ -825,6 +832,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK231880",
         "LocusStructure": "(GGCCTG)*(CGCCTG)*",
+        "PathologicStruc": [0],
         "ReferenceRegion": [
             "chr20:2652733-2652757",
             "chr20:2652757-2652775"
