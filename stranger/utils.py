@@ -83,6 +83,22 @@ def parse_json(file_handle):
             if repeat_unit.get(annotated_key):
                 repeat_info[repid][annotated_key] = repeat_unit.get(annotated_key)
 
+        if 'PathologicStruc' in repeat_unit:
+            repeat_info[repid]["pathologic_struc"] = repeat_unit['PathologicStruc']
+
+        if 'TRID' in repeat_unit:
+            # TRGT uses TRID instead of REPID
+            trid = repeat_unit['TRID']
+
+            repeat_info[trid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
+
+            for annotated_key in ANNOTATE_REPEAT_KEYS:
+                if repeat_unit.get(annotated_key):
+                    repeat_info[trid][annotated_key] = repeat_unit.get(annotated_key)
+
+            if 'PathologicStruc' in repeat_unit:
+                repeat_info[trid]["pathologic_struc"] = repeat_unit['PathologicStruc']
+
         # From ExHu 3.0 repids include the region of interest.
         try:
             reference_region = repeat_unit['ReferenceRegion']
@@ -104,6 +120,9 @@ def parse_json(file_handle):
         for annotated_key in ANNOTATE_REPEAT_KEYS:
             if repeat_unit.get(annotated_key):
                 repeat_info[repid][annotated_key] = repeat_unit.get(annotated_key)
+
+        if 'PathologicStruc' in repeat_unit:
+            repeat_info[repid]["pathologic_struc"] = repeat_unit['PathologicStruc']
 
     return repeat_info
 
@@ -194,10 +213,11 @@ def get_repeat_info(variant_info, repeat_info):
 
 
 def get_trgt_repeat_res(variant_info, repeat_info):
-    """Convert target variant info into ExHu format, splitting entries if needed,
-    if they turn out to contain more than one allele.
+    """Convert target variant info into ExHu count format, splitting entries if needed,
+    if they turn out to contain more than one allele or more than one motif.
 
-    The repeat definitions may have information on which
+    The repeat definitions may have information on which motifs are to be counted towards pathogenicity.
+    If no such PATHOLOGIC_STRUC info is available, default to use all motif parts.
     """
 
     repeat_id = variant_info['info_dict'].get('REPID')
@@ -209,21 +229,22 @@ def get_trgt_repeat_res(variant_info, repeat_info):
 
     repeat_res = []
     for format_dict in variant_info['format_dicts']:
-        pathogenic_counts = 0
+        pathologic_counts = 0
         mc = format_dict.get('MC')
         if mc:
             for allele in mc.split(","):
                 mcs = allele.split('_')
                 # GT would have the index of the MC in the ALT field list if we wanted to be specific...
+
                 if len(mcs) > 1:
-                    pathogenic_mcs = repeat_info[repeat_id].get('pathogenic_struc', range(len(mcs)))
+                    pathologic_mcs = repeat_info[repeat_id].get('pathologic_struc', range(len(mcs)))
 
                     for index, count in mcs:
-                        if index in pathogenic_mcs:
-                            pathogenic_counts += int(count)
+                        if index in pathologic_mcs:
+                            pathologic_counts += int(count)
                 else:
-                    pathogenic_counts = int(mc)
-        repeat_res.append(pathogenic_counts)
+                    pathologic_counts = int(mc)
+        repeat_res.append(pathologic_counts)
 
     return repeat_res
 
