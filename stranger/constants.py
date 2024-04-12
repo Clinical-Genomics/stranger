@@ -25,4 +25,5 @@ ANNOTATE_REPEAT_KEYS_TRGT = [
     'SourceId',
     'Disease',
     'Struc'
+    'PathologicStruc'
 ]
