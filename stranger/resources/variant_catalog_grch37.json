@@ -151,7 +151,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(CAG)*",
-        "PathogenicStruc": [0],
+        "PathologicStruc": [0],
         "ReferenceRegion": "3:63898361-63898391",
         "VariantType": "Repeat",
         "Disease": "SCA7",
