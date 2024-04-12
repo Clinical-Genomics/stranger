@@ -1,3 +1,4 @@
+import copy
 import logging
 import re
 import yaml
@@ -83,6 +84,22 @@ def parse_json(file_handle):
             if repeat_unit.get(annotated_key):
                 repeat_info[repid][annotated_key] = repeat_unit.get(annotated_key)
 
+        if 'PathologicStruc' in repeat_unit:
+            repeat_info[repid]["pathologic_struc"] = repeat_unit['PathologicStruc']
+
+        if 'TRID' in repeat_unit:
+            # TRGT uses TRID instead of REPID
+            trid = repeat_unit['TRID']
+
+            repeat_info[trid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
+
+            for annotated_key in ANNOTATE_REPEAT_KEYS:
+                if repeat_unit.get(annotated_key):
+                    repeat_info[trid][annotated_key] = repeat_unit.get(annotated_key)
+
+            if 'PathologicStruc' in repeat_unit:
+                repeat_info[trid]["pathologic_struc"] = repeat_unit['PathologicStruc']
+
         # From ExHu 3.0 repids include the region of interest.
         try:
             reference_region = repeat_unit['ReferenceRegion']
@@ -105,6 +122,9 @@ def parse_json(file_handle):
             if repeat_unit.get(annotated_key):
                 repeat_info[repid][annotated_key] = repeat_unit.get(annotated_key)
 
+        if 'PathologicStruc' in repeat_unit:
+            repeat_info[repid]["pathologic_struc"] = repeat_unit['PathologicStruc']
+
     return repeat_info
 
 
@@ -125,6 +145,20 @@ def parse_repeat_file(file_handle, repeats_file_type='tsv'):
 
     return repeat_info
 
+def get_exhu_repeat_res_from_alts(variant_info: dict):
+    alleles = variant_info['alts']
+    repeat_res = []
+    for allele in alleles:
+        if allele == '.':
+            repeat_res.extend([0])
+        else:
+            repeat_res.extend([int(num) for num in NUM.findall(allele)])
+        if not repeat_res:
+            LOG.warning("Allele information is not on correct format: %s", allele)
+            raise SyntaxError("Allele on wrong format")
+    return repeat_res
+
+
 def get_repeat_info(variant_info, repeat_info):
     """Find the correct mutation level of a str variant
 
@@ -135,10 +169,12 @@ def get_repeat_info(variant_info, repeat_info):
     Returns:
         (dict): With repeat level, lower and upper limits
     """
-    repeat_strings = []
-    # There can be one or two alternatives
-    alleles = variant_info['alts']
+
+    # There can be one or more alternatives (each ind can have at most two of those)
+
     repeat_id = variant_info['info_dict'].get('REPID')
+    if not repeat_id:
+        repeat_id = variant_info['info_dict'].get('TRID').split('_')[1]
     if not repeat_id in repeat_info:
         LOG.warning("No info for repeat id %s", repeat_id)
         return None
@@ -146,15 +182,15 @@ def get_repeat_info(variant_info, repeat_info):
     rep_lower = repeat_info[repeat_id].get('normal_max', -1)
     rep_upper = repeat_info[repeat_id].get('pathologic_min', -1)
     rank_score = 0
-    for allele in alleles:
-        if allele == '.':
-            repeat_res = [0]
-        else:
-            repeat_res = [int(num) for num in NUM.findall(allele)]
-        if not repeat_res:
-            LOG.warning("Allele information is not on correct format: %s", allele)
-            raise SyntaxError("Allele on wrong format")
-        repeat_number = repeat_res[0]
+
+    repeat_strings = []
+
+    if variant_info.get('format_dicts'):
+        repeat_res = get_trgt_repeat_res(variant_info, repeat_info)
+    else:
+        repeat_res = get_exhu_repeat_res_from_alts(variant_info)
+
+    for repeat_number in repeat_res:
         if repeat_number <= rep_lower:
             repeat_strings.append('normal')
             if rank_score < RANK_SCORE['normal']:
@@ -176,8 +212,46 @@ def get_repeat_info(variant_info, repeat_info):
 
     return repeat_data
 
+
+def get_trgt_repeat_res(variant_info, repeat_info):
+    """Convert target variant info into ExHu count format, splitting entries if needed,
+    if they turn out to contain more than one allele or more than one motif.
+
+    The repeat definitions may have information on which motifs are to be counted towards pathogenicity.
+    If no such PATHOLOGIC_STRUC info is available, default to use all motif parts.
+    """
+
+    repeat_id = variant_info['info_dict'].get('REPID')
+    if not repeat_id:
+        repeat_id = variant_info['info_dict'].get('TRID').split('_')[1]
+    if not repeat_id in repeat_info:
+        LOG.warning("No info for repeat id %s", repeat_id)
+        return None
+
+    repeat_res = []
+    for format_dict in variant_info['format_dicts']:
+        pathologic_counts = 0
+        mc = format_dict.get('MC')
+        if mc:
+            for allele in mc.split(","):
+                mcs = allele.split('_')
+                # GT would have the index of the MC in the ALT field list if we wanted to be specific...
+
+                if len(mcs) > 1:
+                    pathologic_mcs = repeat_info[repeat_id].get('pathologic_struc', range(len(mcs)))
+
+                    for index, count in enumerate(mcs):
+                        if index in pathologic_mcs:
+                            pathologic_counts += int(count)
+                else:
+                    pathologic_counts = int(allele)
+        repeat_res.append(pathologic_counts)
+
+    return repeat_res
+
+
 def get_info_dict(info_string):
-    """Convert a info string to a dictionary
+    """Convert an info string to a dictionary
 
     Args:
         info_string(str): A string that contains the INFO field from a vcf variant
@@ -202,6 +276,23 @@ def get_info_dict(info_string):
 
     return info_dict
 
+def get_format_dicts(format_string: str, format_sample_strings: list) -> list:
+    """
+    Convert format declaration string and list of sample format strings into a
+    list of format dicts, one dict per individual
+    """
+    if not format_string:
+        return None
+
+    format_fields = format_string.split(':')
+
+    for index, individual_format in enumerate(format_sample_strings):
+        LOG.debug("index %s format %s", index, individual_format)
+
+    format_dicts = [dict(zip(format_fields, individual_format.split(':'))) for index, individual_format in enumerate(format_sample_strings)]
+
+    return format_dicts
+
 def get_variant_line(variant_info, header_info):
     """Convert variant dictionary back to a VCF formated string
 
@@ -215,7 +306,7 @@ def get_variant_line(variant_info, header_info):
 
     info_dict = variant_info['info_dict']
     if not info_dict:
-        info_string = '.'
+        variant_info['INFO'] = '.'
     else:
         info_list = []
         for annotation in info_dict:
@@ -230,3 +321,80 @@ def get_variant_line(variant_info, header_info):
         variant_list.append(variant_info[annotation])
 
     return '\t'.join(variant_list)
+
+def get_individual_index(header_info):
+    """Return index for first individual (FORMAT formatted) column in VCF"""
+
+    for index, item in enumerate(header_info):
+        if item.startswith('FORMAT'):
+            individual_index = index + 1
+    return individual_index
+
+def update_decomposed_variant_format_fields(variant_info, header_info, individual_index):
+    """
+    Update variant_info individual FORMAT fields with information found in the now up to date
+    format_dicts.
+    """
+    out_format = []
+
+    individuals = [individual for individual in header_info[individual_index:]]
+
+    for index, format_dict in enumerate(variant_info['format_dicts']):
+        for field in variant_info['FORMAT'].split(":"):
+            out_format.append(format_dict[field])
+
+        variant_info[individuals[index]] = ":".join(out_format)
+        LOG.debug("update format field %s for individual %s", out_format, individuals[index])
+def decompose_var(variant_info):
+    """
+    Decompose variant with more than one alt into multiple ones, with mostly the same info except on GT and ALT.
+
+    Make new resulting variant info lines, copied from original but with decomposable fields replaced appropriately.
+
+    The index of the alt is also the number (-1) at the corresponding position in the GT field. Note 0-base in GT for
+    reference.
+
+    """
+
+    LOG.debug("Found variant to decompose - alts are %s and formats %s",variant_info['alts'], variant_info['format_dicts'])
+    result_variants = []
+    for index, alt in enumerate(variant_info['alts']):
+        result_variants.append(copy.deepcopy(variant_info))
+        LOG.debug("decompose alt %s", variant_info['alts'][index])
+        result_variants[index]["ALT"] = variant_info['alts'][index]
+
+    for index, alt in enumerate(variant_info['alts']):
+        for individual_index, format_dict in enumerate(variant_info['format_dicts']):
+            gts = format_dict["GT"].split("/")
+
+            updated_fields = []
+            for gt_component, decomposed_field in enumerate(gts):
+                if decomposed_field == "0":
+                    # reference component
+                    updated_fields.append(decomposed_field)
+
+                if decomposed_field == ".":
+                    # uncalled component
+                    updated_fields.append(decomposed_field)
+
+                if decomposed_field.isdigit():
+                    if int(decomposed_field) == index + 1:
+                        # this is the variant component
+                        variant_component = gt_component
+                        updated_fields.append("1")
+                    else:
+                        # unclear component
+                        updated_fields.append(".")
+
+            result_variants[index]['format_dicts'][individual_index]['GT'] = "/".join(updated_fields)
+
+            for field, individual_value in format_dict.items():
+                if field in ["GT"]:
+                    continue
+                variant_component_value = individual_value.split(",")[variant_component]
+                result_variants[index]['format_dicts'][individual_index][field] = variant_component_value
+
+    LOG.debug("resulting variants %s",result_variants)
+    return result_variants
+
+

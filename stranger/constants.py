@@ -15,3 +15,14 @@ ANNOTATE_REPEAT_KEYS = [
     'SweGenStd',
     'Disease',
 ]
+
+ANNOTATE_REPEAT_KEYS_TRGT = [
+    'HGNCId',
+    'InheritanceMode',
+    'DisplayRU',
+    'SourceDisplay',
+    'Source',
+    'SourceId',
+    'Disease',
+    'Struc'
+]

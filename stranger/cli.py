@@ -7,9 +7,9 @@ from pprint import pprint as pp
 from codecs import (open, getreader)
 
 from stranger.resources import repeats_json_path
-from stranger.utils import (parse_repeat_file, get_repeat_info, get_info_dict, get_variant_line)
+from stranger.utils import (decompose_var, get_format_dicts, get_individual_index, get_info_dict, get_repeat_info, get_variant_line, parse_repeat_file, update_decomposed_variant_format_fields)
 from stranger.vcf_utils import print_headers
-from stranger.constants import ANNOTATE_REPEAT_KEYS
+from stranger.constants import ANNOTATE_REPEAT_KEYS, ANNOTATE_REPEAT_KEYS_TRGT
 from stranger.__version__ import __version__
 
 LOG = logging.getLogger(__name__)
@@ -30,12 +30,13 @@ def print_version(ctx, param, value):
     show_default=True,
 )
 @click.option('-i','--family_id', default='1')
+@click.option('-t','--trgt', is_flag=True, help='File was produced with TRGT')
 @click.option('--version', is_flag=True, callback=print_version,
               expose_value=False, is_eager=True)
 @click.option('--loglevel', default='INFO', type=click.Choice(LOG_LEVELS),
               help="Set the level of log output.", show_default=True)
 @click.pass_context
-def cli(context, vcf, family_id, repeats_file, loglevel):
+def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
     """Annotate str variants with str status"""
     coloredlogs.install(level=loglevel)
     LOG.info("Running stranger version %s", __version__)
@@ -53,7 +54,7 @@ def cli(context, vcf, family_id, repeats_file, loglevel):
         LOG.warning("Could not find any repeat info")
         context.abort()
 
-    header_definitions = [
+    header_info_definitions = [
         {
             'id': 'STR_STATUS', 'num': 'A', 'type': 'String',
             'desc': 'Repeat expansion status. Alternatives in [normal, pre_mutation, full_mutation]'
@@ -109,11 +110,10 @@ def cli(context, vcf, family_id, repeats_file, loglevel):
     ]
 
     stranger_headers = []
-    for hdef in header_definitions:
+    for hdef in header_info_definitions:
         header = '##INFO=<ID={0},Number={1},Type={2},Description="{3}">'.format(
             hdef.get('id'), hdef.get('num'), hdef.get('type'), hdef.get('desc'))
         stranger_headers.append(header)
-
 
     if vcf.endswith('.gz'):
         LOG.info("Vcf is zipped")
@@ -121,7 +121,6 @@ def cli(context, vcf, family_id, repeats_file, loglevel):
     else:
         vcf_handle = open(vcf, mode='r', encoding='utf-8', errors='replace')
 
-    LOG.info("Parsing variants from %s", vcf)
     for line in vcf_handle:
         line = line.rstrip()
         if line.startswith('#'):
@@ -136,16 +135,37 @@ def cli(context, vcf, family_id, repeats_file, loglevel):
             click.echo(line)
             continue
         variant_info = dict(zip(header_info, line.split('\t')))
-        variant_info['alts'] = variant_info['ALT'].split(',')
         variant_info['info_dict'] = get_info_dict(variant_info['INFO'])
-        repeat_data = get_repeat_info(variant_info, repeat_information)
-        if repeat_data:
-            variant_info['info_dict']['STR_STATUS'] = repeat_data['repeat_strings']
-            variant_info['info_dict']['STR_NORMAL_MAX'] = str(repeat_data['lower'])
-            variant_info['info_dict']['STR_PATHOLOGIC_MIN'] = str(repeat_data['upper'])
-            variant_info['info_dict']['RankScore'] = ':'.join([str(family_id), str(repeat_data['rank_score'])])
-            for annotate_repeat_key in ANNOTATE_REPEAT_KEYS:
-                if repeat_data.get(annotate_repeat_key):
-                    variant_info['info_dict'][annotate_repeat_key] = str(repeat_data[annotate_repeat_key])
+        variant_info['alts'] = variant_info['ALT'].split(',')
 
-        click.echo(get_variant_line(variant_info, header_info))
+        variant_infos = [variant_info]
+
+        if trgt:
+            individual_index = get_individual_index(header_info)
+            variant_info['format_dicts'] = get_format_dicts(variant_info['FORMAT'], [variant_info[individual] for individual in header_info[individual_index:]])
+
+            LOG.debug("format %s for inds %s gives dicts %s",variant_info['FORMAT'], [individual for individual in header_info[individual_index:]], variant_info['format_dicts'])
+            if len(variant_info['alts']) > 1:
+                variant_infos = decompose_var(variant_info)
+
+        for variant_info in variant_infos:
+            LOG.debug("decomposed variant info %s", variant_info)
+            update_decomposed_variant_format_fields(variant_info, header_info, individual_index)
+
+            repeat_data = get_repeat_info(variant_info, repeat_information)
+
+            if repeat_data:
+                variant_info['info_dict']['STR_STATUS'] = repeat_data['repeat_strings']
+                variant_info['info_dict']['STR_NORMAL_MAX'] = str(repeat_data['lower'])
+                variant_info['info_dict']['STR_PATHOLOGIC_MIN'] = str(repeat_data['upper'])
+                variant_info['info_dict']['RankScore'] = ':'.join([str(family_id), str(repeat_data['rank_score'])])
+
+                annotate_repeat_keys = ANNOTATE_REPEAT_KEYS
+                if trgt:
+                    annotate_repeat_keys = ANNOTATE_REPEAT_KEYS_TRGT
+                for annotate_repeat_key in annotate_repeat_keys:
+                    if repeat_data.get(annotate_repeat_key):
+                        variant_info['info_dict'][annotate_repeat_key] = str(repeat_data[annotate_repeat_key])
+
+                click.echo(get_variant_line(variant_info, header_info))
+
