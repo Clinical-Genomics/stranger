@@ -1,3 +1,4 @@
+import copy
 import logging
 import re
 import yaml
@@ -239,11 +240,11 @@ def get_trgt_repeat_res(variant_info, repeat_info):
                 if len(mcs) > 1:
                     pathologic_mcs = repeat_info[repeat_id].get('pathologic_struc', range(len(mcs)))
 
-                    for index, count in mcs:
+                    for index, count in enumerate(mcs):
                         if index in pathologic_mcs:
                             pathologic_counts += int(count)
                 else:
-                    pathologic_counts = int(mc)
+                    pathologic_counts = int(allele)
         repeat_res.append(pathologic_counts)
 
     return repeat_res
@@ -284,7 +285,11 @@ def get_format_dicts(format_string: str, format_sample_strings: list) -> list:
         return None
 
     format_fields = format_string.split(':')
-    format_dicts = [dict(zip(format_fields, individual_format[index].split(':'))) for index, individual_format in enumerate(format_sample_strings)]
+
+    for index, individual_format in enumerate(format_sample_strings):
+        LOG.debug("index %s format %s", index, individual_format)
+
+    format_dicts = [dict(zip(format_fields, individual_format.split(':'))) for index, individual_format in enumerate(format_sample_strings)]
 
     return format_dicts
 
@@ -316,3 +321,80 @@ def get_variant_line(variant_info, header_info):
         variant_list.append(variant_info[annotation])
 
     return '\t'.join(variant_list)
+
+def get_individual_index(header_info):
+    """Return index for first individual (FORMAT formatted) column in VCF"""
+
+    for index, item in enumerate(header_info):
+        if item.startswith('FORMAT'):
+            individual_index = index + 1
+    return individual_index
+
+def update_decomposed_variant_format_fields(variant_info, header_info, individual_index):
+    """
+    Update variant_info individual FORMAT fields with information found in the now up to date
+    format_dicts.
+    """
+    out_format = []
+
+    individuals = [individual for individual in header_info[individual_index:]]
+
+    for index, format_dict in enumerate(variant_info['format_dicts']):
+        for field in variant_info['FORMAT'].split(":"):
+            out_format.append(format_dict[field])
+
+        variant_info[individuals[index]] = ":".join(out_format)
+        LOG.debug("update format field %s for individual %s", out_format, individuals[index])
+def decompose_var(variant_info):
+    """
+    Decompose variant with more than one alt into multiple ones, with mostly the same info except on GT and ALT.
+
+    Make new resulting variant info lines, copied from original but with decomposable fields replaced appropriately.
+
+    The index of the alt is also the number (-1) at the corresponding position in the GT field. Note 0-base in GT for
+    reference.
+
+    """
+
+    LOG.debug("Found variant to decompose - alts are %s and formats %s",variant_info['alts'], variant_info['format_dicts'])
+    result_variants = []
+    for index, alt in enumerate(variant_info['alts']):
+        result_variants.append(copy.deepcopy(variant_info))
+        LOG.debug("decompose alt %s", variant_info['alts'][index])
+        result_variants[index]["ALT"] = variant_info['alts'][index]
+
+    for index, alt in enumerate(variant_info['alts']):
+        for individual_index, format_dict in enumerate(variant_info['format_dicts']):
+            gts = format_dict["GT"].split("/")
+
+            updated_fields = []
+            for gt_component, decomposed_field in enumerate(gts):
+                if decomposed_field == "0":
+                    # reference component
+                    updated_fields.append(decomposed_field)
+
+                if decomposed_field == ".":
+                    # uncalled component
+                    updated_fields.append(decomposed_field)
+
+                if decomposed_field.isdigit():
+                    if int(decomposed_field) == index + 1:
+                        # this is the variant component
+                        variant_component = gt_component
+                        updated_fields.append("1")
+                    else:
+                        # unclear component
+                        updated_fields.append(".")
+
+            result_variants[index]['format_dicts'][individual_index]['GT'] = "/".join(updated_fields)
+
+            for field, individual_value in format_dict.items():
+                if field in ["GT"]:
+                    continue
+                variant_component_value = individual_value.split(",")[variant_component]
+                result_variants[index]['format_dicts'][individual_index][field] = variant_component_value
+
+    LOG.debug("resulting variants %s",result_variants)
+    return result_variants
+
+

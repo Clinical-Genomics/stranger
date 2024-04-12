@@ -7,9 +7,9 @@ from pprint import pprint as pp
 from codecs import (open, getreader)
 
 from stranger.resources import repeats_json_path
-from stranger.utils import (get_format_dicts, get_info_dict, get_repeat_info, get_variant_line, parse_repeat_file)
+from stranger.utils import (decompose_var, get_format_dicts, get_individual_index, get_info_dict, get_repeat_info, get_variant_line, parse_repeat_file, update_decomposed_variant_format_fields)
 from stranger.vcf_utils import print_headers
-from stranger.constants import ANNOTATE_REPEAT_KEYS
+from stranger.constants import ANNOTATE_REPEAT_KEYS, ANNOTATE_REPEAT_KEYS_TRGT
 from stranger.__version__ import __version__
 
 LOG = logging.getLogger(__name__)
@@ -135,27 +135,37 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
             click.echo(line)
             continue
         variant_info = dict(zip(header_info, line.split('\t')))
-        variant_info['alts'] = variant_info['ALT'].split(',')
         variant_info['info_dict'] = get_info_dict(variant_info['INFO'])
+        variant_info['alts'] = variant_info['ALT'].split(',')
+
+        variant_infos = [variant_info]
 
         if trgt:
-            for index, item in enumerate(header_info):
-                if item.startswith('FORMAT'):
-                    individual_index = index + 1
-
+            individual_index = get_individual_index(header_info)
             variant_info['format_dicts'] = get_format_dicts(variant_info['FORMAT'], [variant_info[individual] for individual in header_info[individual_index:]])
 
-        repeat_data = get_repeat_info(variant_info, repeat_information)
+            LOG.debug("format %s for inds %s gives dicts %s",variant_info['FORMAT'], [individual for individual in header_info[individual_index:]], variant_info['format_dicts'])
+            if len(variant_info['alts']) > 1:
+                variant_infos = decompose_var(variant_info)
 
-        if repeat_data:
-            variant_info['info_dict']['STR_STATUS'] = repeat_data['repeat_strings']
-            variant_info['info_dict']['STR_NORMAL_MAX'] = str(repeat_data['lower'])
-            variant_info['info_dict']['STR_PATHOLOGIC_MIN'] = str(repeat_data['upper'])
-            variant_info['info_dict']['RankScore'] = ':'.join([str(family_id), str(repeat_data['rank_score'])])
-            for annotate_repeat_key in ANNOTATE_REPEAT_KEYS:
-                if repeat_data.get(annotate_repeat_key):
-                    variant_info['info_dict'][annotate_repeat_key] = str(repeat_data[annotate_repeat_key])
+        for variant_info in variant_infos:
+            LOG.debug("decomposed variant info %s", variant_info)
+            update_decomposed_variant_format_fields(variant_info, header_info, individual_index)
 
+            repeat_data = get_repeat_info(variant_info, repeat_information)
 
-        click.echo(get_variant_line(variant_info, header_info))
+            if repeat_data:
+                variant_info['info_dict']['STR_STATUS'] = repeat_data['repeat_strings']
+                variant_info['info_dict']['STR_NORMAL_MAX'] = str(repeat_data['lower'])
+                variant_info['info_dict']['STR_PATHOLOGIC_MIN'] = str(repeat_data['upper'])
+                variant_info['info_dict']['RankScore'] = ':'.join([str(family_id), str(repeat_data['rank_score'])])
+
+                annotate_repeat_keys = ANNOTATE_REPEAT_KEYS
+                if trgt:
+                    annotate_repeat_keys = ANNOTATE_REPEAT_KEYS_TRGT
+                for annotate_repeat_key in annotate_repeat_keys:
+                    if repeat_data.get(annotate_repeat_key):
+                        variant_info['info_dict'][annotate_repeat_key] = str(repeat_data[annotate_repeat_key])
+
+                click.echo(get_variant_line(variant_info, header_info))
 
