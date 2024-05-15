@@ -173,8 +173,15 @@ def get_repeat_info(variant_info, repeat_info):
     # There can be one or more alternatives (each ind can have at most two of those)
 
     repeat_id = variant_info['info_dict'].get('REPID')
+    
     if not repeat_id:
-        repeat_id = variant_info['info_dict'].get('TRID').split('_')[1]
+        trid_value = variant_info['info_dict'].get('TRID')
+        
+        if '_' in trid_value:
+            repeat_id = trid_value.split('_')[1]
+        else:
+            repeat_id = trid_value
+
     if not repeat_id in repeat_info:
         LOG.warning("No info for repeat id %s", repeat_id)
         return None
@@ -223,7 +230,13 @@ def get_trgt_repeat_res(variant_info, repeat_info):
 
     repeat_id = variant_info['info_dict'].get('REPID')
     if not repeat_id:
-        repeat_id = variant_info['info_dict'].get('TRID').split('_')[1]
+        trid_value = variant_info['info_dict'].get('TRID')
+        
+        if '_' in trid_value:
+            repeat_id = trid_value.split('_')[1]
+        else:
+            repeat_id = trid_value
+
     if not repeat_id in repeat_info:
         LOG.warning("No info for repeat id %s", repeat_id)
         return None
@@ -236,6 +249,10 @@ def get_trgt_repeat_res(variant_info, repeat_info):
             for allele in mc.split(","):
                 mcs = allele.split('_')
                 # GT would have the index of the MC in the ALT field list if we wanted to be specific...
+                
+                # What should we do if MC is . ? 
+                if allele == ".":
+                    continue
 
                 if len(mcs) > 1:
                     pathologic_mcs = repeat_info[repeat_id].get('pathologic_struc', range(len(mcs)))
