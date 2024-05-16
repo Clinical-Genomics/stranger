@@ -171,18 +171,21 @@ def get_repeat_info(variant_info, repeat_info):
     """
 
     # There can be one or more alternatives (each ind can have at most two of those)
-
     repeat_id = variant_info['info_dict'].get('REPID')
     
+    # If repeat_id is not found, attempt to extract it from TRID or ID
     if not repeat_id:
-        trid_value = variant_info['info_dict'].get('TRID')
-        
-        if '_' in trid_value:
-            repeat_id = trid_value.split('_')[1]
-        else:
-            repeat_id = trid_value
+        for key in ['TRID', 'ID']:
+            value = variant_info['info_dict'].get(key)
+            if value is not None:
+                # Some IDs may have _, some may not
+                if '_' in value:
+                    repeat_id = value.split('_')[1]
+                else:
+                    repeat_id = value
+                break
 
-    if not repeat_id in repeat_info:
+    if repeat_id not in repeat_info:
         LOG.warning("No info for repeat id %s", repeat_id)
         return None
 
@@ -229,13 +232,17 @@ def get_trgt_repeat_res(variant_info, repeat_info):
     """
 
     repeat_id = variant_info['info_dict'].get('REPID')
+    # If repeat_id is not found, attempt to extract it from TRID or ID
     if not repeat_id:
-        trid_value = variant_info['info_dict'].get('TRID')
-        
-        if '_' in trid_value:
-            repeat_id = trid_value.split('_')[1]
-        else:
-            repeat_id = trid_value
+        for key in ['TRID', 'ID']:
+            value = variant_info['info_dict'].get(key)
+            if value is not None:
+                # Some IDs may have _, some may not
+                if '_' in value:
+                    repeat_id = value.split('_')[1]
+                else:
+                    repeat_id = value
+                break
 
     if not repeat_id in repeat_info:
         LOG.warning("No info for repeat id %s", repeat_id)
@@ -244,7 +251,9 @@ def get_trgt_repeat_res(variant_info, repeat_info):
     repeat_res = []
     for format_dict in variant_info['format_dicts']:
         pathologic_counts = 0
+        print(variant_info)
         mc = format_dict.get('MC')
+        rb = format_dict.get('RB')
         if mc:
             for allele in mc.split(","):
                 mcs = allele.split('_')
@@ -262,7 +271,8 @@ def get_trgt_repeat_res(variant_info, repeat_info):
                             pathologic_counts += int(count)
                 else:
                     pathologic_counts = int(allele)
-        repeat_res.append(pathologic_counts)
+            
+    repeat_res.append(pathologic_counts)
 
     return repeat_res
 
@@ -379,7 +389,7 @@ def decompose_var(variant_info):
         result_variants.append(copy.deepcopy(variant_info))
         LOG.debug("decompose alt %s", variant_info['alts'][index])
         result_variants[index]["ALT"] = variant_info['alts'][index]
-
+    
     for index, alt in enumerate(variant_info['alts']):
         for individual_index, format_dict in enumerate(variant_info['format_dicts']):
             gts = format_dict["GT"].split("/")
@@ -402,9 +412,10 @@ def decompose_var(variant_info):
                     else:
                         # unclear component
                         updated_fields.append(".")
-
-            result_variants[index]['format_dicts'][individual_index]['GT'] = "/".join(updated_fields)
-
+            
+            # TODO: Do we need a --phased flag or can you assign this automatically 
+            result_variants[index]['format_dicts'][indvidual_index]['GT'] = "/".join(updated_fields)
+            
             for field, individual_value in format_dict.items():
                 if field in ["GT"]:
                     continue
