@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [x.x.x]
 Bring in updated loci references from raredisese reference-files
+Fix processing TRGT VCFs with missing MC and TRIDs without underscore [#59](https://github.com/Clinical-Genomics/stranger/pull/59) 
 
 ## [0.8.1]
 Fix DAB1 pathologic repeat unit name
