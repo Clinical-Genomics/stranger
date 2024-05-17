@@ -165,12 +165,21 @@ def get_repeat_id(variant_info):
     If the ID is formatted with underscore (STRchive),
     grab the part which is after the underscore, otherwise take the whole ID (PacBio).
     """
-    repeat_id = variant_info['info_dict'].get('REPID')
-    if not repeat_id:
-        trid_value = variant_info['info_dict'].get('TRID')
-        if trid_value:
-            repeat_id = trid_value.split('_', 1)[1] if '_' in trid_value else trid_value
-            return repeat_id
+    info_dict = variant_info.get('info_dict', {})
+    
+    repid = info_dict.get('REPID')
+    
+    if repid:
+        return repid
+    else:
+        trid = info_dict.get('TRID')
+        if trid:
+            if '_' in trid:
+                return trid.split('_', 1)[1]
+            else:
+                return trid
+
+    return None  # Return None if neither REPID nor TRID is found
 
 def get_repeat_info(variant_info, repeat_info):
     """Find the correct mutation level of a str variant
