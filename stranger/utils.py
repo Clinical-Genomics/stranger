@@ -166,25 +166,20 @@ def get_repeat_id(variant_info):
     grab the part which is after the underscore, otherwise take the whole ID (PacBio).
     """
     info_dict = variant_info.get('info_dict', {})
-    
+
     repid = info_dict.get('REPID')
-    
+    trid = info_dict.get('TRID')
+
     if repid:
         return repid
-trid = info_dict.get('TRID')
-if not trid:
-    return None    
-if '_' in trid:
-    return trid.split('_', 1)[1]
-return trid
-        trid = info_dict.get('TRID')
-        if trid:
-            if '_' in trid:
-                return trid.split('_', 1)[1]
-            else:
-                return trid
 
-    return None  # Return None if neither REPID nor TRID is found
+    if not trid:
+        return None
+
+    if '_' in trid:
+        return trid.split('_', 1)[1]
+
+    return trid
 
 def get_repeat_info(variant_info, repeat_info):
     """Find the correct mutation level of a str variant
@@ -199,7 +194,7 @@ def get_repeat_info(variant_info, repeat_info):
 
     # There can be one or more alternatives (each ind can have at most two of those)
     repeat_id = get_repeat_id(variant_info)
-    
+
     if not repeat_id in repeat_info:
         LOG.warning("No info for repeat id %s", repeat_id)
         return None
@@ -246,7 +241,7 @@ def get_trgt_repeat_res(variant_info, repeat_info):
     """
 
     repeat_id = get_repeat_id(variant_info)
-    
+
     if not repeat_id in repeat_info:
         LOG.warning("No info for repeat id %s", repeat_id)
         return None
@@ -259,8 +254,8 @@ def get_trgt_repeat_res(variant_info, repeat_info):
             for allele in mc.split(","):
                 mcs = allele.split('_')
                 # GT would have the index of the MC in the ALT field list if we wanted to be specific...
-                
-                # What should we do if MC is . ? 
+
+                # What should we do if MC is . ?
                 if allele == ".":
                     repeat_res.extend([0])
 
