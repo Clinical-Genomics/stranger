@@ -1,11 +1,11 @@
 # Stranger [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![PyPI Version][pypi-img]][pypi-url][![DOI][doi-image]][doi-url]
 
-Annotates output files from [ExpansionHunter][hunter] with the pathologic implications of the repeat sizes.
+Annotates output files from [ExpansionHunter][hunter] and TRGT[trgt] with the pathologic implications of the repeat sizes.
 
 ## Installation
 
 ```
-git clone github.com/moonso/stranger
+git clone github.com/clinical-genomics/stranger
 cd stranger
 pip install --editable .
 ```
@@ -13,22 +13,22 @@ pip install --editable .
 ## Usage
 
 ```
-stranger --help
 Usage: stranger [OPTIONS] VCF
 
   Annotate str variants with str status
 
 Options:
   -f, --repeats-file PATH         Path to a file with repeat definitions. See
-                                  README for explanation  [default: $HOME/stranger
-                                  /stranger/resources/variant_catalog_grch37.json]
-  -i, --family_id TEXT            Family ID used in RankScore output
+                                  README for explanation  [default: $HOME/
+                                  stranger/stranger/resources/vari
+                                  ant_catalog_grch37.json]
+  -i, --family_id TEXT
+  -t, --trgt                      File was produced with TRGT
   --version
   --loglevel [DEBUG|INFO|WARNING|ERROR|CRITICAL]
                                   Set the level of log output.  [default:
                                   INFO]
   --help                          Show this message and exit.
-
 ```
 
 
@@ -39,19 +39,22 @@ Stranger will annotate the level of pathogenicity for the repeat number. The int
 
 You can find a repeat definitions json file that comes with Stranger [here](https://github.com/moonso/stranger/blob/master/stranger/resources/variant_catalog_grch37.json). It is based on the ExpansionHunter variant catalog, but extended with a few disease locus relevant keys:
 
-| Column/Key | Content/Value |
-| ------- | ------- |
-| HGNC_ID | HGNC identifier for the repeat or most associated gene. |
-| HGNC_SYMBOL |HGNC symbol for the repeat or most associated gene. |
-| REPID | ExpansionHunter repeat ID. |
-| RU | Basic repeat unit, as seen in ExpansionHunter. Unused. |
-| DisplayRU | Repeat unit, as clinicians are used to see it. |
-| Normal_Max | (#copies) Longest repeat expected for normal individual; higher are marked pre- or full-mutation |
-| Pathologic_Min | (#copies) Shortest repeat expected for pathology. This and higher is annotated as full-mutation. |
-| Disease | Associated disease. |
-| InheritanceMode | Mode of inheritance "AR", "AD", "XR" etc |
-| Source | Reference literature resource type, eg GeneReviews or PubMed |
-| SourceId | PMID or GeneReviews book ID for references|
+| Column/Key      | Content/Value                                                                                   |
+|-----------------|-------------------------------------------------------------------------------------------------|
+| HGNC_ID         | HGNC identifier for the repeat or most associated gene.                                         |
+| HGNC_SYMBOL     | HGNC symbol for the repeat or most associated gene.                                             |
+| REPID           | ExpansionHunter repeat ID.                                                                      |
+| RU              | Basic repeat unit, as seen in ExpansionHunter. Unused.                                          |
+| DisplayRU       | Repeat unit, as clinicians are used to see it.                                                  |
+| Normal_Max      | (#copies) Longest repeat expected for normal individual; higher are marked pre- or full-mutation |
+| Pathologic_Min  | (#copies) Shortest repeat expected for pathology. This and higher is annotated as full-mutation. |
+| Disease         | Associated disease.                                                                             |
+| InheritanceMode | Mode of inheritance "AR", "AD", "XR" etc                                                        |
+| Source          | Reference literature resource type, eg GeneReviews or PubMed                                    |
+| SourceId        | PMID or GeneReviews book ID for references                                                      |
+| TRID            | Trgt repeat ID if not same as REPID                                                             |
+| PathologicStruc | Array of index for pathogenic motif                                                             |
+
 
 Other fields accepted by ExpansionHunter are also encouraged.
 
@@ -154,6 +157,7 @@ Output is by annotated VCF, with keys `STR_STATUS`, `NormalMax` and `PathologicM
 ```
 
 [hunter]: https://github.com/Illumina/ExpansionHunter
+[trgt]: https://github.com/PacificBiosciences/trgt
 
 [travis-url]: https://travis-ci.com/moonso/stranger
 [travis-image]: https://travis-ci.com/moonso/stranger.svg?branch=master
