@@ -937,6 +937,7 @@
             "RAPGEF2_TTTTA_3P"
         ],
       "PathologicRegion": "chr4:159342552-159342556",
+      "PathologicStruc": [1],
       "Disease": "FAME7",
       "NormalMax": 1,
       "PathologicMin": 10
@@ -952,6 +953,7 @@
       "SourceId": "30926972",
       "LocusStructure": "(AARRG)*",
       "ReferenceRegion": "chr4:39348424-39348485",
+      "PathologicStruc": [2,8],
       "Disease": "CANVAS",
       "NormalMax": 11,
       "PathologicMin": 12

@@ -720,6 +720,7 @@
             "RAPGEF2_TTTTA_3P"
         ],
       "PathologicRegion": "chr4:160263704-160263708",
+      "PathologicStruc": [1],
       "Disease": "FAME7",
       "NormalMax": 1,
       "PathologicMin": 10
