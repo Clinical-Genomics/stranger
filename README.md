@@ -1,6 +1,5 @@
 # Stranger 
 ![Build Status - GitHub][actions-build-status]
-[![Coverage Status][coveralls-image]][coveralls-url]
 [![PyPI Version][pypi-img]][pypi-url]
 [![DOI][doi-image]][doi-url]
 ![GitHub Release Date][github-release-date]
@@ -45,7 +44,7 @@ Options:
 The repeats are called with Expansion Hunter as mentioned earlier. ExpansionHunter will annotate the number of times that a repeat has been seen in the bam files of each individual and what repeat id the variant has.
 Stranger will annotate the level of pathogenicity for the repeat number. The intervals that comes with the package are manually collected from the literature since there is no single source where this information can be collected.
 
-You can find a demo repeat definitions json file that comes with Stranger [here](https://github.com/Clinical-Genomics/stranger/blob/master/stranger/resources/variant_catalog_grch37.json). It is based on the ExpansionHunter variant catalog, but extended with a few disease locus relevant keys:
+You can find a demo repeat definitions json file that comes with Stranger [here](https://github.com/Clinical-Genomics/stranger/blob/main/stranger/resources/variant_catalog_grch37.json). It is based on the ExpansionHunter variant catalog, but extended with a few disease locus relevant keys:
 It is advisable to use an up to date file, perhaps based on a curated public repostitory such as [STRchive][strchive] or [STRipy][stripy]. The ones we use in our routine pipelines can be found at our [Reference-files repository][reference-files] and include our literature curation.
 
 | Column/Key      | Content/Value                                                                                   |
@@ -219,8 +218,8 @@ and
 
 [pypi-img]: https://img.shields.io/pypi/v/stranger.svg?style=flat-square
 [pypi-url]: https://pypi.python.org/pypi/stranger/
-[coveralls-url]: https://coveralls.io/github/moonso/stranger
-[coveralls-image]: https://coveralls.io/repos/github/moonso/stranger/badge.svg?branch=master
+[codecov-img]: https://codecov.io/gh/Clinical-Genomics/stranger/branch/main/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/Clinical-Genomics/stranger
 [doi-image]: https://zenodo.org/badge/158848858.svg
 [doi-url]: https://zenodo.org/badge/latestdoi/158848858
 [github-release-date]: https://img.shields.io/github/release-date/Clinical-Genomics/scout
