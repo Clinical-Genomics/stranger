@@ -1,6 +1,6 @@
 # Stranger [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![PyPI Version][pypi-img]][pypi-url][![DOI][doi-image]][doi-url]
 
-Annotates output files from [ExpansionHunter][hunter] and TRGT[trgt] with the pathologic implications of the repeat sizes.
+Annotates output files from [ExpansionHunter][hunter] and [TRGT][trgt] with the pathologic implications of the repeat sizes.
 
 ## Installation
 
