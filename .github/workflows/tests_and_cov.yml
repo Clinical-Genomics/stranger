@@ -47,8 +47,8 @@ jobs:
           path: ${{ env.pythonLocation }}
           key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}
 
-      - name: Install the HTML 2 PDF renderer
-        run: sudo apt-get update || true && sudo apt-get install -y wkhtmltopdf
+      - name: Install pytest
+        run: pip install pytest
 
       - name: Run pytest
         run: pytest --cov --rootdir=/home/runner/work/stranger
