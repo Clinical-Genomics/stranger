@@ -45,7 +45,8 @@ Options:
 The repeats are called with Expansion Hunter as mentioned earlier. ExpansionHunter will annotate the number of times that a repeat has been seen in the bam files of each individual and what repeat id the variant has.
 Stranger will annotate the level of pathogenicity for the repeat number. The intervals that comes with the package are manually collected from the literature since there is no single source where this information can be collected.
 
-You can find a repeat definitions json file that comes with Stranger [here](https://github.com/moonso/stranger/blob/master/stranger/resources/variant_catalog_grch37.json). It is based on the ExpansionHunter variant catalog, but extended with a few disease locus relevant keys:
+You can find a demo repeat definitions json file that comes with Stranger [here](https://github.com/Clinical-Genomics/stranger/blob/master/stranger/resources/variant_catalog_grch37.json). It is based on the ExpansionHunter variant catalog, but extended with a few disease locus relevant keys:
+It is advisable to use an up to date file, perhaps based on a public repostitory such as [STRchive][strchive] or [STRipy][stripy]. The ones we use in our routine pipelines can be found at our [Reference-files repository][reference-files].
 
 | Column/Key      | Content/Value                                                                                   |
 |-----------------|-------------------------------------------------------------------------------------------------|
@@ -67,7 +68,7 @@ You can find a repeat definitions json file that comes with Stranger [here](http
 Other fields accepted by ExpansionHunter are also encouraged.
 
 <details>
-<summary>For convenience, here is a formated table with some of the current contents.</summary>
+<summary>For convenience, here is a formatted table with some of the current contents.</summary>
 
 | HGNCId | LocusId | DisplayRU | InheritanceMode | normal_max | pathologic_min | Disease | SourceDisplay | SourceId |
 | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- |
@@ -212,6 +213,9 @@ and
 
 [hunter]: https://github.com/Illumina/ExpansionHunter
 [trgt]: https://github.com/PacificBiosciences/trgt
+[reference-files]: https://github.com/Clinical-Genomics/reference-files/tree/master/rare-disease/disease_loci/ExpansionHunter-v5.0.0
+[strchive]:http://strchive.org
+[stripy]:https://stripy.org/database
 
 [pypi-img]: https://img.shields.io/pypi/v/stranger.svg?style=flat-square
 [pypi-url]: https://pypi.python.org/pypi/stranger/
