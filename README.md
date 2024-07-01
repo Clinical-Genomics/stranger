@@ -1,4 +1,12 @@
-# Stranger [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![PyPI Version][pypi-img]][pypi-url][![DOI][doi-image]][doi-url]
+# Stranger 
+![Build Status - GitHub][actions-build-status]
+[![Coverage Status][coveralls-image]][coveralls-url]
+[![PyPI Version][pypi-img]][pypi-url]
+[![DOI][doi-image]][doi-url]
+![GitHub Release Date][github-release-date]
+[![Coverage Status][codecov-img]][codecov-url]
+[![Code style: black][black-image]][black-url]
+[![Woke][woke-image]][woke-url]
 
 Annotates output files from [ExpansionHunter][hunter] and [TRGT][trgt] with the pathologic implications of the repeat sizes.
 
@@ -204,11 +212,17 @@ and
 [hunter]: https://github.com/Illumina/ExpansionHunter
 [trgt]: https://github.com/PacificBiosciences/trgt
 
-[travis-url]: https://travis-ci.com/moonso/stranger
-[travis-image]: https://travis-ci.com/moonso/stranger.svg?branch=master
 [pypi-img]: https://img.shields.io/pypi/v/stranger.svg?style=flat-square
 [pypi-url]: https://pypi.python.org/pypi/stranger/
 [coveralls-url]: https://coveralls.io/github/moonso/stranger
 [coveralls-image]: https://coveralls.io/repos/github/moonso/stranger/badge.svg?branch=master
 [doi-image]: https://zenodo.org/badge/158848858.svg
 [doi-url]: https://zenodo.org/badge/latestdoi/158848858
+[github-release-date]: https://img.shields.io/github/release-date/Clinical-Genomics/scout
+[codecov-img]: https://codecov.io/gh/Clinical-Genomics/stranger/branch/main/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/Clinical-Genomics/stranger
+[actions-build-status]: https://github.com/Clinical-Genomics/stranger/actions/workflows/build_and_publish.yml/badge.svg
+[black-image]: https://img.shields.io/badge/code%20style-black-000000.svg
+[black-url]: https://github.com/psf/black
+[woke-image]: https://github.com/Clinical-Genomics/stranger/actions/workflows/woke.yml/badge.svg
+[woke-url]: https://github.com/Clinical-Genomics/stranger/actions/workflows/woke.yml
