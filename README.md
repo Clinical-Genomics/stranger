@@ -46,7 +46,7 @@ The repeats are called with Expansion Hunter as mentioned earlier. ExpansionHunt
 Stranger will annotate the level of pathogenicity for the repeat number. The intervals that comes with the package are manually collected from the literature since there is no single source where this information can be collected.
 
 You can find a demo repeat definitions json file that comes with Stranger [here](https://github.com/Clinical-Genomics/stranger/blob/master/stranger/resources/variant_catalog_grch37.json). It is based on the ExpansionHunter variant catalog, but extended with a few disease locus relevant keys:
-It is advisable to use an up to date file, perhaps based on a public repostitory such as [STRchive][strchive] or [STRipy][stripy]. The ones we use in our routine pipelines can be found at our [Reference-files repository][reference-files].
+It is advisable to use an up to date file, perhaps based on a curated public repostitory such as [STRchive][strchive] or [STRipy][stripy]. The ones we use in our routine pipelines can be found at our [Reference-files repository][reference-files] and include our literature curation.
 
 | Column/Key      | Content/Value                                                                                   |
 |-----------------|-------------------------------------------------------------------------------------------------|
