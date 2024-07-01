@@ -23,11 +23,11 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: ${{ env.pythonLocation }}
-          key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements-dev.txt') }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }} }}
 
       - name: Install deps
         run: |
-          pip install --upgrade --upgrade-strategy eager -r requirements-dev.txt -r requirements.txt -e .
+          pip install --upgrade --upgrade-strategy eager -e .
           pip check
 
   test:
@@ -50,7 +50,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: ${{ env.pythonLocation }}
-          key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements-dev.txt') }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}
 
       - name: Install the HTML 2 PDF renderer
         run: sudo apt-get update || true && sudo apt-get install -y wkhtmltopdf
