@@ -309,9 +309,6 @@ def get_format_dicts(format_string: str, format_sample_strings: list) -> list:
 
     format_fields = format_string.split(':')
 
-    for index, individual_format in enumerate(format_sample_strings):
-        LOG.debug("index %s format %s", index, individual_format)
-
     format_dicts = [dict(zip(format_fields, individual_format.split(':'))) for index, individual_format in enumerate(format_sample_strings)]
 
     return format_dicts
@@ -367,7 +364,7 @@ def update_decomposed_variant_format_fields(variant_info, header_info, individua
             out_format.append(format_dict[field])
 
         variant_info[individuals[index]] = ":".join(out_format)
-        LOG.debug("update format field %s for individual %s", out_format, individuals[index])
+
 def decompose_var(variant_info):
     """
     Decompose variant with more than one alt into multiple ones, with mostly the same info except on GT and ALT.
@@ -379,11 +376,9 @@ def decompose_var(variant_info):
 
     """
 
-    LOG.debug("Found variant to decompose - alts are %s and formats %s",variant_info['alts'], variant_info['format_dicts'])
     result_variants = []
     for index, alt in enumerate(variant_info['alts']):
         result_variants.append(copy.deepcopy(variant_info))
-        LOG.debug("decompose alt %s", variant_info['alts'][index])
         result_variants[index]["ALT"] = variant_info['alts'][index]
 
     for index, alt in enumerate(variant_info['alts']):
@@ -417,7 +412,6 @@ def decompose_var(variant_info):
                 variant_component_value = individual_value.split(",")[variant_component]
                 result_variants[index]['format_dicts'][individual_index][field] = variant_component_value
 
-    LOG.debug("resulting variants %s",result_variants)
     return result_variants
 
 

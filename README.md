@@ -156,6 +156,51 @@ Output is by annotated VCF, with keys `STR_STATUS`, `NormalMax` and `PathologicM
 4       3076603 .       C       <STR17>,<STR18> .       PASS    END=3076660;REF=19;RL=57;RU=CAG;VARID=HTT;REPID=HTT;STR_STATUS=normal,normal
 ```
 
+## TRGT mode
+The flag `--trgt` will instruct Stranger to accept [TRGT][trgt] style VCFs. In particular, motif copy numbers are parsed from the `GT.MC` field and motifs 
+listed in the `PathologicStruc` entry of the reference catalog:
+```JSON
+    {
+        "VariantType": "Repeat",
+        "LocusId": "RAPGEF2",
+        "HGNCId": 16854,
+        "InheritanceMode": "AD",
+        "DisplayRU": "TTTCA",
+        "SourceDisplay": "Ishiura et al (2018) Nature Genetics 50 581-90",
+        "Source": "PubMed",
+        "SourceId": "29507423",
+        "LocusStructure": "(TTTTA)*(TTTCA)*(TTTTA)*",
+        "ReferenceRegion": [
+            "4:160263679-160263703",
+            "4:160263704-160263708",
+            "4:160263709-160263768"
+        ],
+        "VariantType": [
+            "Repeat",
+            "Repeat",
+            "Repeat"
+        ],
+        "VariantId": [
+            "RAPGEF2_TTTTA_5P",
+            "RAPGEF2",
+            "RAPGEF2_TTTTA_3P"
+        ],
+        "PathologicRegion": "4:160263704-160263708",
+        "PathologicStruc": [1],
+        "Disease": "FAME7",
+        "NormalMax": 1,
+        "PathologicMin": 10
+    },
+```
+and 
+```VCF
+...
+##FORMAT=<ID=MC,Number=.,Type=String,Description="Motif counts per allele">
+...
+4	160263680	.	TTTATTTTATTTTATTTTATTTTATATTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATT	.	0	.	TRID=FAME7_RAPGEF2;END=160263770;MOTIFS=TTTTA,TTTCA;STRUC=(TTTTA)n(TTTCA)n(TTTTA)n;STR_STATUS=full_mutation;STR_NORMAL_MAX=1;STR_PATHOLOGIC_MIN=10;RankScore=internal_id_3:30;HGNCId=16854;InheritanceMode=AD;DisplayRU=TTTCA;SourceDisplay=Ishiura et al (2018) Nature Genetics 50 581-90;Source=PubMed;SourceId=29507423;Disease=FAME7	GT:AL:ALLR:SD:MC:MS:AP:AM	0/0:91,91:85-98,91-91:21,20:18_0,18_0:0(0-89)_1(89-89)_0(89-89),0(0-89)_1(89-89)_0(89-89):0.956044,0.956044:.,.	0/0:91,91:85-98,91-91:21,20:18_0,18_0:0(0-89)_1(89-89)_0(89-89),0(0-89)_1(89-89)_0(89-89):0.956044,0.956044:.,.	0/0:91,91:85-98,91-91:21,20:18_0,18_0:0(0-89)_1(89-89)_0(89-89),0(0-89)_1(89-89)_0(89-89):0.956044,0.956044:.,.
+...
+```
+
 [hunter]: https://github.com/Illumina/ExpansionHunter
 [trgt]: https://github.com/PacificBiosciences/trgt
 
