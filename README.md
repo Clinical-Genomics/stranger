@@ -124,7 +124,8 @@ Other fields accepted by ExpansionHunter are also encouraged.
 | 12874 | ZIC3 | GCN | XR | 10 | 12 | VACTERLX | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 9179 | POLG | CTG | - | 15 | 10000 | - | Research only. Contact CMMS, KUH, regarding findings. | CMMS |
 </details>
-Stranger can also read a legacy `.tsv` format file, structured like a [Scout](https://github.com/Clinical-Genomics/scout) gene panel, with STR specific columns.
+
+Stranger can also read a legacy `.tsv` format file, structured like a [Scout][scout] gene panel, with STR specific columns.
 The column names and keys correspond, but if in any kind of doubt, please read the code or use the json version.
 
 As a default the file that follows the distribution is used but the users can create their own file.
@@ -215,7 +216,7 @@ and
 [reference-files]: https://github.com/Clinical-Genomics/reference-files/tree/master/rare-disease/disease_loci/ExpansionHunter-v5.0.0
 [strchive]:http://strchive.org
 [stripy]:https://stripy.org/database
-
+[scout]:https://github.com/Clinical-Genomics/scout
 [pypi-img]: https://img.shields.io/pypi/v/stranger.svg?style=flat-square
 [pypi-url]: https://pypi.python.org/pypi/stranger/
 [codecov-img]: https://codecov.io/gh/Clinical-Genomics/stranger/branch/main/graph/badge.svg
