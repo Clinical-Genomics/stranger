@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 ### Fixed
-- Use codecov badge on README page
+- Use codecov badge and fix scout link on README page
 
 
 ## [0.9.1]
