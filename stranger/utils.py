@@ -1,11 +1,11 @@
 import copy
 import logging
 import re
-import yaml
-
 from pprint import pprint as pp
 
-from stranger.constants import RANK_SCORE, ANNOTATE_REPEAT_KEYS
+import yaml
+
+from stranger.constants import ANNOTATE_REPEAT_KEYS, RANK_SCORE
 
 NUM = re.compile(r"\d+")
 

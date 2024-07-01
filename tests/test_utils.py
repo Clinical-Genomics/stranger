@@ -1,5 +1,6 @@
 import pytest
-from stranger.utils import parse_repeat_file, get_repeat_info
+
+from stranger.utils import get_repeat_info, parse_repeat_file
 
 
 def test_parse_repeat_file(repeats_file_handle):

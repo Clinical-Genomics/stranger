@@ -13,7 +13,6 @@ import sys
 
 from stranger.cli import cli as base_command
 
-
 if __name__ == "__main__":
     # exit using whatever exit code the CLI returned
     sys.exit(base_command())

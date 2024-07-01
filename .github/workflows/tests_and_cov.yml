@@ -34,11 +34,6 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@1.10.0
-        with:
-         mongodb-version: ${{ matrix.mongodb-version }}
-
       - uses: actions/checkout@v4
 
       - name: Set up Python 3.11

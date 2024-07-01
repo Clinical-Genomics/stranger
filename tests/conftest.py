@@ -1,4 +1,5 @@
 import os
+
 import pytest
 
 from stranger.resources import repeats_path

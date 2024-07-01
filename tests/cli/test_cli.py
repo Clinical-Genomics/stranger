@@ -1,6 +1,6 @@
-from stranger.cli import cli
-
 from click.testing import CliRunner
+
+from stranger.cli import cli
 
 
 def test_stranger_cli_version():

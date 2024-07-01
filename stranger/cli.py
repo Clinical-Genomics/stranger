@@ -1,11 +1,13 @@
-import logging
-import coloredlogs
-import click
 import gzip
-
+import logging
+from codecs import getreader, open
 from pprint import pprint as pp
-from codecs import open, getreader
 
+import click
+import coloredlogs
+
+from stranger.__version__ import __version__
+from stranger.constants import ANNOTATE_REPEAT_KEYS, ANNOTATE_REPEAT_KEYS_TRGT
 from stranger.resources import repeats_json_path
 from stranger.utils import (
     decompose_var,
@@ -18,8 +20,6 @@ from stranger.utils import (
     update_decomposed_variant_format_fields,
 )
 from stranger.vcf_utils import print_headers
-from stranger.constants import ANNOTATE_REPEAT_KEYS, ANNOTATE_REPEAT_KEYS_TRGT
-from stranger.__version__ import __version__
 
 LOG = logging.getLogger(__name__)
 LOG_LEVELS = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]

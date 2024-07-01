@@ -1,4 +1,5 @@
 import logging
+
 import coloredlogs
 import requests
 
@@ -8,7 +9,7 @@ LOG_LEVELS = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
 import click
 
 from stranger.resources import repeats_path
-from stranger.utils import parse_repeat_file, get_repeat_info
+from stranger.utils import get_repeat_info, parse_repeat_file
 
 
 @click.command()
