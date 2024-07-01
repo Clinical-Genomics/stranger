@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Fixed
+- Docs for TRGT annotation
 - Fallback setting allele size to 0 if MC is only set to "." and TRGT annotation requested
 
 ## [0.9.0]
@@ -11,7 +13,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Bring in updated loci references from raredisese reference-files
 - Fix processing TRGT VCFs with missing MC and TRIDs without underscore [#59](https://github.com/Clinical-Genomics/stranger/pull/59)
 - Updates to pathogenic motifs for two loci: RFC1, RAPGEF2
-
 
 ## [0.8.1]
 Fix DAB1 pathologic repeat unit name

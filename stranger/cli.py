@@ -144,12 +144,10 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
             individual_index = get_individual_index(header_info)
             variant_info['format_dicts'] = get_format_dicts(variant_info['FORMAT'], [variant_info[individual] for individual in header_info[individual_index:]])
 
-            LOG.debug("format %s for inds %s gives dicts %s",variant_info['FORMAT'], [individual for individual in header_info[individual_index:]], variant_info['format_dicts'])
             if len(variant_info['alts']) > 1:
                 variant_infos = decompose_var(variant_info)
 
         for variant_info in variant_infos:
-            LOG.debug("decomposed variant info %s", variant_info)
             update_decomposed_variant_format_fields(variant_info, header_info, individual_index)
 
             repeat_data = get_repeat_info(variant_info, repeat_information)
