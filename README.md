@@ -1,4 +1,12 @@
-# Stranger [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![PyPI Version][pypi-img]][pypi-url][![DOI][doi-image]][doi-url]
+# Stranger 
+![Build Status - GitHub][actions-build-status]
+[![Coverage Status][coveralls-image]][coveralls-url]
+[![PyPI Version][pypi-img]][pypi-url]
+[![DOI][doi-image]][doi-url]
+![GitHub Release Date][github-release-date]
+[![Coverage Status][codecov-img]][codecov-url]
+[![Code style: black][black-image]][black-url]
+[![Woke][woke-image]][woke-url]
 
 Annotates output files from [ExpansionHunter][hunter] and [TRGT][trgt] with the pathologic implications of the repeat sizes.
 
@@ -37,7 +45,8 @@ Options:
 The repeats are called with Expansion Hunter as mentioned earlier. ExpansionHunter will annotate the number of times that a repeat has been seen in the bam files of each individual and what repeat id the variant has.
 Stranger will annotate the level of pathogenicity for the repeat number. The intervals that comes with the package are manually collected from the literature since there is no single source where this information can be collected.
 
-You can find a repeat definitions json file that comes with Stranger [here](https://github.com/moonso/stranger/blob/master/stranger/resources/variant_catalog_grch37.json). It is based on the ExpansionHunter variant catalog, but extended with a few disease locus relevant keys:
+You can find a demo repeat definitions json file that comes with Stranger [here](https://github.com/Clinical-Genomics/stranger/blob/master/stranger/resources/variant_catalog_grch37.json). It is based on the ExpansionHunter variant catalog, but extended with a few disease locus relevant keys:
+It is advisable to use an up to date file, perhaps based on a curated public repostitory such as [STRchive][strchive] or [STRipy][stripy]. The ones we use in our routine pipelines can be found at our [Reference-files repository][reference-files] and include our literature curation.
 
 | Column/Key      | Content/Value                                                                                   |
 |-----------------|-------------------------------------------------------------------------------------------------|
@@ -58,7 +67,8 @@ You can find a repeat definitions json file that comes with Stranger [here](http
 
 Other fields accepted by ExpansionHunter are also encouraged.
 
-For convenience, here is a formated table with some of the current contents:
+<details>
+<summary>For convenience, here is a formatted table with some of the current contents.</summary>
 
 | HGNCId | LocusId | DisplayRU | InheritanceMode | normal_max | pathologic_min | Disease | SourceDisplay | SourceId |
 | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- |
@@ -114,7 +124,7 @@ For convenience, here is a formated table with some of the current contents:
 | 12873 | ZIC2 | GCN | AD | 15 | 25 | HPE5 | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 12874 | ZIC3 | GCN | XR | 10 | 12 | VACTERLX | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 9179 | POLG | CTG | - | 15 | 10000 | - | Research only. Contact CMMS, KUH, regarding findings. | CMMS |
-
+</details>
 Stranger can also read a legacy `.tsv` format file, structured like a [Scout](https://github.com/Clinical-Genomics/scout) gene panel, with STR specific columns.
 The column names and keys correspond, but if in any kind of doubt, please read the code or use the json version.
 
@@ -203,12 +213,21 @@ and
 
 [hunter]: https://github.com/Illumina/ExpansionHunter
 [trgt]: https://github.com/PacificBiosciences/trgt
+[reference-files]: https://github.com/Clinical-Genomics/reference-files/tree/master/rare-disease/disease_loci/ExpansionHunter-v5.0.0
+[strchive]:http://strchive.org
+[stripy]:https://stripy.org/database
 
-[travis-url]: https://travis-ci.com/moonso/stranger
-[travis-image]: https://travis-ci.com/moonso/stranger.svg?branch=master
 [pypi-img]: https://img.shields.io/pypi/v/stranger.svg?style=flat-square
 [pypi-url]: https://pypi.python.org/pypi/stranger/
 [coveralls-url]: https://coveralls.io/github/moonso/stranger
 [coveralls-image]: https://coveralls.io/repos/github/moonso/stranger/badge.svg?branch=master
 [doi-image]: https://zenodo.org/badge/158848858.svg
 [doi-url]: https://zenodo.org/badge/latestdoi/158848858
+[github-release-date]: https://img.shields.io/github/release-date/Clinical-Genomics/scout
+[codecov-img]: https://codecov.io/gh/Clinical-Genomics/stranger/branch/main/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/Clinical-Genomics/stranger
+[actions-build-status]: https://github.com/Clinical-Genomics/stranger/actions/workflows/build_and_publish.yml/badge.svg
+[black-image]: https://img.shields.io/badge/code%20style-black-000000.svg
+[black-url]: https://github.com/psf/black
+[woke-image]: https://github.com/Clinical-Genomics/stranger/actions/workflows/woke.yml/badge.svg
+[woke-url]: https://github.com/Clinical-Genomics/stranger/actions/workflows/woke.yml
