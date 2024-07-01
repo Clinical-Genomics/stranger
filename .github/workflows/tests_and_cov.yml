@@ -48,7 +48,7 @@ jobs:
           key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}
 
       - name: Install pytest
-        run: pip install pytest
+        run: pip install pytest pytest-cov
 
       - name: Run pytest
         run: pytest --cov --rootdir=/home/runner/work/stranger

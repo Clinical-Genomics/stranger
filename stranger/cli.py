@@ -189,9 +189,10 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
             if len(variant_info["alts"]) > 1:
                 variant_infos = decompose_var(variant_info)
 
-        for variant_info in variant_infos:
-            update_decomposed_variant_format_fields(variant_info, header_info, individual_index)
+            for variant_info in variant_infos:
+                update_decomposed_variant_format_fields(variant_info, header_info, individual_index)
 
+        for variant_info in variant_infos:
             repeat_data = get_repeat_info(variant_info, repeat_information)
 
             if repeat_data:
