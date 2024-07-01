@@ -258,6 +258,7 @@ def get_trgt_repeat_res(variant_info, repeat_info):
                 # What should we do if MC is . ?
                 if allele == ".":
                     repeat_res.extend([0])
+                    continue
 
                 if len(mcs) > 1:
                     pathologic_mcs = repeat_info[repeat_id].get('pathologic_struc', range(len(mcs)))

@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [unreleased]
+- Fallback setting allele size to 0 if MC is only set to "." and TRGT annotation requested
+
 ## [0.9.0]
 - Add Docker image
 - Parse TRGT VCFs - in particular, decompose and parse FORMAT.MC
