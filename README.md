@@ -66,7 +66,8 @@ You can find a repeat definitions json file that comes with Stranger [here](http
 
 Other fields accepted by ExpansionHunter are also encouraged.
 
-For convenience, here is a formated table with some of the current contents:
+<details>
+<summary>For convenience, here is a formated table with some of the current contents.</summary>
 
 | HGNCId | LocusId | DisplayRU | InheritanceMode | normal_max | pathologic_min | Disease | SourceDisplay | SourceId |
 | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- |
@@ -122,7 +123,7 @@ For convenience, here is a formated table with some of the current contents:
 | 12873 | ZIC2 | GCN | AD | 15 | 25 | HPE5 | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 12874 | ZIC3 | GCN | XR | 10 | 12 | VACTERLX | GeneReviews Internet 2019-11-07 | NBK535148 |
 | 9179 | POLG | CTG | - | 15 | 10000 | - | Research only. Contact CMMS, KUH, regarding findings. | CMMS |
-
+</details>
 Stranger can also read a legacy `.tsv` format file, structured like a [Scout](https://github.com/Clinical-Genomics/scout) gene panel, with STR specific columns.
 The column names and keys correspond, but if in any kind of doubt, please read the code or use the json version.
 
