@@ -19,7 +19,7 @@ def vcf_zipped_path():
 def vcf_trgt_path_dot_mc():
     return "tests/fixtures/HG002_Revio.sort.vcf.gz"
 
+
 @pytest.fixture()
 def repeats_file_handle():
     return open(repeats_path, "r")
-
