@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [unreleased]
 ### Fixed
 - Use codecov badge and fix scout link on README page
-
+- Added a test for TRGT MCs set to "."
 
 ## [0.9.1]
 ### Added
