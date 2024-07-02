@@ -14,6 +14,11 @@ def vcf_zipped_path():
 
 
 @pytest.fixture()
+def vcf_trgt_path():
+    return "tests/fixtures/sample.trgt.vcf"
+
+
+@pytest.fixture()
 def vcf_trgt_path_dot_mc():
     return "tests/fixtures/HG002_Revio.sort.vcf.gz"
 
