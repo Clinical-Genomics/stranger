@@ -21,6 +21,12 @@ def test_stranger_cli_zipped(vcf_zipped_path):
     assert result.exit_code == 0
 
 
+def test_stranger_trgt(vcf_trgt_path):
+    runner = CliRunner()
+    result = runner.invoke(cli, ["--trgt", vcf_trgt_path])
+    assert result.exit_code == 0
+
+
 def test_stranger_trgt_dot_mc(vcf_trgt_path_dot_mc):
     runner = CliRunner()
     result = runner.invoke(cli, ["--trgt", vcf_trgt_path_dot_mc])

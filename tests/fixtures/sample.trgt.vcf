@@ -1,0 +1,44 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##INFO=<ID=TRID,Number=1,Type=String,Description="Tandem repeat ID">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the variant described in this record">
+##INFO=<ID=MOTIFS,Number=1,Type=String,Description="Motifs that the tandem repeat is composed of">
+##INFO=<ID=STRUC,Number=1,Type=String,Description="Structure of the region">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=AL,Number=.,Type=Integer,Description="Length of each allele">
+##FORMAT=<ID=ALLR,Number=.,Type=String,Description="Length range per allele">
+##FORMAT=<ID=SD,Number=.,Type=Integer,Description="Number of spanning reads supporting per allele">
+##FORMAT=<ID=MC,Number=.,Type=String,Description="Motif counts per allele">
+##FORMAT=<ID=MS,Number=.,Type=String,Description="Motif spans per allele">
+##FORMAT=<ID=AP,Number=.,Type=Float,Description="Allele purity per allele">
+##FORMAT=<ID=AM,Number=.,Type=Float,Description="Mean methylation level per allele">
+##contig=<ID=1,length=249250621>
+##contig=<ID=2,length=243199373>
+##contig=<ID=3,length=198022430>
+##contig=<ID=4,length=191154276>
+##contig=<ID=5,length=180915260>
+##contig=<ID=6,length=171115067>
+##contig=<ID=7,length=159138663>
+##contig=<ID=8,length=146364022>
+##contig=<ID=9,length=141213431>
+##contig=<ID=10,length=135534747>
+##contig=<ID=11,length=135006516>
+##contig=<ID=12,length=133851895>
+##contig=<ID=13,length=115169878>
+##contig=<ID=14,length=107349540>
+##contig=<ID=15,length=102531392>
+##contig=<ID=16,length=90354753>
+##contig=<ID=17,length=81195210>
+##contig=<ID=18,length=78077248>
+##contig=<ID=19,length=59128983>
+##contig=<ID=20,length=63025520>
+##contig=<ID=21,length=48129895>
+##contig=<ID=22,length=51304566>
+##contig=<ID=X,length=155270560>
+##contig=<ID=Y,length=59373566>
+##contig=<ID=MT,length=16569>
+##trgtVersion=0.7.0-4941fbb
+##trgtCommand=./singularity/trgt-v0.7.0-linux_x86_64 --genome /home/proj/development/rare-disease/ONT/analysis/poorpipe/references/human_g1k_v37.fasta --repeats hg19.STRchive-disease-loci.TRGT.bed --reads sample.bam --output-prefix sample.trgt
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	sample
+1	57832717	.	AAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAATAAA	AAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAATAAA,AAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAATAAA	0	.	TRID=SCA37_DAB1;END=57832797;MOTIFS=AAAAT,GAAAT;STRUC=(AAAAT)n(GAAAT)n(AAAAT)n	GT:AL:ALLR:SD:MC:MS:AP:AM	1/2:76,101:69-79,94-101:25,27:15_0,20_0:0(0-76)_1(76-76)_0(76-76),0(0-101)_1(101-101)_0(101-101):0.947368,0.960396:.,.
+16	24624761	.	TTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTT	TTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTT,TTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTT	0	.	TRID=FAME6_TNRC6A;END=24624853;MOTIFS=TTTTA,TTTCA;STRUC=(TTTTA)n(TTTCA)n(TTTTA)n	GT:AL:ALLR:SD:MC:MS:AP:AM	1/2:58,68:46-62,64-71:11,22:11_1,13_1:0(0-55)_1(55-58)_0(58-58),0(0-65)_1(65-68)_0(68-68):0.965517,0.970588:.,.
