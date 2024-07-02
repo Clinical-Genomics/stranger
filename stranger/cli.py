@@ -19,7 +19,6 @@ from stranger.utils import (
     parse_repeat_file,
     update_decomposed_variant_format_fields,
 )
-from stranger.vcf_utils import print_headers
 
 LOG = logging.getLogger(__name__)
 LOG_LEVELS = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
