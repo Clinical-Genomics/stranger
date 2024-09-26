@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [unreleased]
+## [0.9.2]
 ### Fixed
 - Use codecov badge and fix scout link on README page
 - Added a test for TRGT MCs set to `.`
