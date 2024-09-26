@@ -382,7 +382,7 @@ def update_decomposed_variant_format_fields(variant_info, header_info, individua
     Update variant_info individual FORMAT fields with information found in the now up to date
     format_dicts.
     """
-    
+
     individuals = [individual for individual in header_info[individual_index:]]
 
     for index, format_dict in enumerate(variant_info["format_dicts"]):
