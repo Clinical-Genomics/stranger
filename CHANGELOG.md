@@ -7,8 +7,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Use codecov badge and fix scout link on README page
 - Added a test for TRGT MCs set to `.`
 - Added CLI test for TRGT file
-- Fix codecov upload hidden artifact issue
+- Codecov upload hidden artifact issue
 - Incorrect multisample, multiallele FORMAT output
+- Write unannotated entries (not in definition file) to output (reverted to pre-0.9 behaviour)
 
 ## [0.9.1]
 ### Added
