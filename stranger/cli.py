@@ -211,4 +211,4 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
                             repeat_data[annotate_repeat_key]
                         )
 
-                click.echo(get_variant_line(variant_info, header_info))
+            click.echo(get_variant_line(variant_info, header_info))
