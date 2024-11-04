@@ -23,12 +23,7 @@ REQUIRES_PYTHON = ">=3.6.0"
 VERSION = None
 
 # What packages are required for this module to be executed?
-REQUIRED = [
-    "click",
-    "coloredlogs",
-    "pyyaml",
-    "setuptools"
-]
+REQUIRED = ["click", "coloredlogs", "pyyaml", "setuptools"]
 
 # What packages are optional?
 EXTRAS = {
