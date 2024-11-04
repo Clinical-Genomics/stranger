@@ -27,6 +27,7 @@ REQUIRED = [
     "click",
     "coloredlogs",
     "pyyaml",
+    "setuptools"
 ]
 
 # What packages are optional?
