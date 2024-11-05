@@ -1,5 +1,4 @@
 import pytest
-
 from stranger.utils import parse_repeat_file
 
 

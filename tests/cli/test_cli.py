@@ -1,5 +1,4 @@
 from click.testing import CliRunner
-
 from stranger.cli import cli
 
 

@@ -2,7 +2,6 @@ import logging
 from pprint import pprint as pp
 
 import click
-
 from stranger.resources import repeats_path
 from stranger.utils import get_repeat_info, parse_repeat_file
 

@@ -25,9 +25,10 @@ classifiers = [
   "Topic :: Scientific/Engineering :: Medical Science Apps.",
 ]
 dependencies = [
-"click",
-"coloredlogs",
-"PyYAML",
+    "click",
+    "coloredlogs",
+    "importlib-resources>=5.12.0",
+    "PyYAML",
 ]
 
 [project.urls]
@@ -35,12 +36,12 @@ Repository = "https://github.com/Clinical-Genomics/stranger"
 Changelog = "https://github.com/Clinical-Genomics/stranger/blob/main/CHANGELOG.md"
 "Bug Tracker" = "https://github.com/Clinical-Genomics/stranger/issues"
 
-
 [project.optional-dependencies]
 test = ["pytest","pytest-cov"]
+dev = ["ruff>=0.7.2"]
 
 [project.scripts]
-loqusdb = "stranger.cli:cli"
+stranger = "stranger.cli:cli"
 
 [build-system]
 requires = ["hatchling"]
@@ -49,3 +50,7 @@ build-backend = "hatchling.build"
 [tool.black]
 line-length = 100
 target-version = ['py312']
+
+[tool.ruff]
+src = ["stranger", "tests", "scripts"]
+

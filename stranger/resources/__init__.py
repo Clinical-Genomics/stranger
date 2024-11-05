@@ -1,4 +1,4 @@
-import pkg_resources
+from importlib_resources import files
 
 ###### Files ######
 
@@ -11,5 +11,5 @@ repeats_json = "resources/variant_catalog_grch37.json"
 
 # Backround data path
 
-repeats_path = pkg_resources.resource_filename("stranger", repeats_file)
-repeats_json_path = pkg_resources.resource_filename("stranger", repeats_json)
+repeats_path = files("stranger").joinpath(repeats_file)
+repeats_json_path = files("stranger").joinpath(repeats_json)

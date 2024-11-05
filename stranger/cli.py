@@ -43,7 +43,9 @@ def print_version(ctx, param, value):
 )
 @click.option("-i", "--family_id", default="1")
 @click.option("-t", "--trgt", is_flag=True, help="File was produced with TRGT")
-@click.option("--version", is_flag=True, callback=print_version, expose_value=False, is_eager=True)
+@click.option(
+    "--version", is_flag=True, callback=print_version, expose_value=False, is_eager=True
+)
 @click.option(
     "--loglevel",
     default="INFO",
@@ -182,14 +184,19 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
             individual_index = get_individual_index(header_info)
             variant_info["format_dicts"] = get_format_dicts(
                 variant_info["FORMAT"],
-                [variant_info[individual] for individual in header_info[individual_index:]],
+                [
+                    variant_info[individual]
+                    for individual in header_info[individual_index:]
+                ],
             )
 
             if len(variant_info["alts"]) > 1:
                 variant_infos = decompose_var(variant_info)
 
             for variant_info in variant_infos:
-                update_decomposed_variant_format_fields(variant_info, header_info, individual_index)
+                update_decomposed_variant_format_fields(
+                    variant_info, header_info, individual_index
+                )
 
         for variant_info in variant_infos:
             repeat_data = get_repeat_info(variant_info, repeat_information)
@@ -197,7 +204,9 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
             if repeat_data:
                 variant_info["info_dict"]["STR_STATUS"] = repeat_data["repeat_strings"]
                 variant_info["info_dict"]["STR_NORMAL_MAX"] = str(repeat_data["lower"])
-                variant_info["info_dict"]["STR_PATHOLOGIC_MIN"] = str(repeat_data["upper"])
+                variant_info["info_dict"]["STR_PATHOLOGIC_MIN"] = str(
+                    repeat_data["upper"]
+                )
                 variant_info["info_dict"]["RankScore"] = ":".join(
                     [str(family_id), str(repeat_data["rank_score"])]
                 )
