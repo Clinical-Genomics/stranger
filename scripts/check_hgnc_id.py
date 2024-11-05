@@ -60,9 +60,7 @@ def cli(context, repeats_file, loglevel):
 
         if len(response_rest["docs"]) > 1:
             LOG.warning(
-                "Entry {} got {} hgnc responses - using first".format(
-                    entry, len(response_rest)
-                )
+                "Entry {} got {} hgnc responses - using first".format(entry, len(response_rest))
             )
 
         symbol_from_id = response_rest["docs"][0]["symbol"]
@@ -70,9 +68,7 @@ def cli(context, repeats_file, loglevel):
         if symbol_from_id == locus_symbol:
             LOG.info("OK locus %s symbol %s", entry, locus_symbol)
         elif symbol_from_id.lower() == locus_symbol.lower():
-            LOG.warning(
-                "OK locus %s symbol %s but differs in case", entry, locus_symbol
-            )
+            LOG.warning("OK locus %s symbol %s but differs in case", entry, locus_symbol)
         else:
             LOG.error(
                 "OOOPS locus_symbol %s and symbol %s from HGNC id %i do not match",

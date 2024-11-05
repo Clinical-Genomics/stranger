@@ -72,18 +72,14 @@ def parse_json(file_handle):
             normal_max = repeat_unit["NormalMax"]
         except KeyError as err:
             LOG.warning(
-                "Repeat number {0} ({1}) is missing 'NormalMax'. Skipping..".format(
-                    i, repid
-                )
+                "Repeat number {0} ({1}) is missing 'NormalMax'. Skipping..".format(i, repid)
             )
             continue
         try:
             pathologic_min = repeat_unit["PathologicMin"]
         except KeyError as err:
             LOG.warning(
-                "Repeat number {0} ({1}) is missing 'PathologicMin'. Skipping..".format(
-                    i, repid
-                )
+                "Repeat number {0} ({1}) is missing 'PathologicMin'. Skipping..".format(i, repid)
             )
             continue
 
@@ -101,9 +97,7 @@ def parse_json(file_handle):
             # TRGT uses TRID instead of REPID
             trid = repeat_unit["TRID"]
 
-            repeat_info[trid] = dict(
-                normal_max=normal_max, pathologic_min=pathologic_min
-            )
+            repeat_info[trid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
 
             for annotated_key in ANNOTATE_REPEAT_KEYS:
                 if repeat_unit.get(annotated_key):
@@ -117,9 +111,7 @@ def parse_json(file_handle):
             reference_region = repeat_unit["ReferenceRegion"]
         except KeyError as err:
             LOG.warning(
-                "Repeat number {0} ({1}) is missing 'ReferenceRegion'. Skipping..".format(
-                    i, repid
-                )
+                "Repeat number {0} ({1}) is missing 'ReferenceRegion'. Skipping..".format(i, repid)
             )
             continue
         if "PathologicRegion" in repeat_unit:
@@ -255,9 +247,7 @@ def get_repeat_info(variant_info, repeat_info):
 
     for annotate_repeat_key in ANNOTATE_REPEAT_KEYS:
         if repeat_info[repeat_id].get(annotate_repeat_key):
-            repeat_data[annotate_repeat_key] = str(
-                repeat_info[repeat_id][annotate_repeat_key]
-            )
+            repeat_data[annotate_repeat_key] = str(repeat_info[repeat_id][annotate_repeat_key])
 
     return repeat_data
 
@@ -291,9 +281,7 @@ def get_trgt_repeat_res(variant_info, repeat_info):
                     continue
 
                 if len(mcs) > 1:
-                    pathologic_mcs = repeat_info[repeat_id].get(
-                        "pathologic_struc", range(len(mcs))
-                    )
+                    pathologic_mcs = repeat_info[repeat_id].get("pathologic_struc", range(len(mcs)))
 
                     for index, count in enumerate(mcs):
                         if index in pathologic_mcs:
@@ -389,9 +377,7 @@ def get_individual_index(header_info):
     return individual_index
 
 
-def update_decomposed_variant_format_fields(
-    variant_info, header_info, individual_index
-):
+def update_decomposed_variant_format_fields(variant_info, header_info, individual_index):
     """
     Update variant_info individual FORMAT fields with information found in the now up to date
     format_dicts.
@@ -454,8 +440,8 @@ def decompose_var(variant_info):
                 if field in ["GT"]:
                     continue
                 variant_component_value = individual_value.split(",")[variant_component]
-                result_variants[index]["format_dicts"][individual_index][field] = (
-                    variant_component_value
-                )
+                result_variants[index]["format_dicts"][individual_index][
+                    field
+                ] = variant_component_value
 
     return result_variants

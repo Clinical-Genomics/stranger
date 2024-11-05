@@ -43,9 +43,7 @@ def cli(context, repeats_file, alt_repeats_file, loglevel):
         repeat_information = parse_repeat_file(file_handle, repeats_file_type="json")
 
     with open(alt_repeats_file, "r") as file_handle:
-        other_repeat_information = parse_repeat_file(
-            file_handle, repeats_file_type="json"
-        )
+        other_repeat_information = parse_repeat_file(file_handle, repeats_file_type="json")
 
     if not repeat_information or not other_repeat_information:
         LOG.warning("Could not find any repeat info")
