@@ -7,6 +7,7 @@ LOG = logging.getLogger(__name__)
 LOG_LEVELS = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
 
 import click
+
 from stranger.resources import repeats_path
 from stranger.utils import get_repeat_info, parse_repeat_file
 
