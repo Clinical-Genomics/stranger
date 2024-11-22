@@ -36,7 +36,7 @@ def print_version(ctx, param, value):
 @click.option(
     "-f",
     "--repeats-file",
-    type=click.Path(exists=True),
+    type=click.Path(exists=True, path_type=str,),
     help="Path to a file with repeat definitions. See README for explanation",
     default=repeats_json_path,
     show_default=True,
