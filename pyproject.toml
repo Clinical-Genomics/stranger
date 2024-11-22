@@ -36,9 +36,6 @@ Repository = "https://github.com/Clinical-Genomics/stranger"
 Changelog = "https://github.com/Clinical-Genomics/stranger/blob/main/CHANGELOG.md"
 "Bug Tracker" = "https://github.com/Clinical-Genomics/stranger/issues"
 
-[project.optional-dependencies]
-test = ["pytest","pytest-cov"]
-dev = ["ruff>=0.7.2"]
 
 [project.scripts]
 stranger = "stranger.cli:cli"
@@ -54,3 +51,13 @@ target-version = ['py313']
 [tool.ruff]
 src = ["stranger", "tests", "scripts"]
 line-length = 100
+
+[dependency-groups]
+dev = [
+    "pytest-cov>=4.1.0",
+    "pytest>=7.4.4",
+]
+lint = [
+    "black>=23.3.0",
+    "ruff>=0.8.0",
+]
