@@ -22,6 +22,7 @@ uv pip install --editable .
 ## Usage
 
 ```
+uv run stranger --help
 Usage: stranger [OPTIONS] VCF
 
   Annotate str variants with str status

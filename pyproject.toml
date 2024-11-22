@@ -52,6 +52,9 @@ target-version = ['py313']
 src = ["stranger", "tests", "scripts"]
 line-length = 100
 
+[tool.isort]
+profile = "black"
+
 [dependency-groups]
 dev = [
     "pytest-cov>=4.1.0",
@@ -59,5 +62,6 @@ dev = [
 ]
 lint = [
     "black>=23.3.0",
+    "isort>=5.11.5",
     "ruff>=0.8.0",
 ]

@@ -210,6 +210,15 @@ wheels = [
 ]
 
 [[package]]
+name = "isort"
+version = "5.11.5"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/67/63/18cc5c2f9084d3f91ce704f2b5c8e17bedd777244e7732c21a31992b0a78/isort-5.11.5.tar.gz", hash = "sha256:6be1f76a507cb2ecf16c7cf14a37e41609ca082330be4e3436a18ef74add55db", size = 187953 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5f/f6/c55db45970fbd14de6ab72082f1b8a143c3a69aa031c1e0dd4b9ecc8d496/isort-5.11.5-py3-none-any.whl", hash = "sha256:ba1d72fb2595a01c7895a5128f9585a5cc4b6d395f1c8d514989b9a7eb2a8746", size = 104094 },
+]
+
+[[package]]
 name = "mypy-extensions"
 version = "1.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -401,6 +410,7 @@ dev = [
 ]
 lint = [
     { name = "black" },
+    { name = "isort" },
     { name = "ruff" },
 ]
 
@@ -419,6 +429,7 @@ dev = [
 ]
 lint = [
     { name = "black", specifier = ">=23.3.0" },
+    { name = "isort", specifier = ">=5.11.5" },
     { name = "ruff", specifier = ">=0.8.0" },
 ]
 
