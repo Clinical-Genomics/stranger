@@ -1,4 +1,8 @@
-from importlib_resources import files
+try:
+    from importlib.resources import files
+except ImportError:
+    # Try backported to piPY<37 `importlib_resources`.
+    from importlib_resources import files
 
 ###### Files ######
 

@@ -3,7 +3,7 @@ name = "stranger"
 version = "0.9.2"
 description = "Annotate VCF files with STR variants with pathogenicity implications"
 authors = [{name="Daniel Nilsson", email="daniel.nilsson@ki.se"}, {name="Mans Magnuson", email="mans.magnusson@scilifelab.se"}]
-license = "MIT"
+license = {text = "MIT License"}
 readme = "README.md"
 include = [
   "README.md",

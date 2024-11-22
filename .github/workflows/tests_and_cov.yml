@@ -12,23 +12,22 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out git repository
+        uses: actions/checkout@v4
 
-      - name: Set up Python 3.11
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.11
+          python-version-file: ".python_version"
 
-        # Cache package installation step to speed up the following step
-      - uses: actions/cache@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
         with:
-          path: ${{ env.pythonLocation }}
-          key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }} }}
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
 
-      - name: Install deps
-        run: |
-          pip install --upgrade --upgrade-strategy eager -e .
-          pip check
+      - name: Install the project
+        run: uv sync --all-extras --dev
 
   test:
     needs: setup
@@ -38,24 +37,17 @@ jobs:
 
       - name: Install uv
         uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version-file: ".python-version"
 
-        # Cache package installation step to speed up the following step
-      - uses: actions/cache@v4
-        with:
-          path: ${{ env.pythonLocation }}
-          key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}
-
-
-      - name: Install pytest
-        run: pip install pytest pytest-cov
-
       - name: Run pytest
-        run: pytest --cov --rootdir=/home/runner/work/stranger
+        run: uv run pytest tests --cov --rootdir=/home/runner/work/stranger
 
       - name: Upload coverage
         uses: actions/upload-artifact@v4
@@ -69,10 +61,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python 3.11
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.11
+          python-version-file: ".python_version"
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
