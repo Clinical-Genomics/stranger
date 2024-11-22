@@ -26,7 +26,7 @@ jobs:
    steps:
 
     - name: Check out git repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Publish main image (Dockerfile) to Registry
       uses: elgohr/Publish-Docker-Github-Action@v5
