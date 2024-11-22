@@ -440,8 +440,8 @@ def decompose_var(variant_info):
                 if field in ["GT"]:
                     continue
                 variant_component_value = individual_value.split(",")[variant_component]
-                result_variants[index]["format_dicts"][individual_index][
-                    field
-                ] = variant_component_value
+                result_variants[index]["format_dicts"][individual_index][field] = (
+                    variant_component_value
+                )
 
     return result_variants
