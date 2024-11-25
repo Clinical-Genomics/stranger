@@ -1,11 +1,15 @@
 import gzip
 import logging
 from codecs import getreader, open
+try:
+    from importlib.metadata import version
+except ImportError:
+    # Try backported to piPY<37 `importlib_resources`.
+    from importlib_resources import version
 
 import click
 import coloredlogs
 
-from stranger.__version__ import __version__
 from stranger.constants import ANNOTATE_REPEAT_KEYS, ANNOTATE_REPEAT_KEYS_TRGT
 from stranger.resources import repeats_json_path
 from stranger.utils import (
@@ -45,12 +49,12 @@ LOG_LEVELS = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
     help="Set the level of log output.",
     show_default=True,
 )
-@click.version_option(__version__)
+@click.version_option(version('stranger'))
 @click.pass_context
 def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
     """Annotate str variants with str status"""
     coloredlogs.install(level=loglevel)
-    LOG.info("Running stranger version %s", __version__)
+    LOG.info("Running stranger version %s", version('stranger'))
 
     repeat_information = None
     repeats_file_type = "tsv"
