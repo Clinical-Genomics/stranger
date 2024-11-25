@@ -1,7 +1,6 @@
 import gzip
 import logging
 from codecs import getreader, open
-from pprint import pprint as pp
 
 import click
 import coloredlogs
