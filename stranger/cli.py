@@ -23,13 +23,6 @@ LOG = logging.getLogger(__name__)
 LOG_LEVELS = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
 
 
-def print_version(ctx, param, value):
-    if not value or ctx.resilient_parsing:
-        return
-    click.echo(__version__)
-    ctx.exit()
-
-
 @click.command()
 @click.argument("vcf")
 @click.option(
@@ -45,7 +38,6 @@ def print_version(ctx, param, value):
 )
 @click.option("-i", "--family_id", default="1")
 @click.option("-t", "--trgt", is_flag=True, help="File was produced with TRGT")
-@click.option("--version", is_flag=True, callback=print_version, expose_value=False, is_eager=True)
 @click.option(
     "--loglevel",
     default="INFO",
@@ -53,6 +45,7 @@ def print_version(ctx, param, value):
     help="Set the level of log output.",
     show_default=True,
 )
+@click.version_option(__version__)
 @click.pass_context
 def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
     """Annotate str variants with str status"""
