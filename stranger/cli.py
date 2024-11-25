@@ -1,6 +1,7 @@
 import gzip
 import logging
 from codecs import getreader, open
+
 try:
     from importlib.metadata import version
 except ImportError:
@@ -49,12 +50,12 @@ LOG_LEVELS = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
     help="Set the level of log output.",
     show_default=True,
 )
-@click.version_option(version('stranger'))
+@click.version_option(version("stranger"))
 @click.pass_context
 def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
     """Annotate str variants with str status"""
     coloredlogs.install(level=loglevel)
-    LOG.info("Running stranger version %s", version('stranger'))
+    LOG.info("Running stranger version %s", version("stranger"))
 
     repeat_information = None
     repeats_file_type = "tsv"
