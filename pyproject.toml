@@ -1,0 +1,67 @@
+[project]
+name = "stranger"
+version = "0.9.2"
+description = "Annotate VCF files with STR variants with pathogenicity implications"
+authors = [{name="Daniel Nilsson", email="daniel.nilsson@ki.se"}, {name="Mans Magnuson", email="mans.magnusson@scilifelab.se"}]
+license = {text = "MIT License"}
+readme = "README.md"
+include = [
+  "README.md",
+  "stranger/**/*",
+  "tests/**/*"
+]
+requires-python = ">=3.7"
+keywords = ["vcf", "variants", "str"]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Development Status :: 5 - Production/Stable",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Operating System :: MacOS :: MacOS X",
+  "Operating System :: Unix",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+  "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+dependencies = [
+    "click",
+    "coloredlogs",
+    "importlib-resources>=5.12.0",
+    "PyYAML",
+]
+
+[project.urls]
+Repository = "https://github.com/Clinical-Genomics/stranger"
+Changelog = "https://github.com/Clinical-Genomics/stranger/blob/main/CHANGELOG.md"
+"Bug Tracker" = "https://github.com/Clinical-Genomics/stranger/issues"
+
+
+[project.scripts]
+stranger = "stranger.cli:cli"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.black]
+line-length = 100
+target-version = ['py313']
+
+[tool.ruff]
+src = ["stranger", "tests", "scripts"]
+line-length = 100
+
+[tool.isort]
+profile = "black"
+
+[dependency-groups]
+dev = [
+    "pytest-cov>=4.1.0",
+    "pytest>=7.4.4",
+]
+lint = [
+    "black>=23.3.0",
+    "isort>=5.11.5",
+    "ruff>=0.8.0",
+]

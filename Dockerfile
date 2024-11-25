@@ -5,13 +5,14 @@
 #   docker run -v $PWD:$PWD clinical-genomics/stranger:v0.9.0 stranger --help
 #   docker run -v $PWD:$PWD clinical-genomics/stranger:v0.9.0 stranger -f /bin/stranger/stranger/resources/variant_catalog_hg38.json $PWD/sample.joint.repeats.merged.vcf.gz > $PWD/sample.repeats.stranger.vcf
 ###############################################
-FROM continuumio/miniconda3:23.3.1-0-alpine
+FROM ghcr.io/astral-sh/uv:python3.13-alpine
 
-# Install git
-RUN conda install -c anaconda git && \
-    cd /bin && \
-    git clone --depth 1 https://github.com/Clinical-Genomics/stranger.git && \
-    cd stranger && \
-    pip install --editable .
+# Copy the project into the image
+ADD . /app
 
-ENTRYPOINT ["stranger"]
+# Sync the project into a new environment, using the frozen lockfile
+WORKDIR /app
+RUN uv sync --frozen
+
+
+ENTRYPOINT ["uv", "run", "stranger"]

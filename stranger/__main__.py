@@ -9,6 +9,7 @@ The main entry point for the command line interface.
 Invoke as `stranger` (if installed)
 or ``python -m stranger`` (no install required).
 """
+
 import sys
 
 from stranger.cli import cli as base_command

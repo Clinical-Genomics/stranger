@@ -11,15 +11,18 @@ Annotates output files from [ExpansionHunter][hunter] and [TRGT][trgt] with the 
 
 ## Installation
 
+Stranger uses the `uv` project manager. It is very quick and lightweight - see the [uv installation instructions](https://docs.astral.sh/uv/getting-started/installation/).
+
 ```
 git clone github.com/clinical-genomics/stranger
 cd stranger
-pip install --editable .
+uv pip install --editable .
 ```
 
 ## Usage
 
 ```
+uv run stranger --help
 Usage: stranger [OPTIONS] VCF
 
   Annotate str variants with str status
