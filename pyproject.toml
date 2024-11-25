@@ -36,7 +36,6 @@ Repository = "https://github.com/Clinical-Genomics/stranger"
 Changelog = "https://github.com/Clinical-Genomics/stranger/blob/main/CHANGELOG.md"
 "Bug Tracker" = "https://github.com/Clinical-Genomics/stranger/issues"
 
-
 [project.scripts]
 stranger = "stranger.cli:cli"
 
