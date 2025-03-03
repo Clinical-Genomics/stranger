@@ -402,6 +402,8 @@ def decompose_var(variant_info):
     The index of the alt is also the number (-1) at the corresponding position in the GT field. Note 0-base in GT for
     reference.
 
+    Individuals sharing none of the alleles on the newly decomposed row receive a "./." and "." for the FORMAT component.
+    Corresponding split FORMAT values (except GT) get a "." for the ref component and for unclear/uncalled components.
     """
 
     result_variants = []
