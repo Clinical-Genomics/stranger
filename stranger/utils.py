@@ -419,7 +419,7 @@ def decompose_var(variant_info):
 
             updated_fields = []
             for gt_component, decomposed_field in enumerate(gts):
-                if decomposed_field in ["0","."]:
+                if decomposed_field in ["0", "."]:
                     # reference component 0, uncalled component .
                     updated_fields.append(decomposed_field)
 
@@ -440,7 +440,11 @@ def decompose_var(variant_info):
                 if field in ["GT"]:
                     continue
 
-                variant_component_value = individual_value.split(",")[variant_component] if variant_component is not None else "."
+                variant_component_value = (
+                    individual_value.split(",")[variant_component]
+                    if variant_component is not None
+                    else "."
+                )
 
                 result_variants[index]["format_dicts"][individual_index][
                     field
