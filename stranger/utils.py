@@ -410,17 +410,15 @@ def decompose_var(variant_info):
         result_variants[index]["ALT"] = variant_info["alts"][index]
 
     for index, alt in enumerate(variant_info["alts"]):
+
         for individual_index, format_dict in enumerate(variant_info["format_dicts"]):
             gts = format_dict["GT"].split("/")
+            variant_component = None
 
             updated_fields = []
             for gt_component, decomposed_field in enumerate(gts):
-                if decomposed_field == "0":
-                    # reference component
-                    updated_fields.append(decomposed_field)
-
-                if decomposed_field == ".":
-                    # uncalled component
+                if decomposed_field in ["0","."]:
+                    # reference component 0, uncalled component .
                     updated_fields.append(decomposed_field)
 
                 if decomposed_field.isdigit():
@@ -439,7 +437,9 @@ def decompose_var(variant_info):
             for field, individual_value in format_dict.items():
                 if field in ["GT"]:
                     continue
-                variant_component_value = individual_value.split(",")[variant_component]
+
+                variant_component_value = individual_value.split(",")[variant_component] if variant_component is not None else "."
+
                 result_variants[index]["format_dicts"][individual_index][
                     field
                 ] = variant_component_value
