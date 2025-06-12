@@ -296,12 +296,16 @@ def get_trgt_repeat_res(variant_info, repeat_info):
                 else:
                     pathologic_counts = int(allele)
                     pathologic_counts_per_allele[0] = int(allele)
-                
+
                 pathologic_counts_dict[allele_index] = pathologic_counts_per_allele
-           
-            max_sum = max(sum(v) if isinstance(v, list) else v for v in pathologic_counts_dict.values())
-            
-            LOG.warning("Old pathogenic repeat count for repeat id %s: %s", repeat_id, pathologic_counts)
+
+            max_sum = max(
+                sum(v) if isinstance(v, list) else v for v in pathologic_counts_dict.values()
+            )
+
+            LOG.warning(
+                "Old pathogenic repeat count for repeat id %s: %s", repeat_id, pathologic_counts
+            )
             LOG.warning("New pathogenic repeat count for repeat id %s: %s", repeat_id, max_sum)
         repeat_res.append(pathologic_counts)
 
