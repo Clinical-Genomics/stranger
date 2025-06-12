@@ -275,7 +275,8 @@ def get_trgt_repeat_res(variant_info, repeat_info):
         pathologic_counts = 0
         mc = format_dict.get("MC")
         if mc:
-            for allele in mc.split(","):
+            pathologic_counts_dict = {}
+            for allele_index, allele in enumerate(mc.split(",")):
                 mcs = allele.split("_")
                 # GT would have the index of the MC in the ALT field list if we wanted to be specific...
 
@@ -284,14 +285,24 @@ def get_trgt_repeat_res(variant_info, repeat_info):
                     repeat_res.extend([0])
                     continue
 
+                pathologic_counts_per_allele = [0] * len(mcs)
                 if len(mcs) > 1:
                     pathologic_mcs = repeat_info[repeat_id].get("pathologic_struc", range(len(mcs)))
 
                     for index, count in enumerate(mcs):
                         if index in pathologic_mcs:
                             pathologic_counts += int(count)
+                            pathologic_counts_per_allele[index] = int(count)
                 else:
                     pathologic_counts = int(allele)
+                    pathologic_counts_per_allele[0] = int(allele)
+                
+                pathologic_counts_dict[allele_index] = pathologic_counts_per_allele
+           
+            max_sum = max(sum(v) if isinstance(v, list) else v for v in pathologic_counts_dict.values())
+            
+            LOG.warning("Old pathogenic repeat count for repeat id %s: %s", repeat_id, pathologic_counts)
+            LOG.warning("New pathogenic repeat count for repeat id %s: %s", repeat_id, max_sum)
         repeat_res.append(pathologic_counts)
 
     return repeat_res
