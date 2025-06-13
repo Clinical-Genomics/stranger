@@ -283,8 +283,7 @@ def get_trgt_repeat_res(variant_info, repeat_info):
         for allele in mc.split(","):
             if allele == ".":
                 repeat_res.append(0)
-                break # No motif count, so no repeat count
-
+                break  # No motif count, so no repeat count
 
             motif_counts = list(map(int, allele.split("_")))
             # GT would have the index of the MC in the ALT field list if we wanted to be specific...
@@ -294,9 +293,7 @@ def get_trgt_repeat_res(variant_info, repeat_info):
                 # we can just use the motif count as the repeat count.
                 count = sum(motif_counts)
             else:
-                count = sum(
-                    motif_counts[i] for i in pathologic_mcs if i < len(motif_counts)
-                )
+                count = sum(motif_counts[i] for i in pathologic_mcs if i < len(motif_counts))
             # Keep only the maximum allele count for the repeat
             max_count = max(max_count, count)
         else:
