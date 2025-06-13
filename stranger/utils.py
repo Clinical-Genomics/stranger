@@ -224,6 +224,8 @@ def get_repeat_info(variant_info: dict, repeat_info: dict) -> dict:
         repeat_res = get_trgt_repeat_res(variant_info, repeat_info)
     else:
         repeat_res = get_exhu_repeat_res_from_alts(variant_info)
+    
+    LOG.debug("Pathogenic motif counts for repeat id %s: %s", repeat_id, repeat_res)
 
     for repeat_number in repeat_res:
         if repeat_number <= rep_lower:
@@ -240,7 +242,7 @@ def get_repeat_info(variant_info: dict, repeat_info: dict) -> dict:
             repeat_strings.append("full_mutation")
             rank_score = RANK_SCORE["full_mutation"]
             repeat_string = "full_mutation"
-
+    
     repeat_data = dict(
         most_severe_repeat_string=repeat_string,
         repeat_strings=repeat_strings,
@@ -279,11 +281,10 @@ def get_trgt_repeat_res(variant_info, repeat_info):
         if not mc:
             continue
 
-        max_count = 0
         for allele in mc.split(","):
             if allele == ".":
                 repeat_res.append(0)
-                break  # No motif count, so no repeat count
+                continue
 
             motif_counts = list(map(int, allele.split("_")))
             # GT would have the index of the MC in the ALT field list if we wanted to be specific...
@@ -294,13 +295,8 @@ def get_trgt_repeat_res(variant_info, repeat_info):
                 count = sum(motif_counts)
             else:
                 count = sum(motif_counts[i] for i in pathologic_mcs if i < len(motif_counts))
-            # Keep only the maximum allele count for the repeat
-            max_count = max(max_count, count)
-        else:
-            repeat_res.append(max_count)
-
-        LOG.debug("Pathogenic motif count for repeat id %s: %s", repeat_id, max_count)
-        repeat_res.append(max_count)
+            
+            repeat_res.append(count)
 
     return repeat_res
 
