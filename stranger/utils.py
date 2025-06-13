@@ -224,7 +224,7 @@ def get_repeat_info(variant_info: dict, repeat_info: dict) -> dict:
         repeat_res = get_trgt_repeat_res(variant_info, repeat_info)
     else:
         repeat_res = get_exhu_repeat_res_from_alts(variant_info)
-    
+
     LOG.debug("Pathogenic motif counts for repeat id %s: %s", repeat_id, repeat_res)
 
     for repeat_number in repeat_res:
@@ -242,7 +242,7 @@ def get_repeat_info(variant_info: dict, repeat_info: dict) -> dict:
             repeat_strings.append("full_mutation")
             rank_score = RANK_SCORE["full_mutation"]
             repeat_string = "full_mutation"
-    
+
     repeat_data = dict(
         most_severe_repeat_string=repeat_string,
         repeat_strings=repeat_strings,
@@ -295,7 +295,7 @@ def get_trgt_repeat_res(variant_info, repeat_info):
                 count = sum(motif_counts)
             else:
                 count = sum(motif_counts[i] for i in pathologic_mcs if i < len(motif_counts))
-            
+
             repeat_res.append(count)
 
     return repeat_res
