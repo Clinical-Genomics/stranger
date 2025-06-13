@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [unreleased]
 ### Fixed
 - Set STR_STATUS to most severe consequence for given repeat strings (TRGT decompose)
+- Fixed TRGT pathogenic motif count reporting sum of both alleles instead of max
 
 ## [0.9.4]
 ### Fixed

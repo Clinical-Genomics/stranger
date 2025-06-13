@@ -266,48 +266,44 @@ def get_trgt_repeat_res(variant_info, repeat_info):
 
     repeat_id = get_repeat_id(variant_info)
 
-    if not repeat_id in repeat_info:
+    if repeat_id not in repeat_info:
         LOG.warning("No info for repeat id %s", repeat_id)
         return None
 
+    pathologic_mcs = repeat_info[repeat_id].get("pathologic_struc")
+
     repeat_res = []
     for format_dict in variant_info["format_dicts"]:
-        pathologic_counts = 0
+
         mc = format_dict.get("MC")
-        if mc:
-            pathologic_counts_dict = {}
-            for allele_index, allele in enumerate(mc.split(",")):
-                mcs = allele.split("_")
-                # GT would have the index of the MC in the ALT field list if we wanted to be specific...
+        if not mc:
+            continue
 
-                # What should we do if MC is . ?
-                if allele == ".":
-                    repeat_res.extend([0])
-                    continue
+        max_count = 0
+        for allele in mc.split(","):
+            if allele == ".":
+                repeat_res.append(0)
+                break # No motif count, so no repeat count
 
-                pathologic_counts_per_allele = [0] * len(mcs)
-                if len(mcs) > 1:
-                    pathologic_mcs = repeat_info[repeat_id].get("pathologic_struc", range(len(mcs)))
 
-                    for index, count in enumerate(mcs):
-                        if index in pathologic_mcs:
-                            pathologic_counts += int(count)
-                            pathologic_counts_per_allele[index] = int(count)
-                else:
-                    pathologic_counts = int(allele)
-                    pathologic_counts_per_allele[0] = int(allele)
+            motif_counts = list(map(int, allele.split("_")))
+            # GT would have the index of the MC in the ALT field list if we wanted to be specific...
 
-                pathologic_counts_dict[allele_index] = pathologic_counts_per_allele
+            if len(motif_counts) == 1 or not pathologic_mcs:
+                # If there is only one motif, or no pathologic structure info,
+                # we can just use the motif count as the repeat count.
+                count = sum(motif_counts)
+            else:
+                count = sum(
+                    motif_counts[i] for i in pathologic_mcs if i < len(motif_counts)
+                )
+            # Keep only the maximum allele count for the repeat
+            max_count = max(max_count, count)
+        else:
+            repeat_res.append(max_count)
 
-            max_sum = max(
-                sum(v) if isinstance(v, list) else v for v in pathologic_counts_dict.values()
-            )
-
-            LOG.warning(
-                "Old pathogenic repeat count for repeat id %s: %s", repeat_id, pathologic_counts
-            )
-            LOG.warning("New pathogenic repeat count for repeat id %s: %s", repeat_id, max_sum)
-        repeat_res.append(pathologic_counts)
+        LOG.debug("Pathogenic motif count for repeat id %s: %s", repeat_id, max_count)
+        repeat_res.append(max_count)
 
     return repeat_res
 
