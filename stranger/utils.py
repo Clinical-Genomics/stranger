@@ -258,7 +258,7 @@ def get_trgt_repeat_res(variant_info, repeat_info):
     If no such PATHOLOGIC_STRUC info is available, default to use all motif parts.
 
     Mofif Counts, mc, are strings with alleles separated by comma, and the constituent motif counts
-    specified as ints possibly separated by underscore.
+    specified as ints possibly separated by underscore in the case of more complicated motif structure.
     """
 
     repeat_id = get_repeat_id(variant_info)
