@@ -170,6 +170,7 @@
             "Repeat",
             "Repeat"
         ],
+        "PathologicStruc": [1],
         "Disease": "SCA8",
         "NormalMax": 50,
         "PathologicMin": 80,
@@ -731,6 +732,7 @@
             "Repeat",
             "Repeat"
         ],
+        "PathologicStruc": [1],
         "Disease": "FRDA",
         "NormalMax": 35,
         "PathologicMin": 51,
@@ -772,6 +774,7 @@
             "Repeat",
             "Repeat"
         ],
+        "PathologicStruc": [0],
         "Disease": "Huntington",
         "NormalMax": 34,
         "PathologicMin": 36,
@@ -952,7 +955,6 @@
       "SourceId": "30926972",
       "LocusStructure": "(AARRG)*",
       "ReferenceRegion": "4:39348424-39348485",
-      "PathologicStruc": [1],
       "Disease": "CANVAS",
       "NormalMax": 11,
       "PathologicMin": 12
@@ -972,7 +974,7 @@
         "NormalMax": 16,
         "PathologicMin": 139
     },
-   {
+    {
         "VariantType": "Repeat",
         "LocusId": "RUNX2",
         "HGNCId": 10472,
@@ -1013,6 +1015,7 @@
             "SAMD12_TTTTA_3P"
         ],
       "PathologicRegion": "8:118366881-118366883",
+      "PathologicStruc": [1],
       "Disease": "FAME1",
       "NormalMax": 1,
       "PathologicMin": 10
@@ -1117,6 +1120,7 @@
             "TNRC6A_TTTTA_3P"
         ],
       "PathologicRegion": "16:24613479-24613483",
+      "PathologicStruc": [1],
       "Disease": "FAME6",
       "NormalMax": 1,
       "PathologicMin": 10
@@ -1198,5 +1202,4 @@
         "NormalMax": 28,
         "PathologicMin": 42
     }
-
 ]
