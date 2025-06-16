@@ -720,6 +720,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(A)*(GAA)*",
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr9:69037261-69037286",
             "chr9:69037286-69037304"
@@ -761,6 +762,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK1305",
         "LocusStructure": "(CAG)*CAACAG(CCG)*",
+        "PathologicStruc": [0],
         "ReferenceRegion": [
             "chr4:3074876-3074933",
             "chr4:3074939-3074966"
@@ -998,6 +1000,7 @@
         "Source": "PubMed",
         "SourceId": "29507423",
         "LocusStructure": "(TAAAA)*(TGAAA)*(TAAAA)*",
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr8:118366884-118366900",
             "chr8:118366881-118366883",
@@ -1103,6 +1106,7 @@
         "Source": "PubMed",
         "SourceId": "29507423",
         "LocusStructure": "(TTTTA)*(TTTCA)*(TTTTA)*",
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr16:24613440-24613478",
             "chr16:24613479-24613483",

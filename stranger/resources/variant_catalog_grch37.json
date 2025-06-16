@@ -509,6 +509,7 @@
         "SweGenMean": 11.32,
         "SweGenStd": 6.946,
         "LocusStructure": "(A)*(GAA)*",
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "9:71652177-71652202",
             "9:71652202-71652220"
@@ -552,6 +553,7 @@
         "SweGenMean": 18.43,
         "SweGenStd": 3.454,
         "LocusStructure": "(CAG)*CAACAG(CCG)*",
+        "PathologicStruc": [0],
         "ReferenceRegion": [
             "4:3076603-3076660",
             "4:3076666-3076693"
@@ -782,6 +784,7 @@
         "Source": "PubMed",
         "SourceId": "29507423",
         "LocusStructure": "(TAAAA)*(TGAAA)*(TAAAA)*",
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "8:119379123-119379139",
             "8:119379120-119379122",
@@ -891,6 +894,7 @@
         "Source": "PubMed",
         "SourceId": "29507423",
         "LocusStructure": "(TTTTA)*(TTTCA)*(TTTTA)*",
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "16:24624761-24624799",
             "16:24624800-24624804",
