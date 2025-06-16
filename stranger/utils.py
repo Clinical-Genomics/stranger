@@ -256,6 +256,9 @@ def get_trgt_repeat_res(variant_info, repeat_info):
 
     The repeat definitions may have information on which motifs are to be counted towards pathogenicity.
     If no such PATHOLOGIC_STRUC info is available, default to use all motif parts.
+
+    Mofif Counts, mc, are strings with alleles separated by comma, and the constituent motif counts
+    specified as ints possibly separated by underscore.
     """
 
     repeat_id = get_repeat_id(variant_info)
@@ -266,28 +269,29 @@ def get_trgt_repeat_res(variant_info, repeat_info):
 
     repeat_res = []
     for format_dict in variant_info["format_dicts"]:
-        pathologic_counts = 0
         mc = format_dict.get("MC")
-        if mc:
-            for allele in mc.split(","):
-                mcs = allele.split("_")
-                # GT would have the index of the MC in the ALT field list if we wanted to be specific...
+        if not mc:
+            continue
 
-                # What should we do if MC is . ?
-                if allele == ".":
-                    repeat_res.extend([0])
-                    continue
+        for allele in mc.split(","):
+            mcs = allele.split("_")
+            # GT would have the index of the MC in the ALT field list if we wanted to be specific...
 
-                if len(mcs) > 1:
-                    pathologic_mcs = repeat_info[repeat_id].get("pathologic_struc", range(len(mcs)))
+            # What should we do if MC is . ? Append a [0] to the result, and continue.
+            if allele == ".":
+                repeat_res.extend([0])
+                continue
 
-                    for index, count in enumerate(mcs):
-                        if index in pathologic_mcs:
-                            pathologic_counts += int(count)
-                else:
-                    pathologic_counts = int(allele)
-        repeat_res.append(pathologic_counts)
+            pathologic_counts = 0
+            if len(mcs) > 1:
+                pathologic_mcs = repeat_info[repeat_id].get("pathologic_struc", range(len(mcs)))
 
+                for index, count in enumerate(mcs):
+                    if index in pathologic_mcs:
+                        pathologic_counts += int(count)
+            else:
+                pathologic_counts = int(allele)
+            repeat_res.append(pathologic_counts)
     return repeat_res
 
 

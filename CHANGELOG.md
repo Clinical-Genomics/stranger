@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Set STR_STATUS to most severe consequence for given repeat strings (TRGT decompose)
 - Always check and export TRGT repeat keys as well
+- Motif counts for TRGT alleles erroneously summed
 
 ## [0.9.4]
 ### Fixed

@@ -760,6 +760,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK1305",
         "LocusStructure": "(CAG)*CAACAG(CCG)*",
+        "PathologicStruc": [0],
         "ReferenceRegion": [
             "4:3074876-3074933",
             "4:3074939-3074966"
