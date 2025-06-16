@@ -144,7 +144,12 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
             "desc": "RankScore for variant in this family as family(str):score(int)",
         },
         {"id": "Disease", "num": "1", "type": "String", "desc": "Associated disorder"},
-        {"id": "PathologicStruc", "num": "1", "type": "String", "desc": "Struc components counting towards pathogenicity as list of motif numbers"}
+        {
+            "id": "PathologicStruc",
+            "num": "1",
+            "type": "String",
+            "desc": "Struc components counting towards pathogenicity as list of motif numbers",
+        },
     ]
 
     stranger_headers = []
