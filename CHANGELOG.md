@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [unreleased]
+### Fixed
+- More TRGT PathologicStruc locus annotations to demo resources
+
 ## [0.9.4]
 ### Fixed
 - Bug with no ref on multi-allele FORMAT decompose
