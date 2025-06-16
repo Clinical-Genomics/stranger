@@ -195,12 +195,12 @@ def get_repeat_id(variant_info):
     return trid
 
 
-def get_repeat_info(variant_info, repeat_info):
+def get_repeat_info(variant_info: dict, repeat_info: dict) -> dict:
     """Find the correct mutation level of a str variant
 
     Args:
-        variant_line(str): A vcf variant line
-        repeat_info(dict)
+        variant_info(dict): A variant info dict (from VCF)
+        repeat_info(dict): A repeat info dict (from config catalog)
 
     Returns:
         (dict): With repeat level, lower and upper limits
@@ -217,6 +217,7 @@ def get_repeat_info(variant_info, repeat_info):
     rep_upper = repeat_info[repeat_id].get("pathologic_min", -1)
     rank_score = 0
 
+    repeat_string = ""
     repeat_strings = []
 
     if variant_info.get("format_dicts"):
@@ -229,16 +230,20 @@ def get_repeat_info(variant_info, repeat_info):
             repeat_strings.append("normal")
             if rank_score < RANK_SCORE["normal"]:
                 rank_score = RANK_SCORE["normal"]
+                repeat_string = "normal"
         elif repeat_number < rep_upper:
             repeat_strings.append("pre_mutation")
             if rank_score < RANK_SCORE["pre_mutation"]:
                 rank_score = RANK_SCORE["pre_mutation"]
+                repeat_string = "pre_mutation"
         else:
             repeat_strings.append("full_mutation")
             rank_score = RANK_SCORE["full_mutation"]
+            repeat_string = "full_mutation"
 
     repeat_data = dict(
-        repeat_strings=",".join(repeat_strings),
+        most_severe_repeat_string=repeat_string,
+        repeat_strings=repeat_strings,
         lower=rep_lower,
         upper=rep_upper,
         rank_score=rank_score,
@@ -345,7 +350,7 @@ def get_variant_line(variant_info, header_info):
         header_info(list)
 
     Returns:
-        variant_string(str): VCF formated variant
+        variant_string(str): VCF formatted variant
     """
 
     info_dict = variant_info["info_dict"]

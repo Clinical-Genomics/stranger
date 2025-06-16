@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
 ### Fixed
+- Set STR_STATUS to most severe consequence for given repeat strings (TRGT decompose)
 - More TRGT PathologicStruc locus annotations to demo resources
 
 ## [0.9.4]

@@ -195,7 +195,7 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
             repeat_data = get_repeat_info(variant_info, repeat_information)
 
             if repeat_data:
-                variant_info["info_dict"]["STR_STATUS"] = repeat_data["repeat_strings"]
+                variant_info["info_dict"]["STR_STATUS"] = repeat_data["most_severe_repeat_string"]
                 variant_info["info_dict"]["STR_NORMAL_MAX"] = str(repeat_data["lower"])
                 variant_info["info_dict"]["STR_PATHOLOGIC_MIN"] = str(repeat_data["upper"])
                 variant_info["info_dict"]["RankScore"] = ":".join(
