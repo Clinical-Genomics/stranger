@@ -11,7 +11,7 @@ except ImportError:
 import click
 import coloredlogs
 
-from stranger.constants import ANNOTATE_REPEAT_KEYS, ANNOTATE_REPEAT_KEYS_TRGT
+from stranger.constants import ANNOTATE_REPEAT_KEYS
 from stranger.resources import repeats_json_path
 from stranger.utils import (
     decompose_var,
@@ -202,10 +202,7 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
                     [str(family_id), str(repeat_data["rank_score"])]
                 )
 
-                annotate_repeat_keys = ANNOTATE_REPEAT_KEYS
-                if trgt:
-                    annotate_repeat_keys = ANNOTATE_REPEAT_KEYS_TRGT
-                for annotate_repeat_key in annotate_repeat_keys:
+                for annotate_repeat_key in ANNOTATE_REPEAT_KEYS:
                     if repeat_data.get(annotate_repeat_key):
                         variant_info["info_dict"][annotate_repeat_key] = str(
                             repeat_data[annotate_repeat_key]

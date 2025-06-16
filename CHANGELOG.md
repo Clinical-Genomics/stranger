@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [unreleased]
 ### Fixed
 - Set STR_STATUS to most severe consequence for given repeat strings (TRGT decompose)
+- Always check and export TRGT repeat keys as well
 
 ## [0.9.4]
 ### Fixed

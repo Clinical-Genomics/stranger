@@ -1,6 +1,6 @@
 RANK_SCORE = {"normal": 10, "pre_mutation": 20, "full_mutation": 30}
 
-ANNOTATE_REPEAT_KEYS = [
+ANNOTATE_REPEAT_KEYS_EXHU = [
     "HGNCId",
     "InheritanceMode",
     "DisplayRU",
@@ -20,5 +20,8 @@ ANNOTATE_REPEAT_KEYS_TRGT = [
     "Source",
     "SourceId",
     "Disease",
-    "Struc" "PathologicStruc",
+    "Struc",
+    "PathologicStruc",
 ]
+
+ANNOTATE_REPEAT_KEYS = list(set(ANNOTATE_REPEAT_KEYS_EXHU + ANNOTATE_REPEAT_KEYS_TRGT))

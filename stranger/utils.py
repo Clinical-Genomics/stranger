@@ -86,11 +86,8 @@ def parse_json(file_handle):
         repeat_info[repid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
 
         for annotated_key in ANNOTATE_REPEAT_KEYS:
-            if repeat_unit.get(annotated_key):
+            if annotated_key in repeat_unit:
                 repeat_info[repid][annotated_key] = repeat_unit.get(annotated_key)
-
-        if "PathologicStruc" in repeat_unit:
-            repeat_info[repid]["pathologic_struc"] = repeat_unit["PathologicStruc"]
 
         if "TRID" in repeat_unit:
             # TRGT uses TRID instead of REPID
@@ -99,11 +96,8 @@ def parse_json(file_handle):
             repeat_info[trid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
 
             for annotated_key in ANNOTATE_REPEAT_KEYS:
-                if repeat_unit.get(annotated_key):
+                if annotated_key in repeat_unit:
                     repeat_info[trid][annotated_key] = repeat_unit.get(annotated_key)
-
-            if "PathologicStruc" in repeat_unit:
-                repeat_info[trid]["pathologic_struc"] = repeat_unit["PathologicStruc"]
 
         # From ExHu 3.0 repids include the region of interest.
         try:
