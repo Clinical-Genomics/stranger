@@ -141,6 +141,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(CAG)*",
+        "Motifs": ["CAG","CCG"],
         "ReferenceRegion": "chr3:63912684-63912714",
         "PathologicStruc": [0],
         "VariantType": "Repeat",
@@ -309,6 +310,8 @@
         "Source": "PubMed",
         "SourceId": "19878914",
         "LocusStructure": "(TGGAA)*TAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAA",
+        "Motifs": ["TGGAA","TAGAA","AATAA"],
+        "PathologicStruc": [0],
         "ReferenceRegion": "chr16:66490398-66490453",
         "Disease": "SCA31",
         "NormalMax": 35,
@@ -323,12 +326,13 @@
         "Source": "GeneReviews",
         "SourceId": "NBK1466",
         "LocusStructure": "(CAGG)*(CAGA)*(CA)*",
+        "Motifs": ["CAGG","CAGA","CA"],
+        "PathologicStruc": [0],
         "ReferenceRegion": [
             "chr3:129172576-129172656",
             "chr3:129172656-129172696",
             "chr3:129172696-129172732"
         ],
-        "PathologicStruc": [0],
         "VariantId": [
             "CNBP",
             "CNBP_CAGA",
@@ -369,6 +373,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK541729",
         "LocusStructure": "(AAAAT)*(GAAAT)*(AAAAT)*",
+        "Motifs": ["AAAAT","GAAAT"],
         "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr1:57367043-57367053",
@@ -432,8 +437,9 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(CCTCGCTGCGCCGCTGCCGA)*(CCTCGCTGTGCCGCTGCCGA)*",
+        "Motifs": ["CCTCGCTGCGCCGCTGCCGA","CCTCGCTGTGCCGCTGCCGA"],
         "ReferenceRegion": [
-            "chr17:80147022-80147041",
+            "chr17:80147009-80147041",
             "chr17:80147042-80147139"
           ],
         "VariantType": [
@@ -720,6 +726,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(A)*(GAA)*",
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr9:69037261-69037286",
             "chr9:69037286-69037304"
@@ -761,6 +768,8 @@
         "Source": "GeneReviews",
         "SourceId": "NBK1305",
         "LocusStructure": "(CAG)*CAACAG(CCG)*",
+        "Motifs": ["CAG","CCG"],
+        "PathologicStruc": [0],
         "ReferenceRegion": [
             "chr4:3074876-3074933",
             "chr4:3074939-3074966"
@@ -832,6 +841,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK231880",
         "LocusStructure": "(GGCCTG)*(CGCCTG)*",
+        "Motifs": ["GGCCTG","CGCCTG"],
         "PathologicStruc": [0],
         "ReferenceRegion": [
             "chr20:2652733-2652757",
@@ -921,6 +931,8 @@
         "Source": "PubMed",
         "SourceId": "29507423",
         "LocusStructure": "(TTTTA)*(TTTCA)*(TTTTA)*",
+        "Motifs": ["TTTTA","TTTCA"],
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr4:159342527-159342551",
             "chr4:159342552-159342556",
@@ -936,11 +948,10 @@
             "RAPGEF2",
             "RAPGEF2_TTTTA_3P"
         ],
-      "PathologicRegion": "chr4:159342552-159342556",
-      "PathologicStruc": [1],
-      "Disease": "FAME7",
-      "NormalMax": 1,
-      "PathologicMin": 10
+        "PathologicRegion": "chr4:159342552-159342556",
+        "Disease": "FAME7",
+        "NormalMax": 1,
+        "PathologicMin": 10
     },
     {
       "VariantType": "Repeat",
@@ -952,8 +963,9 @@
       "Source": "PubMed",
       "SourceId": "30926972",
       "LocusStructure": "(AARRG)*",
-      "ReferenceRegion": "chr4:39348424-39348485",
-      "PathologicStruc": [2,8],
+      "Motifs": ["AAGGG","ACAGG","AGGGC","AAGGC","AGAGG","AAAAG","AAAGG","AAGAG","AAAGGG"],
+      "PathogenicStruc": [0,1,2,6],
+      "ReferenceRegion": "chr4:39348424-39348483",
       "Disease": "CANVAS",
       "NormalMax": 11,
       "PathologicMin": 12
@@ -998,6 +1010,8 @@
         "Source": "PubMed",
         "SourceId": "29507423",
         "LocusStructure": "(TAAAA)*(TGAAA)*(TAAAA)*",
+        "Motifs": ["TAAAA","TGAAA"],
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr8:118366884-118366900",
             "chr8:118366881-118366883",
@@ -1103,6 +1117,8 @@
         "Source": "PubMed",
         "SourceId": "29507423",
         "LocusStructure": "(TTTTA)*(TTTCA)*(TTTTA)*",
+        "Motifs": ["TTTTA","TTTCA"],
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr16:24613440-24613478",
             "chr16:24613479-24613483",
