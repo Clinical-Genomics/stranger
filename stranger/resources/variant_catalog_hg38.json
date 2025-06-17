@@ -931,6 +931,8 @@
         "Source": "PubMed",
         "SourceId": "29507423",
         "LocusStructure": "(TTTTA)*(TTTCA)*(TTTTA)*",
+        "Motifs": ["TTTTA","TTTCA"],
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr4:159342527-159342551",
             "chr4:159342552-159342556",
@@ -946,11 +948,10 @@
             "RAPGEF2",
             "RAPGEF2_TTTTA_3P"
         ],
-      "PathologicRegion": "chr4:159342552-159342556",
-      "PathologicStruc": [1],
-      "Disease": "FAME7",
-      "NormalMax": 1,
-      "PathologicMin": 10
+        "PathologicRegion": "chr4:159342552-159342556",
+        "Disease": "FAME7",
+        "NormalMax": 1,
+        "PathologicMin": 10
     },
     {
       "VariantType": "Repeat",

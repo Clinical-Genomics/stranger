@@ -714,6 +714,7 @@
         "Source": "PubMed",
         "SourceId": "29507423",
         "LocusStructure": "(TTTTA)*(TTTCA)*(TTTTA)*",
+        "Motifs": ["TTTTA","TTTCA"],
         "ReferenceRegion": [
             "4:160263679-160263703",
             "4:160263704-160263708",
