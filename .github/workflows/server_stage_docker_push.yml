@@ -29,9 +29,11 @@ jobs:
 
      - name: Build and push
        if: steps.branch-name.outputs.is_default == 'false'
-       uses: docker/build-push-action@v5
+       uses: docker/build-push-action@v6
        with:
          context: ./
          file: ./Dockerfile
+         provenance: mode=max
+         sbom: true
          push: true
          tags: "clinicalgenomics/stranger-stage:${{steps.branch-name.outputs.current_branch}}, clinicalgenomics/stranger-stage:latest"
