@@ -636,6 +636,7 @@
         "SweGenMean": 6.099,
         "SweGenStd": 1.807,
         "LocusStructure": "(GGCCTG)*(CGCCTG)*",
+        "Motifs": ["GGCCTG","CGCCTG"],
         "PathologicStruc": [0],
         "ReferenceRegion": [
             "20:2633379-2633403",

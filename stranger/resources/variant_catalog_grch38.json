@@ -841,6 +841,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK231880",
         "LocusStructure": "(GGCCTG)*(CGCCTG)*",
+        "Motifs": ["GGCCTG","CGCCTG"],
         "PathologicStruc": [0],
         "ReferenceRegion": [
             "20:2652733-2652757",
