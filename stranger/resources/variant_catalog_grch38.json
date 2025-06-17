@@ -309,6 +309,8 @@
         "Source": "PubMed",
         "SourceId": "19878914",
         "LocusStructure": "(TGGAA)*TAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAATAAAA",
+        "Motifs": ["TGGAA","TAGAA","AATAA"],
+        "PathologicStruc": [0],
         "ReferenceRegion": "16:66490398-66490453",
         "Disease": "SCA31",
         "NormalMax": 35,
@@ -323,12 +325,13 @@
         "Source": "GeneReviews",
         "SourceId": "NBK1466",
         "LocusStructure": "(CAGG)*(CAGA)*(CA)*",
+        "Motifs": ["CAGG","CAGA","CA"],
+        "PathologicStruc": [0],
         "ReferenceRegion": [
             "3:129172576-129172656",
             "3:129172656-129172696",
             "3:129172696-129172732"
         ],
-        "PathologicStruc": [0],
         "VariantId": [
             "CNBP",
             "CNBP_CAGA",
@@ -369,6 +372,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK541729",
         "LocusStructure": "(AAAAT)*(GAAAT)*(AAAAT)*",
+        "Motifs": ["AAAAT","GAAAT"],
         "PathologicStruc": [1],
         "ReferenceRegion": [
             "1:57367043-57367053",
@@ -954,7 +958,9 @@
       "Source": "PubMed",
       "SourceId": "30926972",
       "LocusStructure": "(AARRG)*",
-      "ReferenceRegion": "4:39348424-39348485",
+      "ReferenceRegion": "4:39348424-39348483",
+      "Motifs": ["AAGGG","ACAGG","AGGGC","AAGGC","AGAGG","AAAAG","AAAGG","AAGAG","AAAGGG"],
+      "PathogenicStruc": [0,1,2,6],
       "Disease": "CANVAS",
       "NormalMax": 11,
       "PathologicMin": 12
@@ -999,6 +1005,7 @@
         "Source": "PubMed",
         "SourceId": "29507423",
         "LocusStructure": "(TAAAA)*(TGAAA)*(TAAAA)*",
+        "Motifs": ["TAAAA","TGAAA"],
         "ReferenceRegion": [
             "8:118366884-118366900",
             "8:118366881-118366883",
