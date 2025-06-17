@@ -141,6 +141,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(CAG)*",
+        "Motifs": ["CAG","CCG"],
         "ReferenceRegion": "3:63912684-63912714",
         "PathologicStruc": [0],
         "VariantType": "Repeat",
@@ -766,6 +767,8 @@
         "Source": "GeneReviews",
         "SourceId": "NBK1305",
         "LocusStructure": "(CAG)*CAACAG(CCG)*",
+        "Motifs": ["CAG","CCG"],
+        "PathologicStruc": [0],
         "ReferenceRegion": [
             "4:3074876-3074933",
             "4:3074939-3074966"
@@ -778,7 +781,7 @@
             "Repeat",
             "Repeat"
         ],
-        "PathologicStruc": [0],
+
         "Disease": "Huntington",
         "NormalMax": 34,
         "PathologicMin": 36,

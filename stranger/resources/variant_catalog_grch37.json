@@ -151,6 +151,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(CAG)*",
+        "Motifs": ["CAG","CCG"],
         "PathologicStruc": [0],
         "ReferenceRegion": "3:63898361-63898391",
         "VariantType": "Repeat",
@@ -558,6 +559,7 @@
         "SweGenStd": 3.454,
         "LocusStructure": "(CAG)*CAACAG(CCG)*",
         "PathologicStruc": [0],
+        "Motifs": ["CAG","CCG"],
         "ReferenceRegion": [
             "4:3076603-3076660",
             "4:3076666-3076693"
