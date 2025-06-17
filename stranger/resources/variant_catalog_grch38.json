@@ -437,8 +437,9 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(CCTCGCTGCGCCGCTGCCGA)*(CCTCGCTGTGCCGCTGCCGA)*",
+        "Motifs": ["CCTCGCTGCGCCGCTGCCGA","CCTCGCTGTGCCGCTGCCGA"],
         "ReferenceRegion": [
-            "17:80147022-80147041",
+            "17:80147009-80147041",
             "17:80147042-80147139"
           ],
         "VariantType": [
@@ -449,7 +450,6 @@
             "EIF4A3",
             "EIF4A3_CACA20"
         ],
-        "PathologicStruc": [0],
         "PathologicRegion": "17:80147022-80147041",
         "NormalMax": 9,
         "PathologicMin": 10
@@ -1114,6 +1114,8 @@
         "Source": "PubMed",
         "SourceId": "29507423",
         "LocusStructure": "(TTTTA)*(TTTCA)*(TTTTA)*",
+        "Motifs": ["TTTTA","TTTCA"],
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "16:24613440-24613478",
             "16:24613479-24613483",
@@ -1130,7 +1132,6 @@
             "TNRC6A_TTTTA_3P"
         ],
       "PathologicRegion": "16:24613479-24613483",
-      "PathologicStruc": [1],
       "Disease": "FAME6",
       "NormalMax": 1,
       "PathologicMin": 10

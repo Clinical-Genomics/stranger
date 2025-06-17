@@ -437,8 +437,9 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(CCTCGCTGCGCCGCTGCCGA)*(CCTCGCTGTGCCGCTGCCGA)*",
+        "Motifs": ["CCTCGCTGCGCCGCTGCCGA","CCTCGCTGTGCCGCTGCCGA"],
         "ReferenceRegion": [
-            "chr17:80147022-80147041",
+            "chr17:80147009-80147041",
             "chr17:80147042-80147139"
           ],
         "VariantType": [
@@ -1114,6 +1115,7 @@
         "Source": "PubMed",
         "SourceId": "29507423",
         "LocusStructure": "(TTTTA)*(TTTCA)*(TTTTA)*",
+        "Motifs": ["TTTTA","TTTCA"],
         "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr16:24613440-24613478",

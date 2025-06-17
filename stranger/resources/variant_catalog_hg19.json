@@ -903,6 +903,7 @@
         "Source": "PubMed",
         "SourceId": "29507423",
         "LocusStructure": "(TTTTA)*(TTTCA)*(TTTTA)*",
+        "Motifs": ["TTTTA","TTTCA"],
         "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr16:24624761-24624799",
