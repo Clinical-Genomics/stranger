@@ -955,7 +955,6 @@
       "SourceId": "30926972",
       "LocusStructure": "(AARRG)*",
       "ReferenceRegion": "chr4:39348424-39348485",
-      "PathologicStruc": [2,8],
       "Disease": "CANVAS",
       "NormalMax": 11,
       "PathologicMin": 12
