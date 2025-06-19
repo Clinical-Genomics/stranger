@@ -964,7 +964,7 @@
       "SourceId": "30926972",
       "LocusStructure": "(AARRG)*",
       "Motifs": ["AAGGG","ACAGG","AGGGC","AAGGC","AGAGG","AAAAG","AAAGG","AAGAG","AAAGGG"],
-      "PathogenicStruc": [0,1,2,6],
+      "PathologicStruc": [0,1,2,6],
       "ReferenceRegion": "chr4:39348424-39348483",
       "Disease": "CANVAS",
       "NormalMax": 11,

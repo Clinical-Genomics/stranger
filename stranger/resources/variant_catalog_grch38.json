@@ -965,7 +965,7 @@
       "LocusStructure": "(AARRG)*",
       "ReferenceRegion": "4:39348424-39348483",
       "Motifs": ["AAGGG","ACAGG","AGGGC","AAGGC","AGAGG","AAAAG","AAAGG","AAGAG","AAAGGG"],
-      "PathogenicStruc": [0,1,2,6],
+      "PathologicStruc": [0,1,2,6],
       "Disease": "CANVAS",
       "NormalMax": 11,
       "PathologicMin": 12
