@@ -725,6 +725,8 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(A)*(GAA)*",
+        "Motifs": ["A","GAA"],
+        "PathologicStruc": [1],
         "ReferenceRegion": [
             "9:69037261-69037286",
             "9:69037286-69037304"
@@ -737,7 +739,6 @@
             "Repeat",
             "Repeat"
         ],
-        "PathologicStruc": [1],
         "Disease": "FRDA",
         "NormalMax": 35,
         "PathologicMin": 51,

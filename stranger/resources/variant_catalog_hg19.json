@@ -514,6 +514,7 @@
         "SweGenMean": 11.32,
         "SweGenStd": 6.946,
         "LocusStructure": "(A)*(GAA)*",
+        "Motifs": ["A","GAA"],
         "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr9:71652177-71652202",
