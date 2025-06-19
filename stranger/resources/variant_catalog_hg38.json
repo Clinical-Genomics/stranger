@@ -726,6 +726,7 @@
         "Source": "GeneReviews",
         "SourceId": "NBK535148",
         "LocusStructure": "(A)*(GAA)*",
+        "Motifs": ["A","GAA"],
         "PathologicStruc": [1],
         "ReferenceRegion": [
             "chr9:69037261-69037286",

@@ -12,6 +12,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - More TRGT PathologicStruc locus annotations to demo resources
 - Always check and export TRGT repeat keys as well
 - Motif counts for TRGT alleles erroneously summed
+- TRID for a couple of STRchive style entries with "_" need exact matching since the gene id alone is not unique
 
 ## [0.9.4]
 ### Fixed
