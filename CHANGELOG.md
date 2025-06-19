@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [unreleased]
+## [0.9.5]
 ### Added
 - More tests for trgt repeats parsing
 ### Changed
