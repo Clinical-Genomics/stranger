@@ -749,7 +749,7 @@
         "SweGenStd": 18.68,
         "LocusStructure": "(AARRG)*",
         "Motifs": ["AAGGG","ACAGG","AGGGC","AAGGC","AGAGG","AAAAG","AAAGG","AAGAG","AAAGGG"],
-        "PathogenicStruc": [0,1,2,6],
+        "PathologicStruc": [0,1,2,6],
         "ReferenceRegion": "4:39350044-39350103",
         "Disease": "CANVAS",
         "NormalMax": 11,

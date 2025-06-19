@@ -3,11 +3,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased]
+### Added
+- More tests for trgt repeats parsing
 ### Changed
 - Updated build actions, set Docker build provenance, use two-stage build and a non-root user for Docker image
 ### Fixed
 - Set STR_STATUS to most severe consequence for given repeat strings (TRGT decompose)
 - More TRGT PathologicStruc locus annotations to demo resources
+- Always check and export TRGT repeat keys as well
+- Motif counts for TRGT alleles erroneously summed
 
 ## [0.9.4]
 ### Fixed

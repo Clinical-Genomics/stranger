@@ -10,7 +10,7 @@ include = [
   "stranger/**/*",
   "tests/**/*"
 ]
-requires-python = ">=3.7"
+requires-python = ">=3.9"
 keywords = ["vcf", "variants", "str"]
 classifiers = [
   "License :: OSI Approved :: MIT License",

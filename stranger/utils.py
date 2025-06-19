@@ -1,6 +1,7 @@
 import copy
 import logging
 import re
+from typing import Iterable
 
 import yaml
 
@@ -11,15 +12,8 @@ NUM = re.compile(r"\d+")
 LOG = logging.getLogger(__name__)
 
 
-def parse_tsv(file_handle):
-    """Parse a repeats file in the tsv file format
-
-    Args:
-        file_handle(iterable(str))
-
-    Returns:
-        repeat_info(dict)
-    """
+def parse_tsv(file_handle: Iterable) -> dict:
+    """Parse a repeats file in the tsv file format, returning a repeat_info dict."""
     repeat_info = {}
     header = []
     for i, line in enumerate(file_handle, 1):
@@ -48,15 +42,8 @@ def parse_tsv(file_handle):
     return repeat_info
 
 
-def parse_json(file_handle):
-    """Parse a repeats file in the .json format
-
-    Args:
-        file_handle(iterable(str))
-
-    Returns:
-        repeat_info(dict)
-    """
+def parse_json(file_handle: Iterable[str]) -> dict:
+    """Parse a repeats file in the .json format, returning a repeat_info dict."""
     repeat_info = {}
     try:
         raw_info = yaml.safe_load(file_handle)
@@ -86,7 +73,7 @@ def parse_json(file_handle):
         repeat_info[repid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
 
         for annotated_key in ANNOTATE_REPEAT_KEYS:
-            if repeat_unit.get(annotated_key):
+            if annotated_key in repeat_unit:
                 repeat_info[repid][annotated_key] = repeat_unit.get(annotated_key)
 
         if "PathologicStruc" in repeat_unit:
@@ -99,7 +86,7 @@ def parse_json(file_handle):
             repeat_info[trid] = dict(normal_max=normal_max, pathologic_min=pathologic_min)
 
             for annotated_key in ANNOTATE_REPEAT_KEYS:
-                if repeat_unit.get(annotated_key):
+                if annotated_key in repeat_unit:
                     repeat_info[trid][annotated_key] = repeat_unit.get(annotated_key)
 
             if "PathologicStruc" in repeat_unit:
@@ -113,6 +100,7 @@ def parse_json(file_handle):
                 "Repeat number {0} ({1}) is missing 'ReferenceRegion'. Skipping..".format(i, repid)
             )
             continue
+
         if "PathologicRegion" in repeat_unit:
             repid += "_" + repeat_unit["PathologicRegion"]
         else:
@@ -139,15 +127,8 @@ def parse_json(file_handle):
     return repeat_info
 
 
-def parse_repeat_file(file_handle, repeats_file_type="tsv"):
-    """Parse a file with information about the repeats
-
-    Args:
-        file_handle(iterable(str))
-
-    Returns:
-        repeat_info(dict)
-    """
+def parse_repeat_file(file_handle: Iterable[str], repeats_file_type: str = "tsv") -> dict:
+    """Parse a file with information about the repeats"""
     repeat_info = {}
     if repeats_file_type == "tsv":
         repeat_info = parse_tsv(file_handle)
@@ -157,7 +138,8 @@ def parse_repeat_file(file_handle, repeats_file_type="tsv"):
     return repeat_info
 
 
-def get_exhu_repeat_res_from_alts(variant_info: dict):
+def get_exhu_repeat_res_from_alts(variant_info: dict) -> list:
+    """Get ExHu repeat results from alts field of variant info"""
     alleles = variant_info["alts"]
     repeat_res = []
     for allele in alleles:
@@ -262,6 +244,15 @@ def get_trgt_repeat_res(variant_info, repeat_info):
 
     The repeat definitions may have information on which motifs are to be counted towards pathogenicity.
     If no such PATHOLOGIC_STRUC info is available, default to use all motif parts.
+
+    Mofif Counts, mc, are strings with alleles separated by comma, and the constituent motif counts
+    specified as ints possibly separated by underscore in the case of more complicated motif structure.
+
+    We assume that the order of motifs in the MOTIFS list is preserved both in the
+    mc field count, and in PathologicStruc.
+    (Otherwise GT would have the index of the MC in the ALT field list if we wanted to be specific.)
+
+    If MC is ".", ref, we append a [0] to the result. This could be improved given a known REF size.
     """
 
     repeat_id = get_repeat_id(variant_info)
@@ -272,28 +263,29 @@ def get_trgt_repeat_res(variant_info, repeat_info):
 
     repeat_res = []
     for format_dict in variant_info["format_dicts"]:
-        pathologic_counts = 0
         mc = format_dict.get("MC")
-        if mc:
-            for allele in mc.split(","):
-                mcs = allele.split("_")
-                # GT would have the index of the MC in the ALT field list if we wanted to be specific...
+        if not mc:
+            continue
 
-                # What should we do if MC is . ?
-                if allele == ".":
-                    repeat_res.extend([0])
-                    continue
+        for allele in mc.split(","):
+            if allele == ".":
+                repeat_res.extend([0])
+                continue
 
-                if len(mcs) > 1:
-                    pathologic_mcs = repeat_info[repeat_id].get("pathologic_struc", range(len(mcs)))
+            mcs = allele.split("_")
 
-                    for index, count in enumerate(mcs):
-                        if index in pathologic_mcs:
-                            pathologic_counts += int(count)
-                else:
-                    pathologic_counts = int(allele)
-        repeat_res.append(pathologic_counts)
+            pathologic_counts = 0
+            if len(mcs) > 1:
+                pathologic_mcs = repeat_info[repeat_id].get(
+                    "pathologic_struc", list(range(len(mcs)))
+                )
 
+                for index, count in enumerate(mcs):
+                    if index in pathologic_mcs:
+                        pathologic_counts += int(count)
+            else:
+                pathologic_counts = int(allele)
+            repeat_res.append(pathologic_counts)
     return repeat_res
 
 
