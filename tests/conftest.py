@@ -1,6 +1,6 @@
 import pytest
 
-from stranger.resources import repeats_path, repeats_json_path
+from stranger.resources import repeats_json_path, repeats_path
 
 
 @pytest.fixture()

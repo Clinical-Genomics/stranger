@@ -1,12 +1,11 @@
 import copy
 import logging
 import re
+from typing import Iterable
 
 import yaml
 
 from stranger.constants import ANNOTATE_REPEAT_KEYS, RANK_SCORE
-
-from typing import Iterable
 
 NUM = re.compile(r"\d+")
 
