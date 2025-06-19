@@ -71,9 +71,17 @@ def test_get_trgt_repeat_res(repeats_json_handle):
     repeats_info = parse_repeat_file(repeats_json_handle, "json")
 
     # GIVEN that the parsing returns a set pathologic_struc
-    assert repeats_info["CNBP"]["PathologicStruc"]
-    assert repeats_info["CNBP"]["pathologic_struc"]
+    assert repeats_info["HTT"]["PathologicStruc"]
+    assert repeats_info["HTT"]["pathologic_struc"] == [0]
 
-    variant_info = {"format_dicts": [{"MC": "14_4,16_6"}]}
+    variant_info = {
+        'info_dict': {'TRID': 'HTT', 'END': '3074966', 'MOTIFS': 'CAG,CCG', 'STRUC': '(CAG)nCAACAG(CCG)n',
+                      'FOUND_IN': 'TRGT'},
+        "format_dicts": [{
+        "MC": "27_6, 32_9"
+    }]
+    }
 
     repeat_res = get_trgt_repeat_res(variant_info, repeats_info)
+    assert repeat_res == [27,32]
+
