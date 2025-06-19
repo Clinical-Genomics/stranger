@@ -82,7 +82,7 @@ def test_get_trgt_repeat_res(repeats_json_handle):
             "STRUC": "(CAG)nCAACAG(CCG)n",
             "FOUND_IN": "TRGT",
         },
-        "format_dicts": [{"MC": "27_6, 32_9"}],
+        "format_dicts": [{"MC": "27_9, 32_9"}],
     }
 
     repeat_res = get_trgt_repeat_res(variant_info, repeats_info)
