@@ -1,6 +1,6 @@
 import pytest
 
-from stranger.resources import repeats_path
+from stranger.resources import repeats_path, repeats_json_path
 
 
 @pytest.fixture()
@@ -26,3 +26,7 @@ def vcf_trgt_path_dot_mc():
 @pytest.fixture()
 def repeats_file_handle():
     return open(repeats_path, "r")
+
+@pytest.fixture()
+def repeats_json_handle():
+    return open(repeats_json_path)
