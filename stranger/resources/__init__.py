@@ -11,10 +11,9 @@ except ImportError:
 repeats_file = "resources/repeatexpansionsloci.tsv"
 repeats_json = "resources/variant_catalog_grch37.json"
 
-
 ###### Paths ######
 
-# Backround data path
+# Background data path
 
 repeats_path = files("stranger").joinpath(repeats_file)
 repeats_json_path = files("stranger").joinpath(repeats_json)
