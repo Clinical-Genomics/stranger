@@ -153,7 +153,7 @@ def get_exhu_repeat_res_from_alts(variant_info: dict) -> list:
     return repeat_res
 
 
-def get_repeat_id(variant_info:dict, repeat_info:dict)->str:
+def get_repeat_id(variant_info: dict, repeat_info: dict) -> str:
     """
     First tries to get variant id from REPID,
     if that is not successful, try to get variant id from TRID (TRGT).
