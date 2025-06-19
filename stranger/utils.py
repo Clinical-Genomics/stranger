@@ -172,7 +172,7 @@ def get_repeat_id(variant_info: dict, repeat_info: dict) -> str:
     if not trid:
         return None
 
-    if trid == repeat_info.get("TRID"):
+    if trid in repeat_info:
         return trid
 
     if "_" in trid:
