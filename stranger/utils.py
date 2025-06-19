@@ -14,8 +14,7 @@ LOG = logging.getLogger(__name__)
 
 
 def parse_tsv(file_handle: Iterable) -> dict:
-    """Parse a repeats file in the tsv file format, returning a repeat_info dict.
-    """
+    """Parse a repeats file in the tsv file format, returning a repeat_info dict."""
     repeat_info = {}
     header = []
     for i, line in enumerate(file_handle, 1):
@@ -45,8 +44,7 @@ def parse_tsv(file_handle: Iterable) -> dict:
 
 
 def parse_json(file_handle: Iterable[str]) -> dict:
-    """Parse a repeats file in the .json format, returning a repeat_info dict.
-    """
+    """Parse a repeats file in the .json format, returning a repeat_info dict."""
     repeat_info = {}
     try:
         raw_info = yaml.safe_load(file_handle)
@@ -130,7 +128,7 @@ def parse_json(file_handle: Iterable[str]) -> dict:
     return repeat_info
 
 
-def parse_repeat_file(file_handle: Iterable[str], repeats_file_type:str = "tsv") -> dict:
+def parse_repeat_file(file_handle: Iterable[str], repeats_file_type: str = "tsv") -> dict:
     """Parse a file with information about the repeats"""
     repeat_info = {}
     if repeats_file_type == "tsv":
@@ -279,7 +277,9 @@ def get_trgt_repeat_res(variant_info, repeat_info):
 
             pathologic_counts = 0
             if len(mcs) > 1:
-                pathologic_mcs = repeat_info[repeat_id].get("pathologic_struc", list(range(len(mcs))))
+                pathologic_mcs = repeat_info[repeat_id].get(
+                    "pathologic_struc", list(range(len(mcs)))
+                )
 
                 for index, count in enumerate(mcs):
                     if index in pathologic_mcs:

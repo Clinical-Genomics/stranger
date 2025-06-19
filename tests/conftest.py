@@ -27,6 +27,7 @@ def vcf_trgt_path_dot_mc():
 def repeats_file_handle():
     return open(repeats_path, "r")
 
+
 @pytest.fixture()
 def repeats_json_handle():
     return open(repeats_json_path)

@@ -11,6 +11,7 @@ def test_parse_repeat_file(repeats_file_handle):
     ## THEN assert that there are some repeat info returned
     assert repeats_info
 
+
 def test_parse_repeat_json_file(repeats_json_handle):
     ## GIVEN a file handle with repeat json lines
     ## WHEN parsing the repeat info json
@@ -18,6 +19,7 @@ def test_parse_repeat_json_file(repeats_json_handle):
 
     ## THEN assert that some repeat info was returned
     assert repeats_info
+
 
 def test_parse_repeat_line():
     ## GIVEN a some repeat info lines
@@ -63,6 +65,7 @@ def test_parse_malformaed_repeat_line_wrong_value():
     with pytest.raises(ValueError):
         repeats_info = parse_repeat_file(repeats_info_lines)
 
+
 def test_get_trgt_repeat_res(repeats_json_handle):
     # GIVEN repeats info from a JSON file
     repeats_info = parse_repeat_file(repeats_json_handle, "json")
@@ -71,10 +74,6 @@ def test_get_trgt_repeat_res(repeats_json_handle):
     assert repeats_info["CNBP"]["PathologicStruc"]
     assert repeats_info["CNBP"]["pathologic_struc"]
 
-
-    variant_info = { "format_dicts": [{
-        "MC": "14_4,16_6"
-    }]
-    }
+    variant_info = {"format_dicts": [{"MC": "14_4,16_6"}]}
 
     repeat_res = get_trgt_repeat_res(variant_info, repeats_info)
