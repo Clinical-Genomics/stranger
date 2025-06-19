@@ -92,7 +92,6 @@ def test_get_trgt_repeat_res(repeats_json_handle):
     assert repeat_res == [27, 32]
 
 
-
 def test_get_trgt_repeat_res_single_mc(repeats_json_handle):
     # GIVEN repeats info from a JSON file
     repeats_info = parse_repeat_file(repeats_json_handle, "json")
