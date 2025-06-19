@@ -153,12 +153,13 @@ def get_exhu_repeat_res_from_alts(variant_info: dict) -> list:
     return repeat_res
 
 
-def get_repeat_id(variant_info):
+def get_repeat_id(variant_info:dict, repeat_info:dict)->str:
     """
     First tries to get variant id from REPID,
-    if that is not sucessful, try to get variant id from TRID (TRGT).
-    If the ID is formatted with underscore (STRchive),
-    grab the part which is after the underscore, otherwise take the whole ID (PacBio).
+    if that is not successful, try to get variant id from TRID (TRGT).
+    If there is an exact match between TRID in repeat config info and variant, use it.
+    Else, if the ID is formatted with underscore (STRchive),
+    grab the part which is after the underscore, or otherwise take the whole ID (PacBio).
     """
     info_dict = variant_info.get("info_dict", {})
 
@@ -170,6 +171,9 @@ def get_repeat_id(variant_info):
 
     if not trid:
         return None
+
+    if trid == repeat_info.get("TRID"):
+        return trid
 
     if "_" in trid:
         return trid.split("_", 1)[1]
@@ -189,7 +193,7 @@ def get_repeat_info(variant_info: dict, repeat_info: dict) -> dict:
     """
 
     # There can be one or more alternatives (each ind can have at most two of those)
-    repeat_id = get_repeat_id(variant_info)
+    repeat_id = get_repeat_id(variant_info, repeat_info)
 
     if not repeat_id in repeat_info:
         LOG.warning("No info for repeat id %s", repeat_id)
@@ -255,7 +259,7 @@ def get_trgt_repeat_res(variant_info, repeat_info):
     If MC is ".", ref, we append a [0] to the result. This could be improved given a known REF size.
     """
 
-    repeat_id = get_repeat_id(variant_info)
+    repeat_id = get_repeat_id(variant_info, repeat_info)
 
     if not repeat_id in repeat_info:
         LOG.warning("No info for repeat id %s", repeat_id)
