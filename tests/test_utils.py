@@ -114,18 +114,12 @@ def test_get_trgt_repeat_res_single_mc(repeats_json_handle):
     repeat_res = get_trgt_repeat_res(variant_info, repeats_info)
     assert repeat_res == [27]
 
+
 def test_single_value_format_fields():
     # GIVEN a variant with multiple ALT alleles and some single-value FORMAT fields
     variant_info = {
         "alts": ["A", "C"],
-        "format_dicts": [
-            {
-                "AL": "54,54",
-                "GT": "1/2",
-                "PS": ".",
-                "SDP": "5"
-            }
-        ]
+        "format_dicts": [{"AL": "54,54", "GT": "1/2", "PS": ".", "SDP": "5"}],
     }
 
     # WHEN decomposing the variant
@@ -145,6 +139,7 @@ def test_single_value_format_fields():
         assert first_sample_format["PS"] == "."
         assert first_sample_format["SDP"] == "5"
 
+
 def test_phased_gt():
     # Given a variant with phased GT
     variant_info = {
@@ -153,7 +148,7 @@ def test_phased_gt():
             {
                 "GT": "1|2",
             }
-        ]
+        ],
     }
 
     # WHEN decomposing the variant
