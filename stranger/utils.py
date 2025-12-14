@@ -415,7 +415,7 @@ def decompose_var(variant_info):
 
         for individual_index, format_dict in enumerate(variant_info["format_dicts"]):
             gt_str = format_dict["GT"]
-            sep = '|' if '|' in gt_str else '/'
+            sep = "|" if "|" in gt_str else "/"
             gts = gt_str.split(sep)
 
             variant_component = None

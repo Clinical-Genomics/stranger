@@ -1,7 +1,6 @@
-import copy
 import pytest
 
-from stranger.utils import get_trgt_repeat_res, parse_repeat_file, decompose_var
+from stranger.utils import decompose_var, get_trgt_repeat_res, parse_repeat_file
 
 
 def test_parse_repeat_file(repeats_file_handle):
@@ -130,7 +129,7 @@ def test_single_value_format_fields():
     }
 
     # WHEN decomposing the variant
-    decomposed = decompose_var(copy.deepcopy(variant_info))
+    decomposed = decompose_var(variant_info)
 
     # THEN assert that the decomposition is correct
     assert len(decomposed) == 2
@@ -158,7 +157,7 @@ def test_phased_gt():
     }
 
     # WHEN decomposing the variant
-    decomposed = decompose_var(copy.deepcopy(variant_info))
+    decomposed = decompose_var(variant_info)
 
     # THEN assert we have phased GTs after decomposition
     gts = [variant["format_dicts"][0]["GT"] for variant in decomposed]
