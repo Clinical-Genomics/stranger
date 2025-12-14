@@ -1,6 +1,7 @@
+import copy
 import pytest
 
-from stranger.utils import get_trgt_repeat_res, parse_repeat_file
+from stranger.utils import get_trgt_repeat_res, parse_repeat_file, decompose_var
 
 
 def test_parse_repeat_file(repeats_file_handle):
@@ -113,3 +114,52 @@ def test_get_trgt_repeat_res_single_mc(repeats_json_handle):
 
     repeat_res = get_trgt_repeat_res(variant_info, repeats_info)
     assert repeat_res == [27]
+
+def test_single_value_format_fields():
+    # GIVEN a variant with multiple ALT alleles and some single-value FORMAT fields
+    variant_info = {
+        "alts": ["A", "C"],
+        "format_dicts": [
+            {
+                "AL": "54,54",
+                "GT": "1/2",
+                "PS": ".",
+                "SDP": "5"
+            }
+        ]
+    }
+
+    # WHEN decomposing the variant
+    decomposed = decompose_var(copy.deepcopy(variant_info))
+
+    # THEN assert that the decomposition is correct
+    assert len(decomposed) == 2
+
+    # THEN check GT decomposition
+    gts = [variant["format_dicts"][0]["GT"] for variant in decomposed]
+    assert gts == ["1/.", "./1"]
+
+    # THEN check that single-value fields are preserved
+    for decomposed_variant in decomposed:
+        first_sample_format = decomposed_variant["format_dicts"][0]
+        assert first_sample_format["AL"] == "54"
+        assert first_sample_format["PS"] == "."
+        assert first_sample_format["SDP"] == "5"
+
+def test_phased_gt():
+    # Given a variant with phased GT
+    variant_info = {
+        "alts": ["A", "C"],
+        "format_dicts": [
+            {
+                "GT": "1|2",
+            }
+        ]
+    }
+
+    # WHEN decomposing the variant
+    decomposed = decompose_var(copy.deepcopy(variant_info))
+
+    # THEN assert we have phased GTs after decomposition
+    gts = [variant["format_dicts"][0]["GT"] for variant in decomposed]
+    assert gts == ["1|.", ".|1"]
