@@ -414,7 +414,10 @@ def decompose_var(variant_info):
     for index, alt in enumerate(variant_info["alts"]):
 
         for individual_index, format_dict in enumerate(variant_info["format_dicts"]):
-            gts = format_dict["GT"].split("/")
+            gt_str = format_dict["GT"]
+            sep = '|' if '|' in gt_str else '/'
+            gts = gt_str.split(sep)
+
             variant_component = None
 
             updated_fields = []
@@ -432,7 +435,7 @@ def decompose_var(variant_info):
                         # unclear component
                         updated_fields.append(".")
 
-            result_variants[index]["format_dicts"][individual_index]["GT"] = "/".join(
+            result_variants[index]["format_dicts"][individual_index]["GT"] = sep.join(
                 updated_fields
             )
 
@@ -440,11 +443,18 @@ def decompose_var(variant_info):
                 if field in ["GT"]:
                     continue
 
-                variant_component_value = (
-                    individual_value.split(",")[variant_component]
-                    if variant_component is not None
-                    else "."
-                )
+                if variant_component is None:
+                    variant_component_value = "."
+                else:
+                    values = individual_value.split(",")
+
+                    # Some fields have only one value, e.g. PS
+                    if len(values) == 1:
+                        variant_component_value = values[0]
+                    elif variant_component < len(values):
+                        variant_component_value = values[variant_component]
+                    else:
+                        variant_component_value = "."
 
                 result_variants[index]["format_dicts"][individual_index][
                     field
