@@ -7,11 +7,11 @@ jobs:
     name: vulture
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Find changed Python files
         id: files
-        uses: Ana06/get-changed-files@v2.2.0
+        uses: Ana06/get-changed-files@v2.3.0
         with:
           filter: "*.py"
 

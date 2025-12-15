@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [unreleased]
 ### Added
 - Support for phased genotypes
+###
+- Update GitHub actions automation workflows
 ### Fixed
 - `IndexError` when FORMAT fields contain only a single value
 
