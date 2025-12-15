@@ -76,7 +76,6 @@ jobs:
         uses: actions/download-artifact@v7
       - name: Run coverage
         run: |
-          coverage combine coverage*/.coverage*
           coverage report
           coverage xml
       - uses: codecov/codecov-action@v5
