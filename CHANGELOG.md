@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [unreleased]
+### Added
+- Support for phased genotypes
+### Fixed
+- `IndexError` when FORMAT fields contain only a single value
+
 ## [0.9.5]
 ### Added
 - More tests for trgt repeats parsing
