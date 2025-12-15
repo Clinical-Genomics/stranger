@@ -455,8 +455,8 @@ def decompose_var(variant_info):
                     else:
                         variant_component_value = "."
 
-                result_variants[index]["format_dicts"][individual_index][field] = (
-                    variant_component_value
-                )
+                result_variants[index]["format_dicts"][individual_index][
+                    field
+                ] = variant_component_value
 
     return result_variants
