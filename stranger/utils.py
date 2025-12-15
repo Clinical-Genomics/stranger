@@ -412,7 +412,6 @@ def decompose_var(variant_info):
         result_variants[index]["ALT"] = variant_info["alts"][index]
 
     for index, alt in enumerate(variant_info["alts"]):
-
         for individual_index, format_dict in enumerate(variant_info["format_dicts"]):
             gt_str = format_dict["GT"]
             sep = "|" if "|" in gt_str else "/"
@@ -456,8 +455,8 @@ def decompose_var(variant_info):
                     else:
                         variant_component_value = "."
 
-                result_variants[index]["format_dicts"][individual_index][
-                    field
-                ] = variant_component_value
+                result_variants[index]["format_dicts"][individual_index][field] = (
+                    variant_component_value
+                )
 
     return result_variants

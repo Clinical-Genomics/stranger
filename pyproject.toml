@@ -1,6 +1,6 @@
 [project]
 name = "stranger"
-version = "0.9.5"
+version = "0.10.0"
 description = "Annotate VCF files with STR variants with pathogenicity implications"
 authors = [{name="Daniel Nilsson", email="daniel.nilsson@ki.se"}, {name="Mans Magnuson", email="mans.magnusson@scilifelab.se"}]
 license = {text = "MIT License"}
