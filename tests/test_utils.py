@@ -157,3 +157,33 @@ def test_phased_gt():
     # THEN assert we have phased GTs after decomposition
     gts = [variant["format_dicts"][0]["GT"] for variant in decomposed]
     assert gts == ["1|.", ".|1"]
+
+
+def test_multiallelic_gt_with_reference_allele():
+    # GIVEN a variant with a reference allele and one ALT allele in GT
+    variant_info = {
+        "alts": ["A", "C"],
+        "format_dicts": [{"GT": "0/2"}],
+    }
+
+    # WHEN decomposing the variant
+    decomposed = decompose_var(variant_info)
+
+    # THEN keep the reference allele intact when splitting GT
+    gts = [variant["format_dicts"][0]["GT"] for variant in decomposed]
+    assert gts == ["0/.", "0/1"]
+
+
+def test_multiallelic_phased_gt_with_reference_allele():
+    # GIVEN a phased variant with a reference allele and one ALT allele in GT
+    variant_info = {
+        "alts": ["A", "C"],
+        "format_dicts": [{"GT": "0|2"}],
+    }
+
+    # WHEN decomposing the variant
+    decomposed = decompose_var(variant_info)
+
+    # THEN keep the reference allele intact when splitting GT
+    gts = [variant["format_dicts"][0]["GT"] for variant in decomposed]
+    assert gts == ["0|.", "0|1"]

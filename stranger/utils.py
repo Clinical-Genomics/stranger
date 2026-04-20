@@ -424,6 +424,7 @@ def decompose_var(variant_info):
                 if decomposed_field in ["0", "."]:
                     # reference component 0, uncalled component .
                     updated_fields.append(decomposed_field)
+                    continue
 
                 if decomposed_field.isdigit():
                     if int(decomposed_field) == index + 1:
