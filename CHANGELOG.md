@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [unreleased]
+### Changed
+- Drop support for Python 3.9
+
 ## [0.10.1]
 ### Fixed
 - Prevent malformed GT fields by preserving `0` REF alleles during TRGT multi-ALT decomposition
