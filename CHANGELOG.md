@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Fixed
 - Prevent malformed GT fields by preserving `0` REF alleles during TRGT multi-ALT decomposition
+- VCF header to show STR_STATUS as 1 instead of A as this is most severe status as of 0.9.5
 
 ## [0.10.0]
 ### Added
