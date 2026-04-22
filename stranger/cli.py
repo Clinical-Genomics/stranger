@@ -73,9 +73,9 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
     header_info_definitions = [
         {
             "id": "STR_STATUS",
-            "num": "A",
+            "num": "1",
             "type": "String",
-            "desc": "Repeat expansion status. Alternatives in [normal, pre_mutation, full_mutation]",
+            "desc": "Repeat expansion most severe status. Alternatives in [normal, pre_mutation, full_mutation]",
         },
         {
             "id": "STR_NORMAL_MAX",
