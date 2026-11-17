@@ -11,6 +11,41 @@ NUM = re.compile(r"\d+")
 
 LOG = logging.getLogger(__name__)
 
+# Characters with a special meaning in VCF INFO values, or not allowed in them (VCF 4.1/4.2 do not
+# allow whitespace). VCF 4.3 says to percent-encode these.
+INFO_VALUE_ENCODING = str.maketrans(
+    {
+        "%": "%25",
+        ",": "%2C",
+        ";": "%3B",
+        "=": "%3D",
+        ":": "%3A",
+        " ": "%20",
+        "\t": "%09",
+        "\n": "%0A",
+        "\r": "%0D",
+    }
+)
+
+
+def encode_info_value(value) -> str:
+    """Return a single INFO value as a string, percent-encoding reserved characters.
+
+    E.g. "GeneReviews Internet 2019-11-07" becomes "GeneReviews%20Internet%202019-11-07".
+    """
+    return str(value).translate(INFO_VALUE_ENCODING)
+
+
+def format_info_value(value) -> str:
+    """Format a repeat catalog value for a VCF INFO field.
+
+    Lists, e.g. a PathologicStruc of [0, 1, 2, 6], are written as comma-separated values,
+    "0,1,2,6", matching a Number=. header. Each value is percent-encoded.
+    """
+    if isinstance(value, (list, tuple)):
+        return ",".join(encode_info_value(item) for item in value)
+    return encode_info_value(value)
+
 
 def parse_tsv(file_handle: Iterable) -> dict:
     """Parse a repeats file in the tsv file format, returning a repeat_info dict."""
@@ -237,7 +272,9 @@ def get_repeat_info(variant_info: dict, repeat_info: dict) -> dict:
 
     for annotate_repeat_key in ANNOTATE_REPEAT_KEYS:
         if repeat_info[repeat_id].get(annotate_repeat_key):
-            repeat_data[annotate_repeat_key] = str(repeat_info[repeat_id][annotate_repeat_key])
+            repeat_data[annotate_repeat_key] = format_info_value(
+                repeat_info[repeat_id][annotate_repeat_key]
+            )
 
     return repeat_data
 

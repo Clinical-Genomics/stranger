@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [unreleased]
+### Changed
+- Write list catalog annotations as comma-separated INFO values, declared `Number=.`: `PathologicStruc` (now `Type=Integer`, e.g. `0,1,2,6` instead of `[0, 1, 2, 6]`) and `InheritanceMode` (#124)
+- Percent-encode whitespace and reserved characters in catalog annotation INFO values, e.g. `SourceDisplay=GeneReviews%20Internet%202019-11-07` (#124)
+
 ## [0.10.2]
 ### Changed
 - Drop support for Python 3.9
