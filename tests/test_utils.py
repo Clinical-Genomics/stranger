@@ -1,6 +1,12 @@
 import pytest
 
-from stranger.utils import decompose_var, get_trgt_repeat_res, parse_repeat_file
+from stranger.utils import (
+    decompose_var,
+    format_info_value,
+    get_repeat_info,
+    get_trgt_repeat_res,
+    parse_repeat_file,
+)
 
 
 def test_parse_repeat_file(repeats_file_handle):
@@ -187,3 +193,61 @@ def test_multiallelic_phased_gt_with_reference_allele():
     # THEN keep the reference allele intact when splitting GT
     gts = [variant["format_dicts"][0]["GT"] for variant in decomposed]
     assert gts == ["0|.", "0|1"]
+
+
+@pytest.mark.parametrize(
+    "value, expected",
+    [
+        ("AD", "AD"),
+        ("GeneReviews Internet 2019-11-07", "GeneReviews%20Internet%202019-11-07"),
+        ("Paucar, Nilsson, Engvall et al", "Paucar%2C%20Nilsson%2C%20Engvall%20et%20al"),
+        ("a;b=c:d%e", "a%3Bb%3Dc%3Ad%25e"),
+        ("tab\tnewline\n\r", "tab%09newline%0A%0D"),
+        ("(CAG)n", "%28CAG%29n"),
+        ("Müller", "M%C3%BCller"),
+        ("AD/AR", "AD/AR"),
+        ("-1.5", "-1.5"),
+        (10548, "10548"),
+        (12.5, "12.5"),
+        ([0, 1, 2, 6], "0,1,2,6"),
+        ([0], "0"),
+        (["AD", "AR"], "AD,AR"),
+        (["a b", "c,d"], "a%20b,c%2Cd"),
+    ],
+)
+def test_format_info_value(value, expected):
+    """Test that catalog values are written as valid VCF INFO values"""
+    # GIVEN a catalog value
+    # WHEN formatting it for an INFO field
+    # THEN lists are comma separated, and reserved, whitespace and non-ASCII characters
+    # percent-encoded
+    assert format_info_value(value) == expected
+
+
+def test_get_repeat_info_info_values():
+    """Test that list and free text catalog annotations are formatted as valid INFO values"""
+    # GIVEN catalog info for a locus with a list PathologicStruc and InheritanceMode,
+    # and a SourceDisplay with spaces and commas
+    repeat_info = {
+        "HTT": {
+            "normal_max": 26,
+            "pathologic_min": 36,
+            "PathologicStruc": [0, 1, 2, 6],
+            "pathologic_struc": [0, 1, 2, 6],
+            "InheritanceMode": ["AD", "AR"],
+            "SourceDisplay": "Paucar, Nilsson, Engvall et al",
+            "HGNCId": 4851,
+        }
+    }
+    variant_info = {"info_dict": {"REPID": "HTT"}, "alts": ["<STR40>"]}
+
+    # WHEN getting the repeat info for the variant
+    repeat_data = get_repeat_info(variant_info, repeat_info)
+
+    # THEN the values are formatted for the INFO field
+    assert repeat_data["PathologicStruc"] == "0,1,2,6"
+    assert repeat_data["InheritanceMode"] == "AD,AR"
+    assert repeat_data["SourceDisplay"] == "Paucar%2C%20Nilsson%2C%20Engvall%20et%20al"
+    assert repeat_data["HGNCId"] == "4851"
+    # AND the status is still computed from the catalog
+    assert repeat_data["most_severe_repeat_string"] == "full_mutation"

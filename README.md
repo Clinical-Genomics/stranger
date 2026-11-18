@@ -169,6 +169,12 @@ Output is by annotated VCF, with keys `STR_STATUS`, `NormalMax` and `PathologicM
 4       3076603 .       C       <STR17>,<STR18> .       PASS    END=3076660;REF=19;RL=57;RU=CAG;VARID=HTT;REPID=HTT;STR_STATUS=normal,normal
 ```
 
+Catalog annotations are added as INFO fields. Values that are lists in the catalog, e.g. `PathologicStruc` and an
+`InheritanceMode` list, are written as comma-separated values (`PathologicStruc=0,1,2,6`), declared with `Number=.`.
+Catalog values are percent-encoded with Python's `urllib.parse.quote`, so whitespace, characters with a special meaning
+in VCF INFO fields (`%`, `,`, `;`, `=`, `:`) and non-ASCII characters are encoded, e.g.
+`SourceDisplay=GeneReviews%20Internet%202019-11-07`. Decode them with `urllib.parse.unquote`.
+
 ## TRGT mode
 The flag `--trgt` will instruct Stranger to accept [TRGT][trgt] style VCFs. In particular, motif copy numbers are parsed from the `GT.MC` field and motifs 
 listed in the `PathologicStruc` entry of the reference catalog:
@@ -210,7 +216,7 @@ and
 ...
 ##FORMAT=<ID=MC,Number=.,Type=String,Description="Motif counts per allele">
 ...
-4	160263680	.	TTTATTTTATTTTATTTTATTTTATATTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATT	.	0	.	TRID=FAME7_RAPGEF2;END=160263770;MOTIFS=TTTTA,TTTCA;STRUC=(TTTTA)n(TTTCA)n(TTTTA)n;STR_STATUS=full_mutation;STR_NORMAL_MAX=1;STR_PATHOLOGIC_MIN=10;RankScore=internal_id_3:30;HGNCId=16854;InheritanceMode=AD;DisplayRU=TTTCA;SourceDisplay=Ishiura et al (2018) Nature Genetics 50 581-90;Source=PubMed;SourceId=29507423;Disease=FAME7	GT:AL:ALLR:SD:MC:MS:AP:AM	0/0:91,91:85-98,91-91:21,20:18_0,18_0:0(0-89)_1(89-89)_0(89-89),0(0-89)_1(89-89)_0(89-89):0.956044,0.956044:.,.	0/0:91,91:85-98,91-91:21,20:18_0,18_0:0(0-89)_1(89-89)_0(89-89),0(0-89)_1(89-89)_0(89-89):0.956044,0.956044:.,.	0/0:91,91:85-98,91-91:21,20:18_0,18_0:0(0-89)_1(89-89)_0(89-89),0(0-89)_1(89-89)_0(89-89):0.956044,0.956044:.,.
+4	160263680	.	TTTATTTTATTTTATTTTATTTTATATTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATTTTATT	.	0	.	TRID=FAME7_RAPGEF2;END=160263770;MOTIFS=TTTTA,TTTCA;STRUC=(TTTTA)n(TTTCA)n(TTTTA)n;STR_STATUS=full_mutation;STR_NORMAL_MAX=1;STR_PATHOLOGIC_MIN=10;RankScore=internal_id_3:30;HGNCId=16854;InheritanceMode=AD;DisplayRU=TTTCA;SourceDisplay=Ishiura%20et%20al%20%282018%29%20Nature%20Genetics%2050%20581-90;Source=PubMed;SourceId=29507423;Disease=FAME7	GT:AL:ALLR:SD:MC:MS:AP:AM	0/0:91,91:85-98,91-91:21,20:18_0,18_0:0(0-89)_1(89-89)_0(89-89),0(0-89)_1(89-89)_0(89-89):0.956044,0.956044:.,.	0/0:91,91:85-98,91-91:21,20:18_0,18_0:0(0-89)_1(89-89)_0(89-89),0(0-89)_1(89-89)_0(89-89):0.956044,0.956044:.,.	0/0:91,91:85-98,91-91:21,20:18_0,18_0:0(0-89)_1(89-89)_0(89-89),0(0-89)_1(89-89)_0(89-89):0.956044,0.956044:.,.
 ...
 ```
 

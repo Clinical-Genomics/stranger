@@ -2,6 +2,7 @@ import copy
 import logging
 import re
 from typing import Iterable
+from urllib.parse import quote
 
 import yaml
 
@@ -10,6 +11,28 @@ from stranger.constants import ANNOTATE_REPEAT_KEYS, RANK_SCORE
 NUM = re.compile(r"\d+")
 
 LOG = logging.getLogger(__name__)
+
+
+def encode_info_value(value) -> str:
+    """Return a single INFO value as a percent-encoded string.
+
+    Encodes the characters VCF 4.3 reserves in INFO values (``%,;=:``, whitespace) along with
+    everything else outside letters, digits and ``_.-~/``. Non-ASCII text is encoded as UTF-8
+    bytes, so values stay ASCII as VCF 4.1/4.2 require. Decode with ``urllib.parse.unquote``.
+    E.g. "GeneReviews Internet 2019-11-07" becomes "GeneReviews%20Internet%202019-11-07".
+    """
+    return quote(str(value))
+
+
+def format_info_value(value) -> str:
+    """Format a repeat catalog value for a VCF INFO field.
+
+    Lists, e.g. a PathologicStruc of [0, 1, 2, 6], are written as comma-separated values,
+    "0,1,2,6", matching a Number=. header. Each value is percent-encoded.
+    """
+    if isinstance(value, (list, tuple)):
+        return ",".join(encode_info_value(item) for item in value)
+    return encode_info_value(value)
 
 
 def parse_tsv(file_handle: Iterable) -> dict:
@@ -237,7 +260,9 @@ def get_repeat_info(variant_info: dict, repeat_info: dict) -> dict:
 
     for annotate_repeat_key in ANNOTATE_REPEAT_KEYS:
         if repeat_info[repeat_id].get(annotate_repeat_key):
-            repeat_data[annotate_repeat_key] = str(repeat_info[repeat_id][annotate_repeat_key])
+            repeat_data[annotate_repeat_key] = format_info_value(
+                repeat_info[repeat_id][annotate_repeat_key]
+            )
 
     return repeat_data
 

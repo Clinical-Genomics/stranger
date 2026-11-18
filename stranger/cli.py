@@ -127,7 +127,7 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
         },
         {
             "id": "InheritanceMode",
-            "num": "1",
+            "num": ".",
             "type": "String",
             "desc": "Main mode of inheritance for disorder",
         },
@@ -146,9 +146,9 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
         {"id": "Disease", "num": "1", "type": "String", "desc": "Associated disorder"},
         {
             "id": "PathologicStruc",
-            "num": "1",
-            "type": "String",
-            "desc": "Struc components counting towards pathogenicity as list of motif numbers",
+            "num": ".",
+            "type": "Integer",
+            "desc": "Struc components counting towards pathogenicity as motif numbers",
         },
     ]
 
