@@ -2,6 +2,7 @@ import copy
 import logging
 import re
 from typing import Iterable
+from urllib.parse import quote
 
 import yaml
 
@@ -11,29 +12,16 @@ NUM = re.compile(r"\d+")
 
 LOG = logging.getLogger(__name__)
 
-# Characters with a special meaning in VCF INFO values, or not allowed in them (VCF 4.1/4.2 do not
-# allow whitespace). VCF 4.3 says to percent-encode these.
-INFO_VALUE_ENCODING = str.maketrans(
-    {
-        "%": "%25",
-        ",": "%2C",
-        ";": "%3B",
-        "=": "%3D",
-        ":": "%3A",
-        " ": "%20",
-        "\t": "%09",
-        "\n": "%0A",
-        "\r": "%0D",
-    }
-)
-
 
 def encode_info_value(value) -> str:
-    """Return a single INFO value as a string, percent-encoding reserved characters.
+    """Return a single INFO value as a percent-encoded string.
 
+    Encodes the characters VCF 4.3 reserves in INFO values (``%,;=:``, whitespace) along with
+    everything else outside letters, digits and ``_.-~/``. Non-ASCII text is encoded as UTF-8
+    bytes, so values stay ASCII as VCF 4.1/4.2 require. Decode with ``urllib.parse.unquote``.
     E.g. "GeneReviews Internet 2019-11-07" becomes "GeneReviews%20Internet%202019-11-07".
     """
-    return str(value).translate(INFO_VALUE_ENCODING)
+    return quote(str(value))
 
 
 def format_info_value(value) -> str:

@@ -202,7 +202,11 @@ def test_multiallelic_phased_gt_with_reference_allele():
         ("GeneReviews Internet 2019-11-07", "GeneReviews%20Internet%202019-11-07"),
         ("Paucar, Nilsson, Engvall et al", "Paucar%2C%20Nilsson%2C%20Engvall%20et%20al"),
         ("a;b=c:d%e", "a%3Bb%3Dc%3Ad%25e"),
-        ("tab\tnewline\n", "tab%09newline%0A"),
+        ("tab\tnewline\n\r", "tab%09newline%0A%0D"),
+        ("(CAG)n", "%28CAG%29n"),
+        ("Müller", "M%C3%BCller"),
+        ("AD/AR", "AD/AR"),
+        ("-1.5", "-1.5"),
         (10548, "10548"),
         (12.5, "12.5"),
         ([0, 1, 2, 6], "0,1,2,6"),
@@ -215,7 +219,8 @@ def test_format_info_value(value, expected):
     """Test that catalog values are written as valid VCF INFO values"""
     # GIVEN a catalog value
     # WHEN formatting it for an INFO field
-    # THEN lists are comma separated, and reserved characters and whitespace percent-encoded
+    # THEN lists are comma separated, and reserved, whitespace and non-ASCII characters
+    # percent-encoded
     assert format_info_value(value) == expected
 
 
