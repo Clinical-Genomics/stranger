@@ -145,6 +145,12 @@ def cli(context, vcf, family_id, repeats_file, loglevel, trgt):
         },
         {"id": "Disease", "num": "1", "type": "String", "desc": "Associated disorder"},
         {
+            "id": "Struc",
+            "num": "1",
+            "type": "String",
+            "desc": "Structure of the region, from the repeat catalog",
+        },
+        {
             "id": "PathologicStruc",
             "num": ".",
             "type": "Integer",
