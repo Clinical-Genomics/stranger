@@ -38,7 +38,7 @@ def test_stranger_trgt_dot_mc(vcf_trgt_path_dot_mc):
 def test_stranger_trgt_info_values(vcf_trgt_path, tmp_path):
     """Test that list and free text catalog annotations give valid INFO values and headers"""
     # GIVEN a catalog with a list PathologicStruc and InheritanceMode, and free text with
-    # spaces, commas and brackets, for a locus in the TRGT VCF
+    # spaces and commas, for a locus in the TRGT VCF
     catalog = [
         {
             "LocusId": "DAB1",
@@ -50,7 +50,6 @@ def test_stranger_trgt_info_values(vcf_trgt_path, tmp_path):
             "Disease": "Spinocerebellar ataxia, type 37",
             "SourceDisplay": "Seixas et al 2017, Am J Hum Genet",
             "HGNCId": 2661,
-            "Struc": "(AAAAT)n(AAATAAT)n",
         }
     ]
     repeats_file = tmp_path / "catalog.json"
@@ -80,7 +79,6 @@ def test_stranger_trgt_info_values(vcf_trgt_path, tmp_path):
         assert annotations["Disease"] == "Spinocerebellar%20ataxia%2C%20type%2037"
         assert annotations["SourceDisplay"] == "Seixas%20et%20al%202017%2C%20Am%20J%20Hum%20Genet"
         assert annotations["HGNCId"] == "2661"
-        assert annotations["Struc"] == "%28AAAAT%29n%28AAATAAT%29n"
         # AND there is no whitespace in the INFO field
         assert " " not in info
         # AND every INFO key is declared in the header

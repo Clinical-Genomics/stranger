@@ -7,7 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Write list catalog annotations as comma-separated INFO values, declared `Number=.`: `PathologicStruc` (now `Type=Integer`, e.g. `0,1,2,6` instead of `[0, 1, 2, 6]`) and `InheritanceMode` (#124)
 - Percent-encode catalog annotation INFO values (`urllib.parse.quote`), e.g. `SourceDisplay=GeneReviews%20Internet%202019-11-07` (#124)
 ### Fixed
-- Add the missing `##INFO` header line for the `Struc` catalog annotation (#124)
+- Stop annotating the `Struc` catalog key, a leftover written without an INFO header and duplicating TRGT `STRUC` (#124)
 
 ## [0.10.2]
 ### Changed
